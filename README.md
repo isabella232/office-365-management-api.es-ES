@@ -1,11 +1,10 @@
-# Office 365 Management APIs
+# <a name="office-365-management-apis"></a>API de administración de Office 365
 
-The Office 365 Management APIs provide a single extensibility platform for all Office 365 customers' and partners' management tasks, including service communications, security, compliance, reporting, and auditing. All of the Office 365 Management APIs are consistent in design and implementation with the current suite of Office 365 REST APIs, using common industry-standard approaches, including OAuth v2, OData v4, and JSON. Like the other Office 365 APIs, applications are registered in Azure Active Directory, giving developers a consistent way to authenticate and authorize their apps.
+Las API de administración de Office 365 proporcionan una plataforma de extensibilidad única para todas las tareas de administración de los clientes y partners de Office 365, entre las que se incluyen las comunicaciones, la seguridad, el cumplimiento, la generación de informes y la auditoría de servicios. Todas las API de administración de Office 365 son coherentes en el diseño y la implementación con el conjunto de aplicaciones actual de las API de REST de Office 365 y usan enfoques estándares comunes del sector, como OAuth v2, OData v4 y JSON. Al igual que las otras API de Office 365, las aplicaciones se registran en Azure Active Directory, lo que brinda a los desarrolladores una forma coherente de autenticar y autorizar sus aplicaciones.
 
-To get started, go to the [Office 365 Management APIs overview](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-apis-overview).
+Para empezar, vaya a [Información general de las API de administración de Office 365](https://docs.microsoft.com/es-ES/office/office-365-management-api/office-365-management-apis-overview).
 
 
 
-## Microsoft Open Source Code of Conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## <a name="microsoft-open-source-code-of-conduct"></a>Código de conducta de código abierto de Microsoft
+Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Código de conducta de código abierto de Microsoft). Para obtener más información, consulte las [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Preguntas más frecuentes del código de conducta) o póngase en contacto con [opencode@microsoft.com](mailto:opencode@microsoft.com) con otras preguntas o comentarios.
