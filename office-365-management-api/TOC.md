@@ -1,0 +1,8 @@
+# [API de administración de Office 365](index.md)
+## [Información general de las API de administración](office-365-management-apis-overview.md)
+## [Introducción a las API de administración](get-started-with-office-365-management-apis.md)
+## [API de comunicaciones de servicio (versión preliminar)](office-365-service-communications-api-reference.md)
+## [Referencia de las API de actividad de administración](office-365-management-activity-api-reference.md)
+## [Esquema de la API de Actividad de administración](office-365-management-activity-api-schema.md)
+## [Solución de problemas de la API de Actividad de administración](troubleshooting-the-office-365-management-activity-api.md)
+## [Preguntas más frecuentes sobre la API de actividad de administración](office-365-management-activity-api-faq.md)
