@@ -5,12 +5,12 @@ description: 'El esquema de la API de Actividad de administración de Office 365
 ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
-ms.openlocfilehash: 13d964eb7665c70719b9310c880974b7eea6c530
-ms.sourcegitcommit: 0d3abd151e8970b84735eea975792ae930de6995
+ms.openlocfilehash: e9a7c47f10c3926f7fd681db6a11bb74cc034226
+ms.sourcegitcommit: a5a60b603acd9a17d7717420e377d5760e08c7da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "26215305"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "27240655"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -51,7 +51,8 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
 |[Esquema de complementos de Microsoft Teams](#microsoft-teams-add-ons-schema)|Amplía el esquema de Microsoft Teams con las propiedades específicas para los complementos de Microsoft Teams.|
 |[Esquema de configura de Microsoft Teams](#microsoft-teams-settings-schema)|Amplía el esquema de Microsoft Teams con las propiedades específicas para los eventos de cambio de configuración de Microsoft Teams.|
-|[Esquema de Protección contra amenazas avanzada de Office 365 y de Inteligencia sobre amenazas](#office-365-advanced-threat-protection-and-threat-intelligence-schema)|Amplía el esquema común con las propiedades específicas de datos de Inteligencia sobre amenazas y de protección contra amenazas avanzada de Office 365.|
+|[Esquema de Protección contra amenazas avanzada de Office 365 y de Inteligencia sobre amenazas](#office-365-advanced-threat-protection-and-threat-intelligence-schema)|Amplía el esquema común con las propiedades específicas de datos de Inteligencia sobre amenazas y de la Protección contra amenazas avanzada de Office 365.|
+|[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 
 ## <a name="common-schema"></a>Esquema común
 
@@ -94,16 +95,21 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |15|AzureActiveDirectoryStsLogon|Eventos de inicio de sesión de servicio de token de seguridad (STS) en Azure Active Directory.|
 |18|SecurityComplianceCenterEOPCmdlet|Acciones de administración del Centro de seguridad y cumplimiento.|
 |20|PowerBIAudit|Eventos de Power BI.|
+|21|CRM|Eventos de Microsoft CRM.|
 |22|Yammer|Eventos de Yammer.|
+|23|SkypeForBusinessCmdlets|Eventos de Skype Empresarial.|
 |24|Descubrimiento|Eventos de actividades de eDiscovery realizadas ejecutando búsquedas de contenido y administrando casos de eDiscovery en el Centro de seguridad y cumplimiento.|
 |25|MicrosoftTeams|Eventos de Microsoft Teams.|
 |26|MicrosoftTeamsAddOns|Eventos de complementos de Microsoft Teams.|
 |27|MicrosoftTeamsSettingsOperation|Cambios de configuración de Microsoft Teams.|
-|28|ThreatIntelligence|Eventos de protección contra amenazas avanzada de Office 365 y de inteligencia sobre amenazas.|
+|28|ThreatIntelligence|Eventos de suplantación de identidad y malware de Exchange Online Protection y Protección contra amenazas avanzada de Office 365.|
 |30|MicrosoftFlow|Eventos de Microsoft Flow.|
 |32|MicrosoftStream|Eventos de Microsoft Stream.|
 |35|Project|Eventos de Microsoft Project.|
+|36|SharepointListOperation|Eventos de la Lista de SharePoint.|
 |40|SecurityComplianceAlerts|Señales de alertas de seguridad y cumplimiento.|
+|41|ThreatIntelligenceUrl|Vínculos seguros de tiempo de bloqueo y eventos de invalidación de bloqueo de la Protección contra amenazas avanzada de Office 365.|
+|47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
 
 ### <a name="enum-user-type---type-edmint32"></a>Enum: Tipo de usuario - Tipo: Edm.Int32
 
@@ -1116,9 +1122,34 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 |URL|Edm.String|Sí|Dirección URL en la que el usuario hizo clic.|
 |UserIp|Edm.String|Sí|La dirección IP para el usuario que hizo clic en la dirección URL. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
 
+## <a name="power-bi-schema"></a>Esquema de Power BI
 
+Los eventos de Power BI que aparecen en [Buscar el registro de auditoría en el Centro de protección de Office 365](/power-bi/service-admin-auditing#activities-audited-by-power-bi) utilizarán este esquema.
 
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+| AppName               | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | El nombre de la aplicación donde se ha producido el evento. |
+| DashboardName         | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | El nombre del panel donde se ha producido el evento. |
+| DataClassification    | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | La [clasificación de los datos](/power-bi/service-data-classification), en caso de haberla, para el panel donde se ha producido el evento. |
+| DatasetName           | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | El nombre del conjunto de datos donde se ha producido el evento. |
+| MembershipInformation | Collection([MembershipInformationType](#MembershipInformationType))   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | Información de pertenencia del grupo. |
+| OrgAppPermission      | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | Lista de permisos para una aplicación de organización (toda la organización, determinados usuarios o grupos específicos). |
+| ReportName            | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | El nombre del informe donde se ha producido el evento. |
+| SharingInformation    | Collection([SharingInformationType](#SharingInformationType))   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"    |  No  | Información acerca de la persona a la que se envía una invitación para uso compartido. |
+| SwitchState           | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | Información sobre el estado de los diversos modificadores de nivel de inquilino. |
+| WorkSpaceName         | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"                            |  No  | El nombre del área de trabajo donde se ha producido el evento. |
 
+### <a name="membershipinformationtype-complex-type"></a>Tipo complejo MembershipInformationType
 
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+| MemberEmail | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | La dirección de correo electrónico del grupo. |
+| Estado      | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | Actualmente no se rellena. |
 
+### <a name="sharinginformationtype-complex-type"></a>Tipo complejo SharingInformationType
 
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+| RecipientEmail    | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | La dirección de correo electrónico del destinatario de una invitación para uso compartido. |
+| RecipientName    | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | El nombre del destinatario de una invitación para uso compartido. |
+| ResharePermission | Edm.String   Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true" |  No  | Los permisos que se conceden al destinatario. |
