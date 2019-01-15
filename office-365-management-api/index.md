@@ -5,12 +5,13 @@ description: Las API de administración de Office 365 proporcionan una plataform
 ms.ContentId: a11a6d30-f6b7-3629-28b6-cbab527d8a5e
 ms.topic: reference (API)
 ms.date: 07/10/2018
-ms.openlocfilehash: a8beabb206ef8557fa9be6b60c99ef154136ece9
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
+localization_priority: Priority
+ms.openlocfilehash: 0444b343a28f89a56a45f639d3f2374bb82a33d6
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834948"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014262"
 ---
 # <a name="welcome-to-office-365-management-apis"></a>Le damos la bienvenida a las API de administración de Office 365
 
