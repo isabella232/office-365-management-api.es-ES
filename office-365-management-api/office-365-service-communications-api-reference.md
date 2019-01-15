@@ -5,12 +5,13 @@ description: 'Use esta API para obtener acceso a los datos siguientes: Get Servi
 ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: 09/05/2018
-ms.openlocfilehash: cde34da7377c5d4820d6ca62dd3affe806eda229
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
+localization_priority: Priority
+ms.openlocfilehash: dc231a4fb19be7ac0e9248d5f4d709681ff0abfa
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834953"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014311"
 ---
 # <a name="office-365-service-communications-api-reference-preview"></a>Referencia de API de comunicaciones de servicio de Office 365
 
@@ -380,7 +381,7 @@ Devuelve los mensajes sobre el servicio en un intervalo de tiempo específico. U
 |**Opción de consulta**|$select|Selecciona un subconjunto de propiedades.|
 ||$top|Selecciona el mayor número de resultados (predeterminado y máximo $top=100).|
 ||$skip|Omite el número de resultados (predeterminado: $skip=0).|
-|**Respuesta**|Lista de entidades de “Message”.|La entidad “Message” contiene “Id” (cadena), “StartTime” (DateTimeOffset), “EndTime” (DateTimeOffset), “Status” (cadena), “Messages” (lista de la entidad “MessagHistory”), “LastUpdatedTime” (DateTimeOffset), “Workload” (cadena), “WorkloadDisplayName” (cadena), “Feature” (cadena), “FeatureDisplayName” (cadena), “MessageType” (enumeración, predeterminado: todo).<br/><br/>La entidad “MessageHistory” contiene “PublishedTime” (DateTimeOffset), “MessageText” (cadena).|
+|**Respuesta**|Lista de entidades de “Message”.|La entidad “Message” contiene “Id” (cadena), “StartTime” (DateTimeOffset), “EndTime” (DateTimeOffset), “Status” (cadena), “Messages” (lista de la entidad “MessageHistory”), “LastUpdatedTime” (DateTimeOffset), “Workload” (cadena), “WorkloadDisplayName” (cadena), “Feature” (cadena), “FeatureDisplayName” (cadena), “MessageType” (enumeración, predeterminado: todo).<br/><br/>La entidad “MessageHistory” contiene “PublishedTime” (DateTimeOffset), “MessageText” (cadena).|
 
 #### <a name="sample-request"></a>Solicitud de muestra
 

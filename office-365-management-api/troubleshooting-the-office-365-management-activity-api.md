@@ -5,12 +5,13 @@ description: Resumen de las preguntas más frecuentes que recibe el soporte téc
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: 09/05/2018
-ms.openlocfilehash: 9267bd9e55be7605af72d9c77cf5ed415dcc5c9d
-ms.sourcegitcommit: 525c0d0e78cc44ea8cb6a4bdce1858cb4ef91d57
+localization_priority: Priority
+ms.openlocfilehash: ed84984dc3009d03e0bb7cacba16eafb687c93e0
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2018
-ms.locfileid: "25834959"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014297"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de actividad de administración de Office 365
 
@@ -222,7 +223,7 @@ Al intentar recuperar los blobs de contenido disponibles, un gran número de cli
 Response Code 403: {'error':{'code':'AF429','message':'Too many requests. Method=GetBlob, PublisherId=00000000-0000-0000-0000-000000000000'}}
 ```
 
-Es probable que esto se deba a la limitación. Tenga en cuenta que es probable que el valor del parámetro Publisherid indique que el cliente no especificó el valor *PublisherIdentifier* en la solicitud. Además, tenga en cuenta que el nombre de parámetro correcto es *PublisherIdentifier*, incluso aunque vea *PublisherId* en las respuestas de error 403.
+Es probable que esto se deba a la limitación. Tenga en cuenta que es probable que el valor del parámetro PublisherId indique que el cliente no especificó el valor *PublisherIdentifier* en la solicitud. Además, tenga en cuenta que el nombre de parámetro correcto es *PublisherIdentifier*, incluso aunque vea *PublisherId* en las respuestas de error 403.
 
 > [!NOTE] 
 > En la referencia de API, el parámetro *PublisherIdentifier* se muestra en todas las operaciones de la API, pero también tiene que incluirse en la solicitud GET a la URL de contentUri al recuperar el blob de contenido.
@@ -231,7 +232,7 @@ Si realiza llamadas API sencillas para la solución de problemas (por ejemplo, p
 
 Si implementa un cliente para el espacio empresarial de la empresa, *PublisherIdentifier* es el GUID de espacio empresarial. Si crea un complemento o aplicación de ISV para varios clientes, el elemento *PublisherIdentifier* tiene que ser el GUID del espacio empresarial del ISV, y no el GUID del espacio empresarial de la compañía del usuario final.
 
-Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublishisherIdentifier*, estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier*:
+Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublisherIdentifier*, estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier*:
 
 ```powershell
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]
@@ -239,7 +240,7 @@ $uri = $contentUri + '?PublisherIdentifier=82b24b6d-0591-4604-827b-705d55d0992f'
 $contents = Invoke-WebRequest -Method GET -Headers $headerParams -Uri $uri
 ```
 
-En el ejemplo anterior, se da por hecho que la variable *$response* se rellenó con la respuesta a una solicitud al punto de conexión /content y que en la variable *$hearderParams* se incluye un token de acceso válido. El script obtiene el primer elemento de la matriz de los URI de contenido de la respuesta y, después, invoca una llamada GET para descargar ese blob y colocarlo en la variable *$contents*. Es probable que el código recorra en bucle la colección contentUri y que emita la llamada GET por cada elemento *contentUri*.
+En el ejemplo anterior, se da por hecho que la variable *$response* se rellenó con la respuesta a una solicitud al punto de conexión /content y que en la variable *$headerParams* se incluye un token de acceso válido. El script obtiene el primer elemento de la matriz de los URI de contenido de la respuesta y, después, invoca una llamada GET para descargar ese blob y colocarlo en la variable *$contents*. Es probable que el código recorra en bucle la colección contentUri y que emita la llamada GET por cada elemento *contentUri*.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-api"></a>Preguntas más frecuentes sobre la API de administración de Office 365
 
