@@ -5,12 +5,13 @@ description: 'El esquema de la API de Actividad de administración de Office 365
 ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
-ms.openlocfilehash: e9a7c47f10c3926f7fd681db6a11bb74cc034226
-ms.sourcegitcommit: a5a60b603acd9a17d7717420e377d5760e08c7da
+localization_priority: Priority
+ms.openlocfilehash: a8e8fdab103bcee6a5ea8de56dc91c45c1c20b43
+ms.sourcegitcommit: 358bfe9553eabbe837fda1d73cd1d1a83bcb427e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "27240655"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "28014339"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -68,10 +69,10 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |UserType|Self.[UserType](#user-type)|Sí|El tipo de usuario que llevó a cabo la operación. Vea la tabla [UserType](#user-type) para obtener más información sobre los tipos de usuarios.|
 |UserKey|Edm.String|Sí|Un id. alternativo para el usuario identificado en la propiedad id. de usuario. Por ejemplo, esta propiedad se rellena con el identificador único de passport (PUID) para los eventos efectuados por los usuarios en SharePoint, OneDrive para la Empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad id. de usuario para los eventos que se producen en otros servicios y eventos efectuados por cuentas del sistema.|
 |Carga de trabajo|Edm.String|No|El servicio de Office 365 donde se produjo la actividad en la cadena de carga de trabajo. Los valores posibles de esta propiedad son:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Exchange</p></li><li><p>SharePoint</p></li><li><p>OneDrive</p></li><li><p>Azure Active Directory</p></li><li><p>SecurityComplianceCenter</p></li><li><p>Sway</p></li><li><p>ThreatIntelligence</p></li></ul>|
-|ResultStatus|Edm.String|No|Indica si la acción (especificada en la propiedad Operation) se completó correctamente o no. Los valores posibles son **Succeeded**, **PartiallySucceded** o **Failed**. Para la actividad de administración de Exchange, el valor es **True** o **False**.|
+|ResultStatus|Edm.String|No|Indica si la acción (especificada en la propiedad Operation) se completó correctamente o no. Los valores posibles son **Succeeded**, **PartiallySucceeded** o **Failed**. Para la actividad de administración de Exchange, el valor es **True** o **False**.|
 |ObjectId|Edm.string|No|Para la actividad de SharePoint y OneDrive para la Empresa, el nombre de la ruta de acceso completo del archivo o carpeta al que obtuvo acceso el usuario. Para el registro de auditoría de Exchange, el nombre del objeto modificado por el cmdlet.|
 |UserId|Edm.string|Sí|El UPN (nombre principal de usuario) del usuario que llevó a cabo la acción (especificado en la propiedad Operation) que ha provocado el registro; por ejemplo, `my_name@my_domain_name`. Tenga en cuenta que también se incluyen los registros de las actividades efectuadas por las cuentas del sistema (como SHAREPOINT\system o NT AUTHORITY\SYSTEM).|
-|ClientIp|Edm.String|Sí|La dirección IP del dispositivo que se ha usado cuando la actividad se ha registrado. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
+|ClientIP|Edm.String|Sí|La dirección IP del dispositivo que se ha usado cuando la actividad se ha registrado. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
 |Ámbito|Self.[AuditLogScope](#auditlogscope)|No|¿Este evento fue creado por un servicio hospedado de Office 365 o por un servidor local? Los valores posibles son **online** y **onprem**. Observe que SharePoint es la única carga de trabajo que actualmente envía eventos locales a Office 365.|
 
 ### <a name="enum-auditlogrecordtype---type-edmint32"></a>Enum: AuditLogRecordType - Tipo: Edm.Int32
@@ -265,7 +266,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |PeopleResultsScopeSet*|El administrador del sitio crea o cambia el origen de resultados para las búsquedas de personas para un sitio de SharePoint.|
 |PermissionSyncSettingModified|El usuario modifica la configuración de sincronización de permisos de proyecto en Project Web App.|
 |PermissionTemplateModified|El usuario crea, modifica o elimina una plantilla de permisos en Project Web App.|
-|PortfolioDataAccessed|El usuario tiene acceso al contenido de cartera (biblioteca de controlador, priorización de controlador, análisis de cartera) en Project Web App.|
+|PortfolioDataAccessed|El usuario accede al contenido de cartera (biblioteca de controlador, priorización de controlador, análisis de cartera) en Project Web App.|
 |PortfolioDataModified|El usuario crea, modifica o elimina datos de cartera (biblioteca de controlador, priorización de controlador, análisis de cartera) en Project Web App.|
 |PreviewModeEnabledSet*|El administrador del sitio habilita la vista previa de documentos de un sitio de SharePoint.|
 |ProjectAccessed|El usuario obtiene acceso al contenido del proyecto en Project Web App.|
@@ -540,7 +541,7 @@ Los eventos de SharePoint que aparecen en [Buscar el registro de auditoría en e
 |SendAsUserSmtp|Edm.String|No|Dirección SMTP del usuario que se está suplantando.|
 |SendAsUserMailboxGuid|Edm.Guid|No|El GUID de Exchange del buzón al que se obtuvo acceso para enviar un correo electrónico.|
 |SendOnBehalfOfUserSmtp|Edm.String|No|Dirección SMTP del usuario en cuyo nombre se envía el correo electrónico.|
-|SendonBehalfOfUserMailboxGuid|Edm.Guid|No|El GUID de Exchange del buzón al que se obtuvo acceso para enviar correo en su nombre.|
+|SendOnBehalfOfUserMailboxGuid|Edm.Guid|No|El GUID de Exchange del buzón al que se obtuvo acceso para enviar correo en su nombre.|
 
 
 ### <a name="exchangeitem-complex-type"></a>Tipo complejo ExchangeItem
@@ -741,7 +742,7 @@ Los eventos DLP (prevención de pérdida de datos) siempre tendrán UserKey="Dlp
 |FileOwner|Edm.String|Sí|El propietario del documento.|
 |FilePathUrl|Edm.String|Sí|La dirección URL del documento|
 |DocumentLastModifier|Edm.String|Sí|El usuario que ha modificado por última vez el documento.|
-|DocumentSharer|Edm.String|Sí|El usuario que ha modificado por última el uso compartido del documento.|
+|DocumentSharer|Edm.String|Sí|El usuario que ha modificado por última vez el uso compartido del documento.|
 |UniqueId|Edm.String|Sí|Un GUID que identifica el archivo.|
 |LastModifiedTime|Edm.DateTime|Sí|Marca de tiempo en UTC que indica la última vez que se modificó el documento.|
 
