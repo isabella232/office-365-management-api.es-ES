@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 6fa95b7134bd5bb8ac6a8f07c87df747ae086a81
-ms.sourcegitcommit: 55264094d1ebc2f9968b2d29d5982b1ba4e29118
+ms.openlocfilehash: 72392671dccec43b70684bbde6f53ac926b8d06e
+ms.sourcegitcommit: 95a3313d95b79a2164008d32c4a4f03bf873a23c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "29735246"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "30379198"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -108,9 +108,13 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |32|MicrosoftStream|Eventos de Microsoft Stream.|
 |35|Project|Eventos de Microsoft Project.|
 |36|SharepointListOperation|Eventos de la Lista de SharePoint.|
+|38|DataGovernance|Eventos relacionados con las directivas y etiquetas de retención en el Centro de seguridad y cumplimiento|
 |40|SecurityComplianceAlerts|Señales de alertas de seguridad y cumplimiento.|
 |41|ThreatIntelligenceUrl|Vínculos seguros de tiempo de bloqueo y eventos de invalidación de bloqueo de la Protección contra amenazas avanzada de Office 365.|
+|44|WorkplaceAnalytics|Eventos de Workplace Analytics.|
+|45|PowerAppsApp|Eventos de aplicaciones de PowerApps|
 |47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
+||||
 
 ### <a name="enum-user-type---type-edmint32"></a>Enum: Tipo de usuario - Tipo: Edm.Int32
 

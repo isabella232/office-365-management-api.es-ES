@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: 01/10/2018
 localization_priority: Priority
-ms.openlocfilehash: 76907cf9f22078a232cc20e65ba5fdc12c7f5d7e
-ms.sourcegitcommit: 55264094d1ebc2f9968b2d29d5982b1ba4e29118
+ms.openlocfilehash: e6675628a384ab4b2dac3342875332b50586526f
+ms.sourcegitcommit: 95a3313d95b79a2164008d32c4a4f03bf873a23c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "29735232"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "30379184"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 
@@ -22,7 +22,7 @@ Puede usar acciones y eventos de los registros de auditoría y actividad de Offi
 La API de Actividad de administración de Office 365 es un servicio web REST que se puede usar para desarrollar soluciones mediante cualquier lenguaje y entorno de hospedaje que admita HTTPS y certificados X.509. La API se basa en Azure AD y el protocolo OAuth2 para la autorización y autenticación. Para acceder a la API desde la aplicación, primero deberá registrarla en Azure AD y configurarla con los permisos apropiados. Esto permitirá que la aplicación solicite los tokens de acceso OAuth2 que necesita para llamar a la API. Para obtener más información, vea [Get started with Office 365 Management APIs](get-started-with-office-365-management-apis.md) (Introducción a las API de administración de Office 365).
 
 > [!NOTE] 
-> Para obtener información sobre el esquema de los datos que devuelve la API de Actividad de administración de Office 365, incluidos los problemas conocidos y los próximos cambios, que podrían afectar a la implementación, vea [Office 365 Management Activity API schema](office-365-management-activity-api-schema.md) (Esquema de la API de Actividad de administración de Office 365).
+> Para obtener información sobre el esquema de los datos que devuelve la API de Actividad de administración de Office 365, vea [Esquema de la API de Actividad de administración de Office 365](office-365-management-activity-api-schema.md).
 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Trabajar con la API de Actividad de administración de Office 365
