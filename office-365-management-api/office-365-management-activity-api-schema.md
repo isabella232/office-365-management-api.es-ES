@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 72392671dccec43b70684bbde6f53ac926b8d06e
-ms.sourcegitcommit: 95a3313d95b79a2164008d32c4a4f03bf873a23c
+ms.openlocfilehash: de6a841339690c483ed58e38e0b691b00fadab4d
+ms.sourcegitcommit: b030dc1b7ca46280191dd2f54c8179795657d792
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "30379198"
+ms.locfileid: "30409081"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -1069,7 +1069,7 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|AttachmentData|Collection(Self.[AttachmentData](#AttachmentData))|No|Datos sobre los datos adjuntos en el mensaje de correo electrónico que ha desencadenado el evento.|
+|AttachmentData|Collection(Self.[AttachmentData](#attachmentdata)|No|Datos sobre los datos adjuntos en el mensaje de correo electrónico que ha desencadenado el evento.|
 |DetectionType|Edm.String|Sí|El tipo de detección (por ejemplo, **Inline** : detectado durante la entrega; **Delayed**: detectado después de la entrega; **ZAP**: mensajes eliminados por la [purga automática](https://support.office.com/es-ES/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Los eventos con el tipo de detección ZAP normalmente irán precedidos de un mensaje con el tipo de detección **Delayed**.|
 |DetectionMethod|Edm.String|Sí|El método o la tecnología usada por ATP de Office 365 para la detección.|
 |InternetMessageId|Edm.String|Sí|El Id. del mensaje de Internet.|
@@ -1091,7 +1091,7 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 |:-----|:-----|:-----|:-----|
 |FileName|Edm.String|Sí|El nombre de archivo de los datos adjuntos.|
 |FileType|Edm.String|Sí|El tipo de archivo de los datos adjuntos.|
-|FileVerdict|Self.[FileVerdict](#FileVerdict)|Sí|El veredicto de malware del archivo.|
+|FileVerdict|Self.[FileVerdict](#fileverdict)|Sí|El veredicto de malware del archivo.|
 |MalwareFamily|Edm.String|No|La familia de malware del archivo.|
 |SHA256|Edm.String|Sí|El hash SHA256 del archivo.|
 
@@ -1113,8 +1113,7 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 |:-----|:-----|:-----|:-----|
 |UserId|Edm.String|Sí|El identificador (por ejemplo, la dirección de correo electrónico) para el usuario que hizo clic en la dirección URL.|
 |AppName|Edm.String|Sí|El servicio de Office 365 desde el que se hizo clic en la dirección URL (por ejemplo, Correo).|
-|Blocked|Edm.Boolean|Sí|Tiene el valor true si hacer clic en una dirección URL fue bloqueado por la protección [Vínculos seguros de ATP de Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
-|ClickedThrough|Edm.Boolean|Sí|Tiene el valor true si el usuario hace clic (reemplazar) en el bloqueo de dirección URL basado en las directivas de la organización para la protección [Vínculos seguros de ATP de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
+|URLClickAction|Self.[URLClickAction](#urlclickaction)|Sí|Haga clic en la dirección URL en función de las directivas de la organización para [Office 365 ATP Safe Links](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links) (Vínculos seguros de ATP de Office 365).|
 |SourceId|Edm.String|Sí|El identificador para el servicio de Office 365 desde el que se hizo clic en la dirección URL (por ejemplo, para el correo es el id. de mensaje de red de Exchange Online).|
 |TimeOfClick|Edm.Date|Sí|La fecha y hora en formato Hora universal coordinada (UTC) cuando el usuario hizo clic en la dirección URL.|
 |URL|Edm.String|Sí|Dirección URL en la que el usuario hizo clic.|
@@ -1138,8 +1137,8 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|FileData|Self.[FileData](#FileData)|Sí|Datos sobre el archivo que ha desencadenado el evento.|
-|SourceWorkload|Self.[SourceWorkload](#SourceWorkload)|Sí|Carga de trabajo o servicio en el que se encontró el archivo (por ejemplo, SharePoint Online, OneDrive para la Empresa o Microsoft Teams)
+|FileData|Self.[FileData](#filedata)|Sí|Datos sobre el archivo que ha desencadenado el evento.|
+|SourceWorkload|Self.[SourceWorkload](#sourceworkload)|Sí|Carga de trabajo o servicio en el que se encontró el archivo (por ejemplo, SharePoint Online, OneDrive para la Empresa o Microsoft Teams)
 |DetectionMethod|Edm.String|Sí|El método o la tecnología usada por ATP de Office 365 para la detección.|
 |LastModifiedDate|Edm.Date|Sí|Fecha y hora en formato de hora universal coordinada (UTC) en la que el archivo fue creado o modificado por última vez.|
 |LastModifiedBy|Edm.String|Sí|El identificador (por ejemplo, la dirección de correo electrónico) para el usuario que creó o modificó por última vez el archivo.|
@@ -1154,7 +1153,7 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Int
 |DocumentId|Edm.String|Sí|Identificador único para el archivo en Microsoft Teams, OneDrive o SharePoint.|
 |FileName|Edm.String|Sí|Nombre del archivo que ha desencadenado el evento.|
 |FilePath|Edm.String|Sí|Ruta de acceso (ubicación) para el archivo en Microsoft Teams, OneDrive o SharePoint.|
-|FileVerdict||Self.[FileVerdict](#FileVerdict)|Sí|El veredicto de malware del archivo.|
+|FileVerdict|Self.[FileVerdict](#fileverdict)|Sí|El veredicto de malware del archivo.|
 |MalwareFamily|Edm.String|No|La familia de malware del archivo.|
 |SHA256|Edm.String|Sí|El hash SHA256 del archivo.|
 |FileSize|Edm.String|Sí|Tamaño del archivo en bytes.|
