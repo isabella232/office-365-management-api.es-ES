@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 41018718dd5890c5c628672828a2dd365a6bebe3
-ms.sourcegitcommit: c6a3d440a1ecc8f8f0b00b3fdd8e41127514a6f6
+ms.openlocfilehash: 4604bd0aec3856b377a24d758a0961e8da1d9bf6
+ms.sourcegitcommit: 338c5c61687bc15ade48ecbae80d7f477640b68f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "30458531"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "30575980"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -52,7 +52,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
 |[Esquema de complementos de Microsoft Teams](#microsoft-teams-add-ons-schema)|Amplía el esquema de Microsoft Teams con las propiedades específicas para los complementos de Microsoft Teams.|
 |[Esquema de configura de Microsoft Teams](#microsoft-teams-settings-schema)|Amplía el esquema de Microsoft Teams con las propiedades específicas para los eventos de cambio de configuración de Microsoft Teams.|
-|[Esquema de Protección contra amenazas avanzada de Office 365 y de Inteligencia sobre amenazas](#office-365-advanced-threat-protection-and-threat-intelligence-schema)|Amplía el esquema común con las propiedades específicas de datos de Inteligencia sobre amenazas y de la Protección contra amenazas avanzada de Office 365.|
+|[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 |[Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
 |||
@@ -1053,23 +1053,26 @@ Los eventos de Sway que aparecen en [Buscar el registro de auditoría en el Cent
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |ModifiedProperty|Common.ModifiedProperty|No|La propiedad modificada. Contendrá los **Name**, **OldValue** y **NewValue** de la propiedad.|
-|ExtendedProperties|Collection(Common.NameValuePair)|No|Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Name** y **Value**.|
+|ExtendedProperties|Collection(Common.NameValuePair)|No|Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Name** y un **Value**.|
 
-## <a name="office-365-advanced-threat-protection-and-threat-intelligence-schema"></a>Esquema de Protección contra amenazas avanzada de Office 365 y de Inteligencia sobre amenazas
+## <a name="office-365-advanced-threat-protection-and-threat-investigation-and-response-schema"></a>Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas
 
-Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Inteligencia sobre amenazas están disponibles para los clientes de Office 365 que tienen una suscripción de ATP, Inteligencia sobre amenazas o E5. Cada evento en la fuente de ATP y de Inteligencia sobre amenazas corresponde a los siguientes que se determinaron que contienen una amenaza:
+Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Investigación y respuesta de amenazas están disponibles para los clientes de Office 365 que tienen una suscripción de Protección contra amenazas avanzada de Office 365 Plan 1, Protección contra amenazas avanzada de Office 365 Plan 2 o una suscripción de E5. Cada evento en la fuente de Office 365 ATP corresponde a los siguientes que se determinaron que contienen una amenaza:
 
 - Un mensaje de correo electrónico enviado o recibido por un usuario de la organización para el que se realizan detecciones en los mensajes en el momento de entrega y de [Purga automáticamente](https://support.office.com/es-ES/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15). 
 
 - Direcciones URL en las que ha hecho clic un usuario de la organización que se han detectado como malintencionadas en tiempo de clic según la protección de [Vínculos seguros de ATP de Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).  
 
-- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Office 365 ATP](https://docs.microsoft.com/es-ES/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.  
+- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Office 365 ATP](https://docs.microsoft.com/es-ES/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.
+
+> [!NOTE]
+> Las funciones de la Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas de Office 365 (anteriormente conocida como Inteligencia sobre amenazas de Office 365) ahora forman parte de la Protección contra amenazas avanzada de Office 365 Plan 2, con funciones de protección contra amenazas adicionales. Para obtener más información, consulte [Planes y precios de ATP de Office 365](https://products.office.com/exchange/advance-threat-protection) y [Descripción del servicio de ATP de Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description).
 
 ### <a name="email-message-events"></a>Eventos de mensaje de correo electrónico
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|AttachmentData|Collection(Self.[AttachmentData](#attachmentdata)|No|Datos sobre los datos adjuntos en el mensaje de correo electrónico que ha desencadenado el evento.|
+|AttachmentData|Collection(Self.[AttachmentData](#attachmentdata))|No|Datos sobre los datos adjuntos en el mensaje de correo electrónico que ha desencadenado el evento.|
 |DetectionType|Edm.String|Sí|El tipo de detección (por ejemplo, **Inline** : detectado durante la entrega; **Delayed**: detectado después de la entrega; **ZAP**: mensajes eliminados por la [purga automática](https://support.office.com/es-ES/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Los eventos con el tipo de detección ZAP normalmente irán precedidos de un mensaje con el tipo de detección **Delayed**.|
 |DetectionMethod|Edm.String|Sí|El método o la tecnología usada por ATP de Office 365 para la detección.|
 |InternetMessageId|Edm.String|Sí|El Id. del mensaje de Internet.|
