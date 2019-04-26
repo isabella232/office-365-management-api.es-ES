@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 4604bd0aec3856b377a24d758a0961e8da1d9bf6
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 580fc44cacea81bcc046bb16d434a309485bab77
+ms.sourcegitcommit: 336f901a6ed8eb75d99baa4af37d838aeec905c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32223920"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "33311397"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -869,17 +869,17 @@ Los eventos de Yammer que aparecen en [Buscar el registro de auditoría en el Ce
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |ActorUserId|Edm.String|No|El correo electrónico del usuario que llevó a cabo la operación.|
-|ActorYammerUserId|Edm.Int32|No|El id. del usuario que llevó a cabo la operación.|
+|ActorYammerUserId|Edm.Int64|No|El id. del usuario que llevó a cabo la operación.|
 |DataExportType|Edm.String|No|Devuelve "data" si la exportación de datos incluye mensajes, notas, archivos, temas, usuarios y grupos; devuelve "user" si la exportación de datos incluye únicamente a los usuarios.|
-|FileId|Edm.Int32|No|Id. del archivo en la operación. |
+|FileId|Edm.Int64|No|Id. del archivo en la operación. |
 |FileName|Edm.String|No|Nombre del archivo en la operación. Se mostrará en blanco si no es relevante para la operación.|
 |GroupName|Edm.String|No|Nombre del grupo en la operación. Se mostrará en blanco si no es relevante para la operación.|
 |IsSoftDelete|Edm.Boolean|No|Devuelve "true" si se establece la directiva de retención de datos de la red en Eliminación temporal; devuelve "false" si se establece la directiva de retención de datos de la red en Eliminación.|
-|MessageId|Edm.Int32|No|Id. del mensaje en la operación.|
-|YammerNetworkId|Edm.Int32|No|El id. de la red del usuario que llevó a cabo la operación.|
+|MessageId|Edm.Int64|No|Id. del mensaje en la operación.|
+|YammerNetworkId|Edm.Int64|No|El id. de la red del usuario que llevó a cabo la operación.|
 |TargetUserId|Edm.String|No|El correo electrónico del usuario de destino en la operación. Se mostrará en blanco si no es relevante para la operación.|
-|TargetYammerUserId|Edm.Int32|No|El id. del usuario de destino en la operación.|
-|VersionId|Edm.Int32|No|El id. de versión del archivo en la operación.|
+|TargetYammerUserId|Edm.Int64|No|El id. del usuario de destino en la operación.|
+|VersionId|Edm.Int64|No|El id. de versión del archivo en la operación.|
 
 ## <a name="sway-schema"></a>Esquema de Sway
 
