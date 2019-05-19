@@ -1,19 +1,19 @@
 ---
-ms.TocTitle: Office 365 Service Communications API reference (preview)
-title: Referencia de API de comunicaciones de servicio de Office 365
+ms.TocTitle: Office 365 Service Communications API reference (Preview)
+title: Referencia de API de comunicaciones de servicio de Office 365 (versión preliminar)
 description: 'Use esta API para obtener acceso a los datos siguientes: Get Services, Get Current Status, Get Historical Status y Get Messages.'
 ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9b38c4ee73f18bf10c7fa7cbb5b323740dfb5a7e
-ms.sourcegitcommit: 336f901a6ed8eb75d99baa4af37d838aeec905c6
+ms.openlocfilehash: 728cf632baa1f4a45b626677b1da862438562d90
+ms.sourcegitcommit: 490310e2718a7f9d827c945a78e940d936d15386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "33440055"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "34102314"
 ---
-# <a name="office-365-service-communications-api-reference-preview"></a>Referencia de API de comunicaciones de servicio de Office 365
+# <a name="office-365-service-communications-api-reference-preview"></a>Referencia de API de comunicaciones de servicio de Office 365 (versión preliminar)
 
 > [!NOTE] 
 > En esta documentación, se describen características que están actualmente en versión preliminar.
@@ -142,6 +142,9 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 ## <a name="get-current-status"></a>Get Current Status
 
 Devuelve el estado del servicio durante las 24 horas anteriores.
+
+> [!NOTE] 
+> La respuesta del servicio contendrá el estado en 24 horas desde que se realizó la solicitud. El valor de StatusDate o StatusTime devuelto será exactamente 24 horas en el pasado. 
 
 ||Servicio|Descripción|
 |:-----|:-----|:-----|
