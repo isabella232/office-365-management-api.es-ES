@@ -6,18 +6,18 @@ ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 8954be1b9076eb2a6f640ee96cc2b612addcabc0
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 2abcdd71c75cab011fa8e711832b06d398e3a6ab
+ms.sourcegitcommit: 289cf45903a045630f4b3efba6f03494bf08ab4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32223948"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "35772117"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Preguntas más frecuentes sobre la API de actividad de administración de Office 365
 
 #### <a name="what-events-are-audited-for-a-specific-office-365-service"></a>¿Qué eventos se auditan para un servicio de Office 365 específico?
 
-La documentación del esquema de la API de actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea [Esquema de la API de actividad de administración de Office 365](office-365-management-activity-api-schema.md).
+La documentación del esquema de la API de actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea [Esquema de la API de actividad de administración de Office 365](office-365-management-activity-api-schema.md). Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](https://docs.microsoft.com/es-ES/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
 
 #### <a name="how-do-i-onboard-to-the-management-activity-api"></a>¿Cómo incorporo la API de actividad de administración?
 
@@ -33,7 +33,7 @@ Puede hacerlo con las API de actividad de administración de Office 365. Además
 
 #### <a name="is-it-true-that-mailbox-auditing-in-exchange-online-can-only-be-enabled-by-using-powershell"></a>¿Es cierto que la auditoría de buzones en Exchange Online solo puede habilitarse con PowerShell?
 
-Sí. Pero estamos trabajando para habilitar de forma predeterminada la auditoría de buzones para todos los buzones de una organización de Office 365. Para obtener más información, vea “La auditoría de buzones de Exchange se habilitará de forma predeterminada” en el [blog Seguridad, privacidad y cumplimiento de Microsoft](https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Exchange-Mailbox-Auditing-will-be-enabled-by-default/ba-p/215171).
+Ese solía ser el caso, pero desde enero del 2019, la auditoría del buzón está activada de forma predeterminada en todas las organizaciones de Office 365. Para más información, vea [Administrar auditoría del buzón](https://docs.microsoft.com/office365/securitycompliance/enable-mailbox-auditing)..
 
 #### <a name="are-there-any-differences-in-the-records-that-are-fetched-by-the-management-activity-api-versus-the-records-that-are-returned-by-using-the-audit-log-search-tool-in-the-office-365-security--compliance-center"></a>¿Hay alguna diferencia entre los registros obtenidos por la API de actividad de administración y los registros obtenidos con la herramienta de búsqueda de registros de auditoría del Centro de seguridad y cumplimiento de Office 365?
 
@@ -57,4 +57,4 @@ No. La auditoría debe estar habilitada para que su organización pueda extraer 
 
 #### <a name="why-are-targetupdatedproperties-no-longer-in-extendedproperties-in-the-audit-logs-for-azure-active-directory-activities"></a>¿Por qué TargetUpdatedProperties ya no están en ExtendedProperties en los registros de auditoría de actividades de Azure Active Directory?
 
-TargetUpdatedProperties aparecían en ExtendedProperties. Sin embargo, se han quitado de ExtendedProperties y ahora aparecerán en ModifiedProperties.
+TargetUpdatedProperties aparecían en ExtendedProperties. Sin embargo, se han quitado de Propiedades extensas y ahora aparecerán en Propiedades modificadas.
