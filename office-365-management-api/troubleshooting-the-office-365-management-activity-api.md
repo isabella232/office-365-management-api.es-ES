@@ -6,12 +6,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: 09/05/2018
 localization_priority: Priority
-ms.openlocfilehash: ed84984dc3009d03e0bb7cacba16eafb687c93e0
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 35d90859056225a5ebcf547d88c05640699c5295
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32223955"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924822"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de actividad de administración de Office 365
 
@@ -25,6 +25,10 @@ La API de actividad de administración no tiene que confundirse con la API de co
 A pesar de que tienen relativamente pocas operaciones y una interfaz de REST sencilla, hay una gran confusión en relación con el uso de la API de actividad de administración y los detalles de cómo se recupera exactamente los datos.  Es importante que todos los usuarios que empiecen a usar la API de actividad de administración conozcan que no existe el concepto de consultas por detalles de evento, como la fecha en que se produjo el evento, la colección de sitios que podría haber desencadenado un evento, o bien el tipo de evento.  En su lugar, se crean suscripciones a cargas de trabajo específicas (por ejemplo, SharePoint o Azure AD) y cada suscripción se corresponde con un espacio empresarial.
 
 En este artículo, se proporciona un resumen de las preguntas más frecuentes que recibe el soporte técnico de Microsoft sobre el uso de esta API.  Le mostraremos una selección de scripts de PowerShell sencillos que pueden ayudarle a responder a las preguntas más frecuentes realizadas por los clientes o que pueden permitirle empezar a implementar una solución personalizada al mostrar una demostración de las operaciones principales.  En este artículo, no se explican todas las operaciones, pero encontrará la lista completa en la [Referencia de API de actividad de administración de Office 365](office-365-management-activity-api-reference.md).
+
+## <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar el registro de auditoría unificado en Office 365
+
+Si acaba de configurar una aplicación que está intentando usar la API de Actividad de administración y no funciona, asegúrese de que ha habilitado el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
 
 ## <a name="questions-about-third-party-tools-and-clients"></a>Preguntas sobre clientes y herramientas de terceros
 

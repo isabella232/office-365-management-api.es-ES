@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: 01/10/2018
 localization_priority: Priority
-ms.openlocfilehash: 727d4e0d58e11887c15188b62d7642be90c1ebc3
-ms.sourcegitcommit: efd3dcdb3d190ca7b0f22a671867f0aede5d46c2
+ms.openlocfilehash: d6cdef5f0445ef0fa551be3080d4ce28595a1e9f
+ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "35226982"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "35924829"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 
@@ -21,8 +21,10 @@ Puede usar acciones y eventos de los registros de auditoría y actividad de Offi
 
 La API de Actividad de administración de Office 365 es un servicio web REST que se puede usar para desarrollar soluciones mediante cualquier lenguaje y entorno de hospedaje que admita HTTPS y certificados X.509. La API se basa en Azure AD y el protocolo OAuth2 para la autorización y autenticación. Para acceder a la API desde la aplicación, primero deberá registrarla en Azure AD y configurarla con los permisos apropiados. Esto permitirá que la aplicación solicite los tokens de acceso OAuth2 que necesita para llamar a la API. Para obtener más información, vea [Get started with Office 365 Management APIs](get-started-with-office-365-management-apis.md) (Introducción a las API de administración de Office 365).
 
-> [!NOTE] 
-> Para obtener información sobre el esquema de los datos que devuelve la API de Actividad de administración de Office 365, vea [Esquema de la API de Actividad de administración de Office 365](office-365-management-activity-api-schema.md).
+Para obtener información sobre los datos que devuelve la API de Actividad de administración de Office 365, vea [Esquema de la API de Actividad de administración de Office 365](office-365-management-activity-api-schema.md).
+
+> [!IMPORTANT]
+> Para poder acceder a los datos a través de la API de Actividad de administración de Office 365, debe activar el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
 
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Trabajar con la API de Actividad de administración de Office 365
