@@ -4,14 +4,14 @@ title: Introducción a las API de administración de Office 365
 description: Las API usan Azure AD para proporcionar servicios de autenticación que pueden usarse para conceder derechos a la aplicación con el fin de obtener acceso a esos servicios.
 ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
-ms.date: 09/05/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9732b5a838bdf4c14a6a13af8196704c89dec63d
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: 08f510302c1d19cf3e3e2385f1baab6133153f07
+ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32224074"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "35936239"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introducción a las API de administración de Office 365
 
@@ -32,6 +32,8 @@ En el diagrama siguiente, se muestra la secuencia de solicitudes de tokens de ac
 
 ![Flujo de autorización de introducción a las API de administración](images/authorization-flow.png)
 
+> [!IMPORTANT]
+> Para poder acceder a los datos a través de la API de Actividad de administración de Office 365, debe activar el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). <br/><br/>No es necesario habilitar un registro de auditoría unificado si solo usa la API de comunicaciones de servicio de Office 365.
 
 ## <a name="register-your-application-in-azure-ad"></a>Registrar la aplicación en Azure AD
 
@@ -113,7 +115,7 @@ Las claves, también conocidas como secretos de cliente, se usan al intercambiar
 
 Una aplicación que se ejecuta en segundo plano, como un demonio servicio, puede usar las credenciales de cliente para solicitar tokens de acceso solo de aplicación sin solicitar de forma repetida el consentimiento del administrador del espacio empresarial después de recibir el consentimiento inicial. 
 
-Para obtener más información, vea [Llamadas entre servicios con credenciales de cliente](https://msdn.microsoft.com/es-ES/library/azure/dn645543.aspx).
+Para obtener más información, vea [Llamadas entre servicios con credenciales de cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx).
 
 Necesita configurar un certificado X.509 con la aplicación para usarlo como las credenciales de cliente al solicitar tokens de acceso solo de aplicación desde Azure AD. Este proceso se divide en dos pasos:
 
@@ -249,7 +251,7 @@ Hay dos métodos para solicitar tokens de acceso desde Azure AD:
 
 - En el [Flujo de concesión de código de autorización](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx), un administrador de espacios empresariales concede el consentimiento explícito, que devuelve un código de autorización a la aplicación. Después, la aplicación intercambia el código de autorización por un token de acceso. Este método es necesario para obtener el consentimiento inicial que necesita la aplicación para obtener acceso a los datos del espacio empresarial mediante la API, y este primer token de acceso es necesario para obtener y almacenar el id. de espacio empresarial.
     
-- El [Flujo de concesión de credenciales de cliente](https://msdn.microsoft.com/es-ES/library/azure/dn645543.aspx) permite a la aplicación solicitar tokens de acceso posteriores cuando expiren los anteriores, sin que sea necesario que el administrador del espacio empresarial inicie sesión y conceda el permiso de manera explícita. Este método tiene que usarse para las aplicaciones que se ejecutan de forma continua en segundo plano mediante llamadas a la API después de conceder el consentimiento inicial del administrador del espacio empresarial.
+- El [Flujo de concesión de credenciales de cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx) permite a la aplicación solicitar tokens de acceso posteriores cuando expiren los anteriores, sin que sea necesario que el administrador del espacio empresarial inicie sesión y conceda el permiso de manera explícita. Este método tiene que usarse para las aplicaciones que se ejecutan de forma continua en segundo plano mediante llamadas a la API después de conceder el consentimiento inicial del administrador del espacio empresarial.
     
 
 ### <a name="request-an-access-token-using-the-authorization-code"></a>Solicitar un token de acceso mediante el código de autorización
