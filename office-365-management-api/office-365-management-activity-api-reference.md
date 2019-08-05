@@ -4,14 +4,14 @@ title: Referencia de la API de Actividad de administración de Office 365
 description: Use la API de Actividad de administración de Office 365 para recuperar información sobre acciones y eventos de usuario, administrador, sistema y directivas de los registros de actividad de Office 365 y Azure AD.
 ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
-ms.date: 01/10/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: d6cdef5f0445ef0fa551be3080d4ce28595a1e9f
-ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
+ms.openlocfilehash: b4aea4da9a63e298fa154a7d0cbb0da976c7fe88
+ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "35924829"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "35936225"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 

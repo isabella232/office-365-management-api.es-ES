@@ -4,14 +4,14 @@ title: Le damos la bienvenida a las API de administración de Office 365
 description: Las API de administración de Office 365 proporcionan una plataforma de extensibilidad única para todas las tareas de administración de los clientes y partners de Office 365, entre las que se incluyen las comunicaciones, la seguridad, el cumplimiento, la generación de informes y la auditoría de servicios.
 ms.ContentId: a11a6d30-f6b7-3629-28b6-cbab527d8a5e
 ms.topic: reference (API)
-ms.date: 07/10/2018
+ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 0444b343a28f89a56a45f639d3f2374bb82a33d6
-ms.sourcegitcommit: 5b1eaeb7f262b7b9f7ab30ccb9f10878814153ac
+ms.openlocfilehash: c809fd5d86dcd04c075eae27790991340c3460eb
+ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "32223934"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "35936224"
 ---
 # <a name="welcome-to-office-365-management-apis"></a>Le damos la bienvenida a las API de administración de Office 365
 
@@ -29,4 +29,5 @@ Las API de administración de Office 365 proporcionan una plataforma de extensib
 
 ## <a name="see-also"></a>Vea también
 
-- [API de REST de Office 365](https://docs.microsoft.com/es-ES/previous-versions/office/office-365-api/how-to/platform-development-overview)
+- 
+  [API de REST de Office 365](https://docs.microsoft.com/es-ES/previous-versions/office/office-365-api/how-to/platform-development-overview)
