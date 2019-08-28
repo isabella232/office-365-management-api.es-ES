@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 49ffb697575a63bce7a7eee8e539a30c733772a5
-ms.sourcegitcommit: c4674653f99c77b64115f8547f9e410dea3408f9
+ms.openlocfilehash: 175d18dad57bff0939250cd4ae27c02129d7c0ed
+ms.sourcegitcommit: b9439635542de9db8f9fb8e056b8359d4653aa21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "35613588"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "36643046"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -1094,6 +1094,9 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Inv
 |NetworkMessageId|Edm.String|Sí|El id. de mensaje de red en línea de Exchange.|
 |P1Sender|Edm.String|Sí|La ruta de devolución del remitente del mensaje de correo electrónico.|
 |P2Sender|Edm.String|Sí|El remitente del mensaje de correo electrónico.|
+|Policy|Self.[Policy](#policy-type-and-action-type)|Sí|El tipo de directiva de filtrado (por ejemplo, **Filtro de correo no deseado** o **Antiphishing**) y el tipo de acción relacionada (como el **correo no deseado de alta confianza**, **correo no deseado** o **suplantación de identidad**) relevantes para el mensaje de correo electrónico.|
+|Policy|Self.[PolicyAction](#policy-action)|Sí|La acción configurada en la directiva de filtrado (por ejemplo, **Mover a la carpeta de correo no deseado** o **Cuarentena**) relevante para el mensaje de correo electrónico.|
+|P2Sender|Edm.String|Sí|El **De:** el remitente del mensaje de correo electrónico.|
 |Recipients|Collection(Edm.String)|Sí|Una matriz de los destinatarios del mensaje de correo electrónico.|
 |SenderIp|Edm.String|Sí|La dirección IP que envió el correo electrónico de Office 365. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
 |Subject|Edm.String|Sí|La línea de asunto del mensaje.|
@@ -1127,6 +1130,37 @@ Los eventos de Protección contra amenazas avanzada de Office 365 (ATP) y de Inv
 |-2|Timeout|Se agotó el tiempo de espera del análisis o el examen.|
 |-3|Pending|El análisis o el examen no se completó.|
 |||||
+
+### <a name="enum-policy---type-edmint32"></a>Enum: Policy - Type: Edm.Int32
+
+#### <a name="policy-type-and-action-type"></a>Tipo de directiva y tipo de acción
+
+|**Valor**|**Nombre del miembro**|**Descripción**|
+|:-----|:-----|:-----|
+|1|Anti-spam, HSPM|Acción de correo no deseado de alta confianza (HSPM) en la Directiva contra correo no deseado.|
+|2|Anti-spam, SPM|Acción de correo no deseado (SPM) en la Directiva contra correo no deseado.|
+|3|Anti-spam, Bulk|Acción masiva en la Directiva contra correo no deseado.|
+|4|Anti-spam, PHSH|Acción de suplantación de identidad (PHSH) en la Directiva contra correo no deseado.|
+|5|Anti-phish, DIMP|Acción de suplantación de dominios (DIMP) en la Directiva antiphishing.|
+|6|Anti-phish, UIMP|Acción de suplantación de usuarios (UIMP) en la Directiva antiphishing.|
+|7|Anti-phish, SPOOF|Acción de suplantación en la Directiva antiphishing.|
+
+
+### <a name="enum-policyaction---type-edmint32"></a>Enum: PolicyAction - Type: Edm.Int32
+
+#### <a name="policy-action"></a>Acción de directiva
+
+|**Valor**|**Nombre del miembro**|**Descripción**|
+|:-----|:-----|:-----|
+|0|MoveToJMF|La acción de directiva es moverse a la carpeta correo no deseado.|
+|1|AddXHeader|La acción de directiva es agregar el encabezado X al mensaje de correo electrónico.|
+|2|ModifySubject|La acción de directiva es modificar el asunto del mensaje de correo electrónico con la información especificada por la directiva de filtrado.|
+|3|Redirect|La acción de directiva es redirigir el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
+|4|Delete|La acción de directiva es eliminar (quitar) el mensaje de correo electrónico.|
+|5|Quarantine|La acción de directiva es poner en cuarentena el mensaje de correo electrónico.|
+|6|NoAction| La directiva está configurada para no realizar ninguna acción en el mensaje de correo electrónico.|
+|7|BccMessage|La acción de directiva consiste en enviar en CCO el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
+
 
 ### <a name="url-time-of-click-events"></a>Eventos de tiempo de clic de URL
 
