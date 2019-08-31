@@ -2,7 +2,7 @@
 
 Las API de administración de Office 365 proporcionan una plataforma de extensibilidad única para todas las tareas de administración de los clientes y partners de Office 365, entre las que se incluyen las comunicaciones, la seguridad, el cumplimiento, la generación de informes y la auditoría de servicios. Todas las API de administración de Office 365 son coherentes en el diseño y la implementación con el conjunto de aplicaciones actual de las API de REST de Office 365 y usan enfoques estándares comunes del sector, como OAuth v2, OData v4 y JSON. Al igual que las otras API de Office 365, las aplicaciones se registran en Azure Active Directory, lo que brinda a los desarrolladores una forma coherente de autenticar y autorizar sus aplicaciones.
 
-Para empezar, vaya a [Información general de las API de administración de Office 365](https://docs.microsoft.com/es-ES/office/office-365-management-api/office-365-management-apis-overview).
+Para empezar, vaya a la [información general de las API de administración de Office 365](https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-apis-overview).
 
 
 
