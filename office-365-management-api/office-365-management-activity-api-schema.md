@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 2e2ca6440a0f1ba10eb3d63e889a85efdaa334a0
-ms.sourcegitcommit: 78b79bd215433512fad7437220c7d5ebc1987862
+ms.openlocfilehash: bd37eb32c07e5b8c1feafad39c765d81342b5150
+ms.sourcegitcommit: 0e6d71ad2375e5d1fc72d6893724511c08840c27
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "36766855"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "37131441"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -708,7 +708,7 @@ Los eventos de SharePoint que aparecen en [Buscar el registro de auditoría en e
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|No|El GUID que representa la aplicación que solicita el inicio de sesión. Se puede buscar el nombre para mostrar a través de la API de Graph de Azure Active Directory.|
 |Client|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
-|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión.|
+|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión. Para obtener una descripción completa de LogonErrors consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/es-ES/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
 |||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
@@ -752,7 +752,7 @@ Los eventos DLP (prevención de pérdida de datos) siempre tendrán UserKey="Dlp
 
 ### <a name="exchangemetadata-complex-type"></a>Tipo complejo ExchangeMetadata
 
-|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|**Parámetros**|**Type**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |MessageID|Edm.String|Sí|El identificador de mensaje de correo electrónico que ha desencadenado el evento.|
 |From|Edm.String|Sí|El usuario que envió el correo electrónico.|
@@ -976,7 +976,7 @@ Los eventos de Sway que aparecen en [Buscar el registro de auditoría en el Cent
 
 ## <a name="data-center-security-base-schema"></a>Esquema de base de seguridad del centro de datos
 
-|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|**Parámetros**|**Type**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |DataCenterSecurityEventType|Self.[DataCenterSecurityEventType](#datacentersecurityeventtype)|Sí|El tipo de evento dmdlet en el cuadro de bloqueo.|
 |||||
