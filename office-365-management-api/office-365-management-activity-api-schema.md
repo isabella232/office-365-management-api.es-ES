@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: ee002772f5d35fefb758d32b6cb015993add0319
-ms.sourcegitcommit: d0bf43ff238f4647dd049672f68b4e1171083203
+ms.openlocfilehash: 3cd8c5988273d05c85b97faa20903ebc283217dd
+ms.sourcegitcommit: a64c58d52f210c9952666d3e5bd86a0e70e983a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "37774893"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "38696964"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -64,7 +64,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |Id|Combinación de GUIDEdm.Guid|Sí|Identificador único de un registro de auditoría.|
 |RecordType|Self.[AuditLogRecordType](#auditlogrecordtype)|Sí|El tipo de operación indicado por el registro. Vea la tabla [AuditLogRecordType](#auditlogrecordtype) para obtener más información sobre los tipos de registros de auditoría.|
 |CreationTime|Edm.Date|Sí|La fecha y hora en formato Hora universal coordinada (UTC) en las que el usuario ha realizado la actividad.|
-|Operación|Edm.String|Sí|El nombre de la actividad de usuario o administrador. Para obtener una descripción de las operaciones o actividades más comunes, vea [Buscar en el registro de auditoría del Centro de seguridad y cumplimiento de Office 365](http://go.microsoft.com/fwlink/p/?LinkId=708432). Esta propiedad identifica el nombre del cmdlet ejecutado para la actividad de administración de Exchange. Para eventos DLP, puede ser "DlpRuleMatch", "DlpRuleUndo" o "DlpInfo", que se describen en "Esquema DLP" a continuación.|
+|Operación|Edm.String|Sí|El nombre de la actividad de usuario o administrador. Para obtener una descripción de las operaciones o actividades más comunes, vea [Buscar en el registro de auditoría del Centro de seguridad y cumplimiento de Office 365](https://go.microsoft.com/fwlink/p/?LinkId=708432). Esta propiedad identifica el nombre del cmdlet ejecutado para la actividad de administración de Exchange. Para eventos DLP, puede ser "DlpRuleMatch", "DlpRuleUndo" o "DlpInfo", que se describen en "Esquema DLP" a continuación.|
 |OrganizationId|Edm.Guid|Sí|El GUID del inquilino de Office 365 de su organización. Este valor debe ser siempre el mismo en su organización, independientemente del servicio de Office 365 en que se produce.|
 |UserType|Self.[UserType](#user-type)|Sí|El tipo de usuario que llevó a cabo la operación. Vea la tabla [UserType](#user-type) para obtener más información sobre los tipos de usuarios.|
 |UserKey|Edm.String|Sí|Un id. alternativo para el usuario identificado en la propiedad id. de usuario. Por ejemplo, esta propiedad se rellena con el identificador único de passport (PUID) para los eventos efectuados por los usuarios en SharePoint, OneDrive para la Empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad id. de usuario para los eventos que se producen en otros servicios y eventos efectuados por cuentas del sistema.|
@@ -265,7 +265,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |LanguageRemovedFromTermStore*|Se quita un idioma del repositorio terminología.|
 |LegacyWorkflowEnabledSet*|El propietario o el administrador del sitio agrega el tipo de contenido de tarea de flujo de trabajo de SharePoint al sitio. Los administradores globales también pueden habilitar los flujos de trabajo para toda la organización en el centro de administración de SharePoint.|
 |LookAndFeelModified|El usuario modifica un inicio rápido, los formatos de gráfico de Gantt o los formatos de grupo. O bien, el usuario crea, modifica o elimina una vista en Project Web App.|
-|ManagedSyncClientAllowed|El usuario establece correctamente una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa. La relación de sincronización es correcta porque el equipo del usuario es un miembro de un dominio que se ha agregado a la lista de dominios (denominada lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. Para obtener más información sobre esta característica, vea [Usar cmdlets de Windows PowerShell para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros](http://go.microsoft.com/fwlink/p/?LinkID=534609).|
+|ManagedSyncClientAllowed|El usuario establece correctamente una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa. La relación de sincronización es correcta porque el equipo del usuario es un miembro de un dominio que se ha agregado a la lista de dominios (denominada lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. Para obtener más información sobre esta característica, vea [Usar SharePoint Online PowerShell](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros.|
 |MaxQuotaModified*|Se ha modificado la cuota máxima de un sitio.|
 |MaxResourceUsageModified*|Se ha modificado el uso máximo permitido de recursos para un sitio.|
 |MySitePublicEnabledSet*|El administrador de SharePoint ha establecido la marca que permite a los usuarios tener sitios públicos.|
@@ -336,7 +336,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |TimesheetRejected|El usuario rechaza una planilla de horas trabajadas en Project Web App.|
 |TimesheetSaved|El usuario guarda una planilla de horas trabajadas en Project Web App.|
 |TimesheetSubmitted|El usuario envía una planilla de horas trabajadas de estado en Project Web App.|
-|UnmanagedSyncClientBlocked|El usuario intenta establecer una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa desde un equipo que no es miembro del dominio de su organización o es un miembro de un dominio que no se ha agregado a la lista de dominios (denominada la lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. La relación de sincronización no se permite y el equipo del usuario queda bloqueado para sincronizar, descargar o cargar archivos en una biblioteca de documentos. Para obtener más información sobre esta característica, vea [Usar cmdlets de Windows PowerShell para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros](https://docs.microsoft.com/en-us/powershell/module/sharepoint-online/index?view=sharepoint-ps).|
+|UnmanagedSyncClientBlocked|El usuario intenta establecer una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa desde un equipo que no es miembro del dominio de su organización o es un miembro de un dominio que no se ha agregado a la lista de dominios (denominada la lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. La relación de sincronización no se permite y el equipo del usuario queda bloqueado para sincronizar, descargar o cargar archivos en una biblioteca de documentos. Para obtener más información sobre esta característica, vea [Usar cmdlets de Windows PowerShell para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros](https://docs.microsoft.com/powershell/module/sharepoint-online/index?view=sharepoint-ps).|
 |UpdateSSOApplication*|La aplicación de destino que actualizó en el servicio de almacenamiento seguro.|
 |UserAddedToGroup*|El propietario o el administrador agrega a un usuario a un grupo en un sitio de SharePoint o de OneDrive para la Empresa. Agregar a un usuario a un grupo concede al usuario los permisos asignados al grupo. |
 |UserRemovedFromGroup*|El propietario o el administrador quita a un usuario de un grupo en un sitio de SharePoint o de OneDrive para la Empresa. Después de quitar la persona, no se le concede los permisos asignados al grupo. |
@@ -708,7 +708,7 @@ Los eventos de SharePoint que aparecen en [Buscar el registro de auditoría en e
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|No|El GUID que representa la aplicación que solicita el inicio de sesión. Se puede buscar el nombre para mostrar a través de la API de Graph de Azure Active Directory.|
 |Client|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
-|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión. Para obtener una descripción completa de LogonErrors consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/es-ES/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión. Para obtener una descripción completa de LogonErrors consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
 |||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
@@ -843,7 +843,7 @@ Los datos confidenciales de DLP solo están disponibles en la API de fuente de a
 Las señales de alerta son:
 
 - Todas las alertas basadas en [directivas de alerta en el centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/alert-policies#default-alert-policies).
-- Alertas relacionadas con Office 365 generadas en [Office 365 Cloud App Security](https://docs.microsoft.com/office365/securitycompliance/office-365-cas-overview) y [Microsoft Cloud App Security](https://docs.microsoft.com/es-ES/cloud-app-security/what-is-cloud-app-security).
+- Alertas relacionadas con Office 365 generadas en [Office 365 Cloud App Security](https://docs.microsoft.com/office365/securitycompliance/office-365-cas-overview) y [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).
 
 Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay dos tipos de señales de alerta que se almacenan como el valor de la propiedad Operation del esquema común:
 
@@ -1078,7 +1078,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 
 - Direcciones URL en las que ha hecho clic un usuario de la organización que se han detectado como malintencionadas en tiempo de clic según la protección de [Vínculos seguros de ATP de Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).  
 
-- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Office 365 ATP](https://docs.microsoft.com/es-ES/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.
+- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.
 
 - Una alerta que se desencadena y que inició una [investigación automatizada](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office).
 
@@ -1169,6 +1169,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |5|Quarantine|La acción de directiva es poner en cuarentena el mensaje de correo electrónico.|
 |6|NoAction| La directiva está configurada para no realizar ninguna acción en el mensaje de correo electrónico.|
 |7|BccMessage|La acción de directiva consiste en enviar en CCO el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
+|8|ReplaceAttachment|La acción de directiva es reemplazar los datos adjuntos del mensaje de correo electrónico tal como especifica la directiva de filtrado.|
 
 
 ### <a name="url-time-of-click-events"></a>Eventos de tiempo de clic de URL
@@ -1240,15 +1241,16 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 Los eventos de [investigación y respuesta automatizadas (AIR) de Office 365](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office) están disponibles para los clientes de Office 365 que tienen una suscripción que incluye Protección contra amenazas avanzada de Office 365 Plan 2 u Office 365 E5. Los eventos de investigación se registran en función de un cambio en el estado de investigación. Por ejemplo, cuando un administrador realiza una acción que cambia el estado de una investigación de Acciones pendientes a Completada, se registra un evento. 
 
 Actualmente, solo se registran las investigaciones automatizadas. (Próximamente estarán disponibles eventos para las investigaciones generadas manualmente). Se registran los siguientes valores de estado: 
-- La investigación se creó
+- Investigación iniciada
 - No se encontraron amenazas 
-- Finalizada por el sistema 
+- Finalizada por el sistema
 - Acción pendiente 
-- Se encontraron amenazas 
+- Amenazas encontradas 
 - Corregido 
 - Error 
 - Finalizada por limitación 
-- Finalizada por el usuario 
+- Finalizada por el usuario
+- En funcionamiento
 
 #### <a name="main-investigation-schema"></a>Esquema de investigación principal 
 
