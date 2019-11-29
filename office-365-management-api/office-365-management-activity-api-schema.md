@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 3cd8c5988273d05c85b97faa20903ebc283217dd
-ms.sourcegitcommit: a64c58d52f210c9952666d3e5bd86a0e70e983a2
+ms.openlocfilehash: c97325687967b85b589f4e7b94196ed1a406ef5d
+ms.sourcegitcommit: 3ff573d31612ca08819a37bfc98d43926a4a60e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "38696964"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "39631994"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -53,6 +53,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 |[Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
+|[Esquema de Microsoft Forms](#microsoft-forms-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Forms.|
 |||
 
 ## <a name="common-schema"></a>Esquema común
@@ -116,6 +117,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
 |54|SharePointListItemOperation|Eventos de lista de SharePoint.|
 |55|SharePointContentTypeOperation|Eventos de tipo de contenido de lista de SharePoint.|
+|66|MicrosoftForms|Eventos de Microsoft Forms.|
 ||||
 
 ### <a name="enum-user-type---type-edmint32"></a>Enum: Tipo de usuario - Tipo: Edm.Int32
@@ -1240,7 +1242,8 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 
 Los eventos de [investigación y respuesta automatizadas (AIR) de Office 365](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office) están disponibles para los clientes de Office 365 que tienen una suscripción que incluye Protección contra amenazas avanzada de Office 365 Plan 2 u Office 365 E5. Los eventos de investigación se registran en función de un cambio en el estado de investigación. Por ejemplo, cuando un administrador realiza una acción que cambia el estado de una investigación de Acciones pendientes a Completada, se registra un evento. 
 
-Actualmente, solo se registran las investigaciones automatizadas. (Próximamente estarán disponibles eventos para las investigaciones generadas manualmente). Se registran los siguientes valores de estado: 
+Actualmente, solo se registran las investigaciones automatizadas. (Próximamente estarán disponibles eventos para las investigaciones generadas manualmente). Se registran los siguientes valores de estado:
+
 - Investigación iniciada
 - No se encontraron amenazas 
 - Finalizada por el sistema
@@ -1265,6 +1268,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |DeeplinkURL    |Edm.String |Dirección URL de vínculo profundo de una investigación en el Centro de seguridad y cumplimiento de Office 365 |
 |Acciones |Colección (Edm.String)   |Colección de acciones recomendada por una investigación |
 |Datos   |Edm.String |Cadena de datos que contiene más información sobre las entidades de investigación e información sobre las alertas relacionadas con la investigación. Las entidades están disponibles en un nodo independiente dentro del blob de datos. |
+||||
 
 #### <a name="actions"></a>Acciones
 
@@ -1283,6 +1287,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |Identificadores de recursos   |Edm.String  |Constituido por el Identificador del inquilino de Azure Active Directory|
 |Entidades   |Collection(Edm.String) |Lista de una o más entidades afectadas por acción |
 |Identificadores de alertas relacionadas  |Edm.String |Alerta relacionada con una investigación |
+||||
 
 #### <a name="entities"></a>Entidades
 
@@ -1300,6 +1305,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |NetworkMessageId   |Edm.Guid   |El identificador del mensaje de red de este mensaje de correo  |
 |InternetMessageId  |Edm.String  |El identificador de internet de este mensaje de correo |
 |Subject    |Edm.String |El asunto de este mensaje de correo  |
+||||
 
 #### <a name="ip"></a>IP
 
@@ -1307,6 +1313,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |----|----|----|
 |Tipo   |Edm.String |"ip" |
 |Address    |Edm.String |La dirección IP como cadena, tal como `127.0.0.1`
+||||
 
 #### <a name="url"></a>URL
 
@@ -1314,6 +1321,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |----|----|----|
 |Tipo   |Edm.String |"url" |
 |Url    |Edm.String |La dirección URL completa a la que señala una entidad  |
+||||
 
 #### <a name="mailbox-also-equivalent-to-the-user"></a>Buzón de correo (también equivalente al usuario) 
 
@@ -1323,6 +1331,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |MailboxPrimaryAddress  |Edm.String |La dirección principal del buzón de correo  |
 |DisplayName    |Edm.String |El nombre para mostrar del buzón de correo |
 |Upn    |Edm.String |El UPN del buzón de correo  |
+||||
 
 #### <a name="file"></a>Archivo
 
@@ -1331,6 +1340,7 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |Tipo   |Edm.String |"file" |
 |Nombre   |Edm.String |El nombre de archivo sin la ruta de acceso |
 FileHashes |Colección (Edm.String) |Los hash de archivo asociados al archivo |
+||||
 
 #### <a name="filehash"></a>FileHash
 
@@ -1339,6 +1349,7 @@ FileHashes |Colección (Edm.String) |Los hash de archivo asociados al archivo |
 |Tipo   |Edm.String |"filehash" |
 |Algoritmo  |Edm.String |El tipo de algoritmo de hash, que puede ser uno de estos valores:<br/>- Desconocido<br/>- MD5<br/>- SHA1<br/>- SHA256<br/>- SHA256AC
 |Valor  |Edm.String |El valor del hash  |
+||||
 
 #### <a name="mailcluster"></a>MailCluster
 
@@ -1353,6 +1364,7 @@ FileHashes |Colección (Edm.String) |Los hash de archivo asociados al archivo |
 |QueryTime  |Edm.DateTime   |La hora de la consulta  |
 |MailCount  |Edm.Int    |El número de mensaje de correo que forman parte del clúster de correo.  |
 |Origen |String |El origen del clúster de correo; el valor del origen del clúster. |
+||||
 
 ## <a name="power-bi-schema"></a>Esquema de Power BI
 
@@ -1391,11 +1403,48 @@ Los eventos de Power BI que aparecen en [Buscar el registro de auditoría en el 
 
 ## <a name="workplace-analytics-schema"></a>Esquema de Workplace Analytics
 
-Los eventos de Workplace Analytics que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#microsoft-workplace-analytics-activities) utilizarán este esquema.
+Los eventos de Workplace Analytics que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-workplace-analytics-activities) utilizarán este esquema.
 
 | **Parámetros**     | **Tipo**            | **¿Es obligatoria?** | **Descripción**|
 |:------------------ | :------------------ | :--------------|:--------------|
 | WpaUserRole        | Edm.String | No     | El rol de Workplace Analytics del usuario que realizó la operación.                                                                                            |
 | ModifiedProperties | Colección (Common.ModifiedProperty) | No | Esta propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
 | OperationDetails   | Colección (Common.NameValuePair)    | No | Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Name** y un **Value**.|
+||||
+
+## <a name="microsoft-forms-schema"></a>Esquema de Microsoft Forms
+
+Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities) utilizarán este esquema.
+
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+|FormsUserTypes|Collection(Self.[FormsUserTypes](#formsusertypes))|Sí|El rol del usuario que realizó la acción.  Los valores de este parámetro son Admin (Administrador), Owner (Propietario), Responder (Respondedor) o Coauthor (Coautor).|
+|SourceApp|Edm.String|Sí|Indica si la acción proviene del sitio web de Forms o de otra aplicación.|
+|FormName|Edm.String|No|El nombre del formulario actual.|
+|FormId |Edm.String|No|El ID del formulario de destino.|
+|FormTypes|Collection(Self.[FormTypes](#formtypes))|No|Indica si se trata de un Formulario, un Cuestionario o una Encuesta.|
+|ActivityParameters|Edm.String|No|Cadena JSON que contiene parámetros de actividad. Para más información, consulte [Buscar en el registro de auditoría del Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities).|
+||||
+
+### <a name="enum-formsusertypes---type-edmint32"></a>Enum: FormsUserTypes - Type: Edm.Int32
+
+#### <a name="formsusertypes"></a>FormsUserTypes
+
+|**Valor**|**Tipo de formulario de usuario**|**Descripción**|
+|:-----|:-----|:-----|
+|0|Admin|Un administrador que tenga acceso al formulario.|
+|1|Owner|El usuario propietario del equipo.|
+|2|Responder|Un usuario que ha enviado una respuesta a un formulario.|
+|3|Coauthor|Un usuario que ha usado un vínculo de colaboración proporcionado por el propietario del formulario para iniciar sesión y editar un formulario.|
+||||
+
+### <a name="enum-formtypes---type-edmint32"></a>Enum: FormTypes - Type: Edm.Int32
+
+#### <a name="formtypes"></a>FormTypes
+
+|**Valor**|**Tipos de formulario**|**Descripción**|
+|:-----|:-----|:-----|
+|0|Formulario|Formularios creados con la opción Nuevo formulario.|
+|1|Cuestionario|Cuestionarios creados con la opción Nuevo cuestionario.  Un cuestionario es un tipo especial de formulario que incluye características adicionales, como valores de puntuación, calificación automática y manual, y comentarios.|
+|2|Encuesta|Encuestas creadas con la opción Nueva encuesta.  Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
 ||||
