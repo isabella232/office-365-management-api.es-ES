@@ -6,12 +6,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 08f510302c1d19cf3e3e2385f1baab6133153f07
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: f444aa9411e0520be42ce68b2f618efe5228ac75
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936239"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263243"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introducción a las API de administración de Office 365
 
@@ -42,7 +42,7 @@ Las API de administración de Office 365 usan Azure AD para proporcionar autenti
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Para registrar la aplicación en Azure AD, necesita una suscripción a Office 365 y una suscripción a Azure AD asociada a la suscripción de Office 365. Para empezar, puede usar suscripciones de prueba, tanto para Office 365 como para Azure. Para obtener más información, vea [Introducción al programa Office 365 Developer](https://docs.microsoft.com/es-ES/office/developer-program/office-365-developer-program).
+Para registrar la aplicación en Azure AD, necesita una suscripción a Office 365 y una suscripción a Azure AD asociada a la suscripción de Office 365. Para empezar, puede usar suscripciones de prueba, tanto para Office 365 como para Azure. Para obtener más información, vea [Introducción al programa Office 365 Developer](https://docs.microsoft.com/office/developer-program/office-365-developer-program).
 
 
 ### <a name="use-the-azure-management-portal-to-register-your-application-in-azure-ad"></a>Usar el Portal de administración de Azure para registrar una aplicación en Azure AD
@@ -80,7 +80,7 @@ Cuando tenga un espacio empresarial de Microsoft con las suscripciones adecuadas
 
 Después de registrar la aplicación, tiene que especificar varias propiedades importantes que determinan cómo funciona la aplicación en Azure AD y la forma en que los administradores de espacios empresariales concederán permiso para que la aplicación obtenga acceso a sus datos mediante las API de administración de Office 365.
 
-Para obtener más información sobre la configuración de aplicaciones de Azure AD en general, vea [Propiedades de objeto de aplicación](https://docs.microsoft.com/es-ES/azure/active-directory/develop/active-directory-application-objects).
+Para obtener más información sobre la configuración de aplicaciones de Azure AD en general, vea [Propiedades de objeto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects).
 
 
 1. **CLIENT ID**. Azure AD genera automáticamente este valor. La aplicación usará este valor al solicitar el permiso de los administradores de espacios empresariales y al solicitar tokens solo de aplicación desde Azure AD.
@@ -115,7 +115,7 @@ Las claves, también conocidas como secretos de cliente, se usan al intercambiar
 
 Una aplicación que se ejecuta en segundo plano, como un demonio servicio, puede usar las credenciales de cliente para solicitar tokens de acceso solo de aplicación sin solicitar de forma repetida el consentimiento del administrador del espacio empresarial después de recibir el consentimiento inicial. 
 
-Para obtener más información, vea [Llamadas entre servicios con credenciales de cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx).
+Para obtener más información, vea [Llamadas entre servicios con credenciales de cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
 Necesita configurar un certificado X.509 con la aplicación para usarlo como las credenciales de cliente al solicitar tokens de acceso solo de aplicación desde Azure AD. Este proceso se divide en dos pasos:
 
@@ -249,9 +249,9 @@ La aplicación usa este código de autorización para obtener un token de acceso
 
 Hay dos métodos para solicitar tokens de acceso desde Azure AD:
 
-- En el [Flujo de concesión de código de autorización](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx), un administrador de espacios empresariales concede el consentimiento explícito, que devuelve un código de autorización a la aplicación. Después, la aplicación intercambia el código de autorización por un token de acceso. Este método es necesario para obtener el consentimiento inicial que necesita la aplicación para obtener acceso a los datos del espacio empresarial mediante la API, y este primer token de acceso es necesario para obtener y almacenar el id. de espacio empresarial.
+- En el [Flujo de concesión de código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx), un administrador de espacios empresariales concede el consentimiento explícito, que devuelve un código de autorización a la aplicación. Después, la aplicación intercambia el código de autorización por un token de acceso. Este método es necesario para obtener el consentimiento inicial que necesita la aplicación para obtener acceso a los datos del espacio empresarial mediante la API, y este primer token de acceso es necesario para obtener y almacenar el id. de espacio empresarial.
     
-- El [Flujo de concesión de credenciales de cliente](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx) permite a la aplicación solicitar tokens de acceso posteriores cuando expiren los anteriores, sin que sea necesario que el administrador del espacio empresarial inicie sesión y conceda el permiso de manera explícita. Este método tiene que usarse para las aplicaciones que se ejecutan de forma continua en segundo plano mediante llamadas a la API después de conceder el consentimiento inicial del administrador del espacio empresarial.
+- El [Flujo de concesión de credenciales de cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx) permite a la aplicación solicitar tokens de acceso posteriores cuando expiren los anteriores, sin que sea necesario que el administrador del espacio empresarial inicie sesión y conceda el permiso de manera explícita. Este método tiene que usarse para las aplicaciones que se ejecutan de forma continua en segundo plano mediante llamadas a la API después de conceder el consentimiento inicial del administrador del espacio empresarial.
     
 
 ### <a name="request-an-access-token-using-the-authorization-code"></a>Solicitar un token de acceso mediante el código de autorización
@@ -335,7 +335,7 @@ El token de acceso devuelto es un token JWT que contiene información sobre el a
 
 Una vez conocido el id. de espacio empresarial, la aplicación puede realizar llamadas de entre servicios a Azure AD para solicitar tokens de acceso adicionales cuando expiren. Estos tokens solo contienen información sobre la aplicación solicitante, no sobre el administrador que concedió el permiso inicialmente. Para realizar llamadas entre servicios, es necesario que la aplicación use un certificado X.509 para crear la aserción de cliente con el formato de un token de portador JWT con firma SHA256 y con codificación Base 64.
 
-Al desarrollar una aplicación en .NET, puede usar la [Biblioteca de Autenticación de Azure AD (ADAL)](https://docs.microsoft.com/es-ES/azure/active-directory/develop/active-directory-authentication-libraries) para crear aserciones de cliente. Otras plataformas de desarrollo necesitan tener bibliotecas parecidas.
+Al desarrollar una aplicación en .NET, puede usar la [Biblioteca de Autenticación de Azure AD (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) para crear aserciones de cliente. Otras plataformas de desarrollo necesitan tener bibliotecas parecidas.
 
 Un token JWT sin codificar está formado por un encabezado y una carga que contiene las propiedades siguientes.
 

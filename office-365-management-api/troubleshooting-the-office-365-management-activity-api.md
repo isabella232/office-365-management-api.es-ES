@@ -6,12 +6,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: f02088f557a10414539952c78542e09b2dc2d90b
-ms.sourcegitcommit: 37737b849f1b2d0484e626002978b1d4ece2c742
+ms.openlocfilehash: b751c89194407e57c8654a9317b8070ab2918b03
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "35936232"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263292"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de actividad de administración de Office 365
 
@@ -40,7 +40,7 @@ Si la auditoría unificada no está habilitada, normalmente se producirá un err
 
 ## <a name="connecting-to-the-api"></a>Conectarse a la API
 
-La mayoría de las aplicaciones se conectan a la API con un flujo sencillo de OAuth2 de credenciales de cliente. Por lo tanto, el primer paso es crear una aplicación de Azure AD que tenga los permisos necesarios para obtener acceso a los datos de la API de actividad de administración. La explicación de los pasos para crear un registro de aplicación de Azure AD está fuera del ámbito de este artículo. Para obtener más información, vea [Registrar la aplicación con el espacio empresarial de Azure Active Directory](https://docs.microsoft.com/es-ES/azure/active-directory/develop/active-directory-integrating-applications).
+La mayoría de las aplicaciones se conectan a la API con un flujo sencillo de OAuth2 de credenciales de cliente. Por lo tanto, el primer paso es crear una aplicación de Azure AD que tenga los permisos necesarios para obtener acceso a los datos de la API de actividad de administración. La explicación de los pasos para crear un registro de aplicación de Azure AD está fuera del ámbito de este artículo. Para obtener más información, vea [Registrar la aplicación con el espacio empresarial de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 ### <a name="azure-application-permissions"></a>Permisos de aplicación de Azure
 

@@ -6,18 +6,18 @@ ms.ContentId: ''
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9083127d1fd3ecf82e5fe778ba1727d22d91017c
-ms.sourcegitcommit: 784b581a699c6d0ab7939ea621d5ecbea71925ea
+ms.openlocfilehash: 19603e9f22d65c51ee01c9b410c61cb46ca97434
+ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "35924780"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "41263236"
 ---
 # <a name="office-365-management-activity-api-frequently-asked-questions"></a>Preguntas más frecuentes sobre la API de actividad de administración de Office 365
 
 #### <a name="what-events-are-audited-for-a-specific-office-365-service"></a>¿Qué eventos se auditan para un servicio de Office 365 específico?
 
-La documentación del esquema de la API de actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea [Esquema de la API de actividad de administración de Office 365](office-365-management-activity-api-schema.md). Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](https://docs.microsoft.com/en-us/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
+La documentación del esquema de la API de actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea [Esquema de la API de actividad de administración de Office 365](office-365-management-activity-api-schema.md). Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
 
 #### <a name="how-do-i-onboard-to-the-management-activity-api"></a>¿Cómo incorporo la API de actividad de administración?
 
