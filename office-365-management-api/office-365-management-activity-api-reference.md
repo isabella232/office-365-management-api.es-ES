@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: cd08108108db55008d21301bdcce783f79f424b0
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 858829d304c85e3c6658b3f6a1215d923871283a
+ms.sourcegitcommit: 967a95b214c620ca58875af6b5a96e28482c85aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263271"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "41857289"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 
@@ -576,14 +576,14 @@ HTTP/1.1 200 OK
 
 ## <a name="api-throttling"></a>Limitación de API
 
-Cada proveedor que codifica la API tiene una cuota dedicada de limitación de solicitudes de 60 000 por minuto. Para obtener la cuota dedicada, especifique el parámetro PublisherIdentifier en todas las solicitudes. Las solicitudes que tengan el mismo valor PublisherIdentifier compartirán la misma cuota. Todas las solicitudes sin el valor PublisherIdentifier especificado compartirán la misma cuota como el GUID 00000000-0000-0000-0000-000000000000.
+Las organizaciones que tienen acceso a registros de auditoría a través de la API de Actividad de administración de Office 365 se restringieron con límites en el nivel de editor. Esto significa que, para un editor que extrae datos en nombre de varios clientes, todos los clientes han compartido el límite.
 
-Si Office 365 tiene que recurrir a usted para determinados problemas, asegúrese de que la suscripción para el espacio empresarial cuyo GUID se usa como valor PublisherIdentifier es actual y está actualizado con la información de contacto correcta. No hay requisitos de suscripción para este espacio empresarial.
+Estamos cambiando de un límite de nivel de editor a un límite de nivel de espacio empresarial. El resultado es que cada organización obtendrá su propia cuota de ancho de banda completamente asignada para tener acceso a los datos de auditoría. Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. Este no es un límite estático y predefinido, sino que se modela en base a una combinación de factores, incluido el número de puestos en la organización, y que las organizaciones de Office 365 y Microsoft 365 E5 tendrán aproximadamente el doble de ancho de banda que las organizaciones que no son E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
 
-Para los clientes que desarrollan sus propias soluciones con esta API, se recomienda usar el GUID del propio espacio empresarial para evitar la competencia causada por una cuota compartida limitada.
+Para obtener más información, vea la sección "acceso de banda ancha a la API de Actividad de administración de Office 365" en [Auditoría avanzada en Microsoft 365](https://docs.microsoft.com/microsoft-365/compliance/advanced-audit#high-bandwidth-access-to-the-office-365-management-activity-api).
 
 > [!NOTE] 
-> Aunque cada publicador puede enviar hasta 60 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red.  Un publicador puede enviar hasta 60 000 solicitudes por minuto, pero no debe esperar recibir respuestas para todas esas solicitudes en ese mismo minuto. En cualquier caso, si un publicador quiere realizar pruebas de una aplicación cliente, debe hacerlo en todos los entornos en los que planee ejecutarla, ya que los resultados pueden variar de un entorno a otro.
+> Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red. 
 
 ## <a name="errors"></a>Errores
 
