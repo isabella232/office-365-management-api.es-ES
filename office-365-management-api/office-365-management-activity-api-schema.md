@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 7a12fc60894742ebdcc41457930225a4dd9bfc02
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 38905a88f8be1924d0df02f10362caa624b34bd8
+ms.sourcegitcommit: 8aa0be26e0e69dd7908b3bcece3a71eafb973705
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263278"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "42586306"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
  
@@ -73,7 +73,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |Carga de trabajo|Edm.String|No|El servicio de Office 365 en el que se produjo la actividad. 
 |ResultStatus|Edm.String|No|Indica si la acción (especificada en la propiedad Operation) se completó correctamente o no. Los valores posibles son **Succeeded**, **PartiallySucceeded** o **Failed**. Para la actividad de administración de Exchange, el valor es **True** o **False**.<br/><br/>**Importante**: las distintas cargas de trabajo pueden sobrescribir el valor de la propiedad ResultStatus. Por ejemplo, para eventos de inicio de sesión STS de Azure Active Directory, un valor de **Succeeded** para ResultStatus solo indica que la operación HTTP se ha realizado correctamente. No significa que el inicio de sesión se ha realizado correctamente. Para determinar si el inicio de sesión real se ha realizado correctamente o no, vea la propiedad LogonError en el [esquema de inicio de sesión de STS de Azure Active Directory](#azure-active-directory-secure-token-service-sts-logon-schema). Si se produce un error al iniciar sesión, el valor de esta propiedad contendrá el motivo del intento de inicio de sesión incorrecto. |
 |ObjectId|Edm.string|No|Para la actividad de SharePoint y OneDrive para la Empresa, el nombre de la ruta de acceso completo del archivo o carpeta al que obtuvo acceso el usuario. Para el registro de auditoría de Exchange, el nombre del objeto modificado por el cmdlet.|
-|UserId|Edm.string|Sí|El UPN (nombre principal de usuario) del usuario que llevó a cabo la acción (especificado en la propiedad Operation) que ha provocado el registro; por ejemplo, `my_name@my_domain_name`. Tenga en cuenta que también se incluyen los registros de las actividades efectuadas por las cuentas del sistema (como SHAREPOINT\system o NT AUTHORITY\SYSTEM).|
+|UserId|Edm.string|Sí|El UPN (nombre principal de usuario) del usuario que llevó a cabo la acción (especificado en la propiedad Operation) que ha provocado el registro; por ejemplo, `my_name@my_domain_name`. Tenga en cuenta que también se incluyen los registros de las actividades efectuadas por las cuentas del sistema (como SHAREPOINT\system o NT AUTHORITY\SYSTEM). En SharePoint, otro valor que se muestra en la propiedad UserId es app@sharepoint. Esto indica que el "usuario" que llevó a cabo esta actividad era una aplicación que tiene los permisos necesarios en SharePoint para realizar acciones en toda la organización (como buscar en un sitio de SharePoint o en una cuenta de OneDrive) en nombre de un usuario, un administrador o un servicio. Para obtener más información, lea [El usuario app@sharepoint en los registros de auditoría.](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#the-appsharepoint-user-in-audit-records) |
 |ClientIP|Edm.String|Sí|La dirección IP del dispositivo que se ha usado cuando la actividad se ha registrado. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.<br/><br/>Para ciertos servicios, el valor que se visualiza en esta propiedad puede ser la dirección IP de una aplicación de confianza (por ejemplo, Office en las aplicaciones web) que llama al servicio en nombre de un usuario y no la dirección IP del dispositivo utilizado por la persona que realizó la actividad. <br/><br/>También, para eventos relacionados con Azure Active Directory, la dirección IP no se registra y el valor de la propiedad ClientIP está `null`.|
 |Ámbito|Self.[AuditLogScope](#auditlogscope)|No|¿Este evento fue creado por un servicio hospedado de Office 365 o por un servidor local? Los valores posibles son **online** y **onprem**. Observe que SharePoint es la única carga de trabajo que actualmente envía eventos locales a Office 365.|
 |||||
@@ -105,6 +105,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |24|Descubrimiento|Eventos de actividades de eDiscovery realizadas ejecutando búsquedas de contenido y administrando casos de eDiscovery en el Centro de seguridad y cumplimiento.|
 |25|MicrosoftTeams|Eventos de Microsoft Teams.|
 |28|ThreatIntelligence|Eventos de suplantación de identidad y malware de Exchange Online Protection y Protección contra amenazas avanzada de Office 365.|
+|29|MailSubmission|Eventos de envío desde Exchange Online Protection y Protección contra amenazas avanzada de Office 365.|
 |30|MicrosoftFlow|Eventos de Microsoft Power Automate (conocido anteriormente como Microsoft Flow).|
 |31|AeD|Eventos de eDiscovery avanzado.|
 |32|MicrosoftStream|Eventos de Microsoft Stream.|
@@ -124,6 +125,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |55|SharePointContentTypeOperation|Eventos de tipo de contenido de lista de SharePoint.|
 |56|SharePointFieldOperation|Eventos en el campo de lista de SharePoint.|
 |64|AirInvestigation|Eventos de respuesta ante incidentes automatizada (AIR)|
+|65|Cuarentena|Eventos de cuarentena.|
 |66|MicrosoftForms|Eventos de Microsoft Forms.|
 ||||
 
@@ -1264,113 +1266,113 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 
 ### <a name="main-investigation-schema"></a>Esquema de investigación principal 
 
-|Nombre   |Tipo   |Descripción  |
+|Nombre    |Tipo    |Descripción  |
 |----|----|----|
-|InvestigationId    |Edm.String |Identificador de la investigación/GUID |
-|InvestigationName  |Edm.String |Nombre de la investigación |
-|InvestigationType  |Edm.String |Tipo de investigación Puede tomar uno de los siguientes valores:<br/>- Mensajes notificados por el usuario<br/>- Malware purgado automáticamente<br/>- Suplantación de identidad purgada automáticamente<br/>- Cambio de veredicto de dirección URL<p>(Las investigaciones manuales no están disponibles actualmente, pero lo estarán próximamente). |
-|LastUpdateTimeUtc  |Edm.Date   |Hora UTC de la última actualización para una investigación |
-|StartTimeUtc   |Edm.Date   |Hora de inicio de una investigación |
+|InvestigationId    |Edm.String    |Identificador de la investigación/GUID |
+|InvestigationName    |Edm.String    |Nombre de la investigación |
+|InvestigationType    |Edm.String    |Tipo de investigación Puede tomar uno de los siguientes valores:<br/>- Mensajes notificados por el usuario<br/>- Malware purgado automáticamente<br/>- Suplantación de identidad purgada automáticamente<br/>- Cambio de veredicto de dirección URL<p>(Las investigaciones manuales no están disponibles actualmente, pero lo estarán próximamente). |
+|LastUpdateTimeUtc    |Edm.Date    |Hora UTC de la última actualización para una investigación |
+|StartTimeUtc    |Edm.Date    |Hora de inicio de una investigación |
 |Estado     |Edm.String     |Estado de investigación, En ejecución, Acciones pendientes, etc. |
-|DeeplinkURL    |Edm.String |Dirección URL de vínculo profundo de una investigación en el Centro de seguridad y cumplimiento de Office 365 |
-|Acciones |Colección (Edm.String)   |Colección de acciones recomendada por una investigación |
-|Datos   |Edm.String |Cadena de datos que contiene más información sobre las entidades de investigación e información sobre las alertas relacionadas con la investigación. Las entidades están disponibles en un nodo independiente dentro del blob de datos. |
+|DeeplinkURL    |Edm.String    |Dirección URL de vínculo profundo de una investigación en el Centro de seguridad y cumplimiento de Office 365 |
+|Acciones |Colección (Edm.String)    |Colección de acciones recomendada por una investigación |
+|Datos    |Edm.String    |Cadena de datos que contiene más información sobre las entidades de investigación e información sobre las alertas relacionadas con la investigación. Las entidades están disponibles en un nodo independiente dentro del blob de datos. |
 ||||
 
 ### <a name="actions"></a>Acciones
 
-|Field  |Tipo   |Descripción |
+|Field    |Tipo    |Descripción |
 |----|----|----|
-|Id.     |Edm.String |Id. de la acción|
-|ActionType |Edm.String |El tipo de la acción, como la corrección de un correo electrónico |
-|ActionStatus   |Edm.String |Los valores son: <br/>- Pendiente<br/>- En ejecución<br/>- Esperando al recurso<br/>- Completada<br/>- Error |
-|ApprovedBy |Edm.String |Es NULL si se aprueba automáticamente; en caso contrario, el nombre de usuario o el identificador (estará disponible próximamente) |
-|TimestampUtc   |Edm.DateTime   |La marca de tiempo del cambio de estado de la acción |
-|ActionId   |Edm.String |Identificador único de la acción |
-|InvestigationId    |Edm.String |Identificador único de la investigación |
-|RelatedAlertIds    |Collection(Edm.String) |Alertas relacionadas con una investigación |
-|StartTimeUtc   |Edm.DateTime   |Marca de tiempo de creación de la acción |
-|EndTimeUtc |Edm.DateTime   |Marca de tiempo de la actualización del estado final de la acción |
-|Identificadores de recursos   |Edm.String  |Constituido por el Identificador del inquilino de Azure Active Directory|
-|Entidades   |Collection(Edm.String) |Lista de una o más entidades afectadas por acción |
-|Identificadores de alertas relacionadas  |Edm.String |Alerta relacionada con una investigación |
+|Id.     |Edm.String    |Id. de la acción|
+|ActionType    |Edm.String    |El tipo de la acción, como la corrección de un correo electrónico |
+|ActionStatus    |Edm.String    |Los valores son: <br/>- Pendiente<br/>- En ejecución<br/>- Esperando al recurso<br/>- Completada<br/>- Error |
+|ApprovedBy    |Edm.String    |Es NULL si se aprueba automáticamente; en caso contrario, el nombre de usuario o el identificador (estará disponible próximamente) |
+|TimestampUtc    |Edm.DateTime    |La marca de tiempo del cambio de estado de la acción |
+|ActionId    |Edm.String    |Identificador único de la acción |
+|InvestigationId    |Edm.String    |Identificador único de la investigación |
+|RelatedAlertIds    |Collection(Edm.String)    |Alertas relacionadas con una investigación |
+|StartTimeUtc    |Edm.DateTime    |Marca de tiempo de creación de la acción |
+|EndTimeUtc    |Edm.DateTime    |Marca de tiempo de la actualización del estado final de la acción |
+|Identificadores de recursos     |Edm.String     |Constituido por el Identificador del inquilino de Azure Active Directory|
+|Entidades    |Collection(Edm.String)    |Lista de una o más entidades afectadas por acción |
+|Identificadores de alertas relacionadas    |Edm.String    |Alerta relacionada con una investigación |
 ||||
 
 ### <a name="entities"></a>Entidades
 
 #### <a name="mailmessage-email"></a>MailMessage (correo electrónico) 
 
-|Field  |Tipo   |Descripción  |
+|Field    |Tipo    |Descripción  |
 |----|----|----|
-|Tipo   |Edm.String |"mensaje de correo"  |
-|Archivos  |Colección (Self.File) |Más información sobre los archivos de los datos adjuntos de este mensaje |
-|Destinatario  |Edm.String |El destinatario de este mensaje de correo |
-|Direcciones URL   |Collection (self.URL) |Las direcciones URL que contiene este mensaje de correo  |
-|Remitente |Edm.String |La dirección de correo electrónico del remitente  |
-|SenderIP   |Edm.String |La dirección IP del remitente  |
-|ReceivedDate   |Edm.DateTime   |La fecha de recepción de este mensaje  |
-|NetworkMessageId   |Edm.Guid   |El identificador del mensaje de red de este mensaje de correo  |
-|InternetMessageId  |Edm.String  |El identificador de internet de este mensaje de correo |
-|Subject    |Edm.String |El asunto de este mensaje de correo  |
+|Tipo    |Edm.String    |"mensaje de correo"  |
+|Archivos    |Colección (Self.File) |Más información sobre los archivos de los datos adjuntos de este mensaje |
+|Destinatario    |Edm.String    |El destinatario de este mensaje de correo |
+|Direcciones URL    |Collection (self.URL) |Las direcciones URL que contiene este mensaje de correo  |
+|Remitente    |Edm.String    |La dirección de correo electrónico del remitente  |
+|SenderIP    |Edm.String    |La dirección IP del remitente  |
+|ReceivedDate    |Edm.DateTime    |La fecha de recepción de este mensaje  |
+|NetworkMessageId    |Edm.Guid     |El identificador del mensaje de red de este mensaje de correo  |
+|InternetMessageId    |Edm.String  |El identificador de internet de este mensaje de correo |
+|Subject    |Edm.String    |El asunto de este mensaje de correo  |
 ||||
 
 #### <a name="ip"></a>IP
 
-|Field  |Tipo   |Descripción  |
+|Field    |Tipo    |Descripción  |
 |----|----|----|
-|Tipo   |Edm.String |"ip" |
-|Address    |Edm.String |La dirección IP como cadena, tal como `127.0.0.1`
+|Tipo    |Edm.String    |"ip" |
+|Address    |Edm.String    |La dirección IP como cadena, tal como `127.0.0.1`
 ||||
 
 #### <a name="url"></a>URL
 
-|Field  |Tipo   |Descripción  |
+|Field    |Tipo    |Descripción  |
 |----|----|----|
-|Tipo   |Edm.String |"url" |
-|Url    |Edm.String |La dirección URL completa a la que señala una entidad  |
+|Tipo    |Edm.String    |"url" |
+|Url    |Edm.String    |La dirección URL completa a la que señala una entidad  |
 ||||
 
 #### <a name="mailbox-also-equivalent-to-the-user"></a>Buzón de correo (también equivalente al usuario) 
 
-|Field  |Tipo   |Descripción |
+|Field    |Tipo    |Descripción |
 |----|----|----|
-|Tipo   |Edm.String |"mailbox"  |
-|MailboxPrimaryAddress  |Edm.String |La dirección principal del buzón de correo  |
-|DisplayName    |Edm.String |El nombre para mostrar del buzón de correo |
-|Upn    |Edm.String |El UPN del buzón de correo  |
+|Tipo    |Edm.String    |"mailbox"  |
+|MailboxPrimaryAddress    |Edm.String    |La dirección principal del buzón de correo  |
+|DisplayName    |Edm.String    |El nombre para mostrar del buzón de correo |
+|Upn    |Edm.String    |El UPN del buzón de correo  |
 ||||
 
 #### <a name="file"></a>Archivo
 
-|Field  |Tipo   |Descripción  |
+|Field    |Tipo    |Descripción  |
 |----|----|----|
-|Tipo   |Edm.String |"file" |
-|Nombre   |Edm.String |El nombre de archivo sin la ruta de acceso |
-FileHashes |Colección (Edm.String) |Los hash de archivo asociados al archivo |
+|Tipo    |Edm.String    |"file" |
+|Nombre    |Edm.String    |El nombre de archivo sin la ruta de acceso |
+FileHashes |Colección (Edm.String)    |Los hash de archivo asociados al archivo |
 ||||
 
 #### <a name="filehash"></a>FileHash
 
-|Field  |Tipo   |Descripción |
+|Field    |Tipo    |Descripción |
 |----|----|----|
-|Tipo   |Edm.String |"filehash" |
-|Algoritmo  |Edm.String |El tipo de algoritmo de hash, que puede ser uno de estos valores:<br/>- Desconocido<br/>- MD5<br/>- SHA1<br/>- SHA256<br/>- SHA256AC
-|Valor  |Edm.String |El valor del hash  |
+|Tipo    |Edm.String    |"filehash" |
+|Algoritmo    |Edm.String    |El tipo de algoritmo de hash, que puede ser uno de estos valores:<br/>- Desconocido<br/>- MD5<br/>- SHA1<br/>- SHA256<br/>- SHA256AC
+|Valor    |Edm.String    |El valor del hash  |
 ||||
 
 #### <a name="mailcluster"></a>MailCluster
 
-|Field  |Tipo   |Descripción   |
+|Field    |Tipo    |Descripción   |
 |----|----|----|
-|Tipo   |Edm.String |"MailCluster" <br/>Determina el tipo de entidad que se tratará |
-|NetworkMessageIds  |Colección (Edm.String)    |Lista de los identificadores de mensajes de correo que forman parte del clúster de correo |
-|CountByDeliveryStatus  |Colecciones (Edm.String)   |Recuento de mensajes de correo por representación de cadena DeliveryStatus  |
-|CountByThreatType  |Colecciones (Edm.String) |Recuento de mensajes de correo por representación de cadena ThreatType |
-|Amenazas    |Colecciones (Edm.String)   |Las amenazas de los mensajes de correo que forman parte del clúster de correo. Entre las amenazas se incluyen valores como Phish y Malware. |
-|Consulta  |Edm.String |La consulta que se usó para identificar los mensajes del clúster de correo electrónico  |
-|QueryTime  |Edm.DateTime   |La hora de la consulta  |
-|MailCount  |Edm.Int    |El número de mensaje de correo que forman parte del clúster de correo.  |
-|Origen |String |El origen del clúster de correo; el valor del origen del clúster. |
+|Tipo    |Edm.String    |"MailCluster" <br/>Determina el tipo de entidad que se tratará |
+|NetworkMessageIds    |Colección (Edm.String)    |Lista de los identificadores de mensajes de correo que forman parte del clúster de correo |
+|CountByDeliveryStatus    |Colecciones (Edm.String)    |Recuento de mensajes de correo por representación de cadena DeliveryStatus  |
+|CountByThreatType    |Colecciones (Edm.String) |Recuento de mensajes de correo por representación de cadena ThreatType |
+|Amenazas    |Colecciones (Edm.String)    |Las amenazas de los mensajes de correo que forman parte del clúster de correo. Entre las amenazas se incluyen valores como Phish y Malware. |
+|Consulta    |Edm.String    |La consulta que se usó para identificar los mensajes del clúster de correo electrónico  |
+|QueryTime    |Edm.DateTime    |La hora de la consulta  |
+|MailCount    |Edm.Int    |El número de mensaje de correo que forman parte del clúster de correo.  |
+|Origen    |String    |El origen del clúster de correo; el valor del origen del clúster. |
 ||||
 
 ## <a name="power-bi-schema"></a>Esquema de Power BI
