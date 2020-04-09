@@ -6,21 +6,21 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 38905a88f8be1924d0df02f10362caa624b34bd8
-ms.sourcegitcommit: 8aa0be26e0e69dd7908b3bcece3a71eafb973705
+ms.openlocfilehash: 2ce104849e7aeafcb12bf25720548a84a5ea73f4
+ms.sourcegitcommit: 2c592abf7005b4c73311ea9a4d1804994084bca4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "42586306"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "42941477"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
- 
+
 El esquema de la API de Actividad de administración de Office 365 se proporciona como un servicio de datos en dos niveles:
 
 - **Esquema común**. La interfaz de acceso principal de Office 365 audita conceptos como el tipo de registro, la hora de creación, el tipo de usuario y la acción, y también proporciona información específica de la ubicación (como la dirección IP del cliente), las dimensiones principales (como el id. de usuario) y las propiedades específicas del producto (como el id. de objeto). Establece vistas coherentes y uniformes para que los usuarios extraigan todos los datos de auditoría de Office 365 en varias vistas de nivel superior con los parámetros adecuados, y proporciona un esquema fijo para todos los orígenes de datos, lo que reduce significativamente el costo de aprendizaje. El esquema común tiene origen en los datos del producto que pertenecen a cada equipo de producto, como Exchange, SharePoint, Azure Active Directory, Yammer y OneDrive para la Empresa. Los equipos de producto pueden ampliar el campo Id. de objeto para agregar propiedades específicas del producto.
-    
+
 - **Esquema específico del producto**. Basado en el esquema común para proporcionar un conjunto de atributos específicos del producto; por ejemplo, esquemas de Sway, esquemas de SharePoint, esquemas de OneDrive para la Empresa y esquemas de administración de Exchange.
-    
+
 **¿Qué nivel debería utilizar para su escenario?**
 En general, si los datos están disponibles en un nivel superior, no debe volver a un nivel inferior. Es decir, si se ajusta el requisito de datos en un esquema específico de producto, no es necesario volver al esquema común. 
 
@@ -51,9 +51,10 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de cmdlet de seguridad del centro de datos](#data-center-security-cmdlet-schema)|Amplía el esquema base de seguridad de centro de datos con las propiedades específicas para todos los datos de auditoría cmdlet de seguridad del centro de datos.|
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
 |[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
-|[Eventos de investigación y respuesta automatizada](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR).|
+|[Esquema de eventos de investigación y respuesta automatizada](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR).|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
-|[Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
+|[Esquema de Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
+|[Esquema de cuarentena](#quarantine-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de cuarentena.|
 |[Esquema de Microsoft Forms](#microsoft-forms-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Forms.|
 |||
 
@@ -1421,6 +1422,38 @@ Los eventos de Workplace Analytics que aparecen en [Buscar el registro de audito
 | OperationDetails   | Colección (Common.NameValuePair)    | No | Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Name** y un **Value**.|
 ||||
 
+## <a name="quarantine-schema"></a>Esquema de cuarentena
+
+Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#quarantine-activities) usarán este esquema. Para obtener más información sobre la cuarentena, vea [Mensajes de correo electrónico en cuarentena en Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/quarantine-email-messages).
+
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+|RequestType|Self.[RequestType](#enum-requesttype---type-edmint32)|No|El tipo de solicitud de cuarentena que realizó un usuario.|
+|RequestSource|Self.[RequestSource](#enum-requestsource---type-edmint32)|No|El origen de la solicitud de cuarentena puede ser el centro seguridad y cumplimento (SCC), un cmdlet o un URLlink.|
+|NetworkMessageId|Edm.String|No|El ID. de mensaje de red del mensaje de correo electrónico en cuarentena.|
+|ReleaseTo|Edm.String|No|El destinatario del mensaje de correo electrónico.|
+|||||
+
+### <a name="enum-requesttype---type-edmint32"></a>Enum: RequestType - Tipo: Edm.Int32
+
+|**Valor**|**Nombre del miembro**|**Descripción**|
+|:-----|:-----|:-----|
+|0|Preview|Solicitud de un usuario para obtener una vista previa de un mensaje de correo electrónico que se considera peligroso.|
+|1|Delete|Solicitud de un usuario para eliminar un mensaje de correo electrónico que se considera peligroso.|
+|2|Release|Solicitud de un usuario para liberar un mensaje de correo electrónico que se considera peligroso.|
+|3|Export|Solicitud de un usuario para exportar un mensaje de correo electrónico que se considera peligroso.|
+|4|ViewHeader|Solicitud de un usuario para ver el encabezado un mensaje de correo electrónico que se considera peligroso.|
+||||
+
+### <a name="enum-requestsource---type-edmint32"></a>Enum: RequestSource - Tipo: Edm.Int32
+
+|**Valor**|**Nombre del miembro**|**Descripción**|
+|:-----|:-----|:-----|
+|0|SCC|El centro de seguridad y cumplimento (SCC) es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado de un mensaje de correo electrónico potencialmente peligroso. |
+|1|Cmdlet|Un cmdlet es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado de un mensaje de correo electrónico potencialmente peligroso.|
+|2|URLlink|Este es un origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado del mensaje de correo electrónico potencialmente peligroso.|
+||||
+
 ## <a name="microsoft-forms-schema"></a>Esquema de Microsoft Forms
 
 Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#microsoft-forms-activities) utilizarán este esquema.
@@ -1457,3 +1490,4 @@ Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría
 |1|Cuestionario|Cuestionarios creados con la opción Nuevo cuestionario.  Un cuestionario es un tipo especial de formulario que incluye características adicionales, como valores de puntuación, calificación automática y manual, y comentarios.|
 |2|Encuesta|Encuestas creadas con la opción Nueva encuesta.  Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
 ||||
+
