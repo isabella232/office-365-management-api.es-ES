@@ -51,7 +51,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de cmdlet de seguridad del centro de datos](#data-center-security-cmdlet-schema)|Amplía el esquema base de seguridad de centro de datos con las propiedades específicas para todos los datos de auditoría cmdlet de seguridad del centro de datos.|
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
 |[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
-|[Esquema de eventos de investigación y respuesta automatizada](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR).|
+|[Esquema de eventos de investigación y respuesta automatizados](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR).|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 |[Esquema de Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
 |[Esquema de cuarentena](#quarantine-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de cuarentena.|
@@ -1429,8 +1429,8 @@ Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en e
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |RequestType|Self.[RequestType](#enum-requesttype---type-edmint32)|No|El tipo de solicitud de cuarentena que realizó un usuario.|
-|RequestSource|Self.[RequestSource](#enum-requestsource---type-edmint32)|No|El origen de la solicitud de cuarentena puede ser el centro seguridad y cumplimento (SCC), un cmdlet o un URLlink.|
-|NetworkMessageId|Edm.String|No|El ID. de mensaje de red del mensaje de correo electrónico en cuarentena.|
+|RequestSource|Self.[RequestSource](#enum-requestsource---type-edmint32)|No|El origen de la solicitud de cuarentena puede ser el Centro de seguridad y cumplimento (SCC), un cmdlet o un URLlink.|
+|NetworkMessageId|Edm.String|No|El id. de mensaje de red del mensaje de correo electrónico en cuarentena.|
 |ReleaseTo|Edm.String|No|El destinatario del mensaje de correo electrónico.|
 |||||
 
@@ -1449,9 +1449,9 @@ Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en e
 
 |**Valor**|**Nombre del miembro**|**Descripción**|
 |:-----|:-----|:-----|
-|0|SCC|El centro de seguridad y cumplimento (SCC) es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado de un mensaje de correo electrónico potencialmente peligroso. |
-|1|Cmdlet|Un cmdlet es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado de un mensaje de correo electrónico potencialmente peligroso.|
-|2|URLlink|Este es un origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa, eliminar, liberar, exportar o ver el encabezado del mensaje de correo electrónico potencialmente peligroso.|
+|0|SCC|El centro de seguridad y cumplimento (SCC) es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa del encabezado de un mensaje de correo electrónico potencialmente peligroso, eliminarlo, liberarlo, exportarlo o verlo. |
+|1|Cmdlet|Un cmdlet es el origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa del encabezado de un mensaje de correo electrónico potencialmente peligroso, eliminarlo, liberarlo, exportarlo o verlo.|
+|2|URLlink|Este es un origen desde el que se puede crear la solicitud de un usuario para obtener una vista previa del encabezado de un mensaje de correo electrónico potencialmente peligroso, eliminarlo, liberarlo, exportarlo o verlo.|
 ||||
 
 ## <a name="microsoft-forms-schema"></a>Esquema de Microsoft Forms
