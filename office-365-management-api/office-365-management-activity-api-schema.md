@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 2ce104849e7aeafcb12bf25720548a84a5ea73f4
-ms.sourcegitcommit: 2c592abf7005b4c73311ea9a4d1804994084bca4
+ms.openlocfilehash: 9349640ed08182883e115e548ffe2480e141aa89
+ms.sourcegitcommit: a9a865f5500183dad00598bf372fc991a95f8d61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "42941477"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "43721291"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -120,7 +120,9 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |44|WorkplaceAnalytics|Eventos de Workplace Analytics.|
 |45|PowerAppsApp|Eventos de Power Apps.|
 |47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
+|48|LabelContentExplorer|Eventos relacionados con el [explorador de contenido de clasificación de datos](https://docs.microsoft.com/microsoft-365/compliance/data-classification-content-explorer).|
 |49|TeamsHealthcare|Eventos relacionados con la [aplicación Pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) en Microsoft Teams para asistencia sanitaria.|
+|51|HygieneEvent|Eventos relacionados con [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).|
 |52|DataInsightsRestApiAudit|Perspectiva sobre los datos de los eventos API de REST.|
 |54|SharePointListItemOperation|Eventos en la lista de SharePoint.|
 |55|SharePointContentTypeOperation|Eventos de tipo de contenido de lista de SharePoint.|
@@ -156,7 +158,6 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |0|Online|Este evento fue creado por un servicio hospedado de O365.|
 |1|Onprem|Este evento fue creado por un servidor local.|
 ||||
-
 
 ## <a name="sharepoint-base-schema"></a>Esquema base de SharePoint
 
@@ -970,7 +971,7 @@ Los eventos de Sway que aparecen en [Buscar el registro de auditoría en el Cent
 
 |**Valor**|**Nombre del miembro**|**Descripción**|
 |:-----|:-----|:-----|
-|1|Create|El usuario crea un Sway.|
+|1|Crear|El usuario crea un Sway.|
 |2|Delete|El usuario elimina un Sway.|
 |3|View|El usuario ve un Sway.|
 |4|Edit|El usuario edita un Sway.|
@@ -1165,7 +1166,9 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |12|Antimalware, ZAPM| La acción de directiva de malware en la Directiva antimalware que se aplica a la purga automática de cero horas (ZAP).|
 |13|Anti-phish, ZAPP| La acción política en la política antiphish aplicada a ZAP.|
 |14|Anti-phish, ZAPS| La acción de la directiva de correo no deseado en la directiva contra correo no deseado aplicada a ZAP.|
-
+|15|Filtro de correo no deseado, correo electrónico de suplantación de identidad de alta confianza (HPHISH)|Acción de correo electrónico de suplantación de identidad de alta confianza en la Directiva contra correo no deseado.|
+|17|Filtro de correo no deseado, Directiva de correo no deseado saliente (OSPM)|Acción de directiva en la directiva de filtro de correo no deseado saliente en filtro de correo electrónico no deseado.|
+||||
 
 ### <a name="enum-policyaction---type-edmint32"></a>Enum: PolicyAction - Type: Edm.Int32
 
