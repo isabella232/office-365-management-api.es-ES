@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 7a636bcdf86dd4513d7ea7809066b5becb68de83
-ms.sourcegitcommit: 9d32000d9b9af3f008d93745379697bc74e4703c
+ms.openlocfilehash: 8f44ae4d9f4b1eff3ab6de195392458aab6ee2ce
+ms.sourcegitcommit: ebf6973abd2f4c9b88e4297cd08d06dd2a62976f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "43785568"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "43939112"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -56,6 +56,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
 |[Esquema de cuarentena](#quarantine-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de cuarentena.|
 |[Esquema de Microsoft Forms](#microsoft-forms-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Forms.|
+|[Esquema de etiqueta MIP](#mip-label-schema)|Amplía el esquema común con las propiedades específicas para las etiquetas de confidencialidad que se aplican manual o automáticamente a los mensajes de correo electrónico.|
 |||
 
 ## <a name="common-schema"></a>Esquema común
@@ -117,6 +118,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |40|SecurityComplianceAlerts|Señales de alertas de seguridad y cumplimiento.|
 |41|ThreatIntelligenceUrl|Vínculos seguros de tiempo de bloqueo y eventos de invalidación de bloqueo de la Protección contra amenazas avanzada de Office 365.|
 |42|SecurityComplianceInsights|Eventos relacionados con las perspectivas e informes en el centro de seguridad y cumplimiento de Office 365.|
+|43|MIPLabel|Eventos relacionados con la detección en la canalización de Transporte de mensajes de correo electrónico que se han etiquetado (manual o automáticamente) con etiquetas de confidencialidad. |
 |44|WorkplaceAnalytics|Eventos de Workplace Analytics.|
 |45|PowerAppsApp|Eventos de Power Apps.|
 |47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
@@ -1494,3 +1496,24 @@ Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría
 |2|Encuesta|Encuestas creadas con la opción Nueva encuesta.  Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
 ||||
 
+## <a name="mip-label-schema"></a>Esquema de etiqueta MIP
+
+Los eventos del esquema de etiquetas de Microsoft Information Protection (MIP) se activan cuando Microsoft 365 detecta un mensaje de correo procesado por agentes en la canalización de transporte a la que se ha aplicado una etiqueta de confidencialidad. Es posible que la etiqueta de confidencialidad se haya aplicado manual o automáticamente, y puede que se haya aplicado dentro o fuera de la canalización de transporte. Las etiquetas de confidencialidad se pueden aplicar automáticamente a los mensajes de correo electrónico mediante directivas de etiqueta de aplicación automática.
+
+El propósito de este esquema de auditoría es representar la suma de todas las actividades de correo electrónico que impliquen etiquetas de confidencialidad. Es decir, debe haber una actividad de auditoría registrada para cada mensaje de correo electrónico que se envía a o desde los usuarios de la organización que tienen una etiqueta de confidencialidad aplicada, independientemente de cuándo o cómo se aplicó la etiqueta de confidencialidad. Para más información sobre las etiquetas de confidencialidad, vea:
+
+- [Información sobre las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels)
+
+- [Aplicar una etiqueta de confidencialidad automáticamente al contenido](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically)
+
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+|Remitente|Edm.String|No|La dirección de correo electrónico en el campo De del mensaje de correo electrónico.|
+|Receptores|Collection(Edm.String)|No|Todas las direcciones de correo electrónico en los campos Para, CC y CCO del mensaje de correo electrónico.|
+|NombreElemento|Edm.String|No|La cadena en el campo Asunto del mensaje de correo electrónico.|
+|LabelId|Edm.Guid|No|El GUID de la etiqueta de confidencialidad aplicada al mensaje de correo electrónico.|
+|LabelName|Edm.String|No|El nombre de la etiqueta de confidencialidad aplicada al mensaje de correo electrónico.|
+|LabelAction|Edm.String|No|Las acciones especificadas por la etiqueta de confidencialidad que se aplicaron al mensaje de correo electrónico antes de que el mensaje entrara a la canalización de transporte de correo.|
+|LabelAppliedDateTime|Edm.Date|No|La fecha en la que se aplicó la etiqueta de confidencialidad al mensaje de correo electrónico.|
+|ApplicationMode|Edm.String|No|Especifica cómo se aplicó la etiqueta de confidencialidad al mensaje de correo electrónico. El valor **Privileged** indica que un usuario ha aplicado manualmente la etiqueta. El valor **Standard** indica que la etiqueta se aplicó automáticamente por un proceso de etiquetado del lado del cliente o del servicio.|
+|||||
