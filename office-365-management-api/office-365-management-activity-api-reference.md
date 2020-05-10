@@ -6,12 +6,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 858829d304c85e3c6658b3f6a1215d923871283a
-ms.sourcegitcommit: 967a95b214c620ca58875af6b5a96e28482c85aa
+ms.openlocfilehash: 48065e1770e485ffa04778d662a170ae14916354
+ms.sourcegitcommit: d55928a0d535090fa2dbe94f38c7316d0e52e9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "41857289"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "44173144"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 
@@ -57,14 +57,29 @@ Después de crear una suscripción, puede sondear periódicamente para detectar 
 
 ## <a name="activity-api-operations"></a>Operaciones de la API de Actividad
 
-Todas las operaciones de API están orientadas a un único espacio empresarial y la dirección URL raíz de la API incluye un identificador de espacio empresarial que especifica el contexto del espacio empresarial. El identificador de espacio empresarial es un GUID. Para obtener información sobre cómo conseguir el GUID, vea [Get started with Office 365 Management APIs](get-started-with-office-365-management-apis.md) (Introducción a las API de administración de Office 365).
+Todas las operaciones de API están orientadas a un único espacio empresarial y la dirección URL raíz de la API incluye un identificador de espacio empresarial que especifica el contexto del espacio empresarial. El identificador de espacio empresarial es un GUID. Para obtener información sobre cómo conseguir el GUID, vea [Get started with Office 365 Management APIs](get-started-with-office-365-management-apis.md) (Introducción a las API de administración de Office 365). 
 
+Como las notificaciones que se envían al webhook incluyen el identificador de espacio empresarial, puede usar el mismo webhook para recibir notificaciones para todos los espacios empresariales.
+
+La URL del punto de conexión de la API que use está basada en el tipo de plan de suscripción de Microsoft 365 u Office 365 de su organización.
+
+**Plan de Empresa y plan de Administración pública GCC**
 
 ```http
 https://manage.office.com/api/v1.0/{tenant_id}/activity/feed/{operation}
 ```
 
-Como las notificaciones que se envían al webhook incluyen el **identificador de espacio empresarial**, puede usar el mismo webhook para recibir notificaciones para todos los espacios empresariales.
+**Plan de Administración pública GCC High**
+
+```http
+https://manage.office365.us/api/v1.0/{tenant_id}/activity/feed/{operation}
+```
+
+**Plan de Administración pública DoD**
+
+```http
+https://manage.protection.apps.mil/api/v1.0/{tenant_id}/activity/feed/{operation}
+```
 
 Todas las operaciones de API requieren un encabezado de autorización HTTP con un token de acceso obtenido de Azure AD. El identificador de espacio empresarial en el token de acceso debe coincidir con el de la dirección URL raíz de la API y el token de acceso debe contener la notificación ActivityFeed.Read (que se corresponde con el permiso [Leer datos de actividad de la organización] que ha configurado para la aplicación en Azure AD).
 
