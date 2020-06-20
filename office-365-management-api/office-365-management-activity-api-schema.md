@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 882967c45d8cee813ec1abb6064258e49a98a1e0
-ms.sourcegitcommit: 91db29fbd6695c92ca5e5647b336d8f10ca267bb
+ms.openlocfilehash: 311fbfedbef52c12f40bc275b66acd5f791e1b47
+ms.sourcegitcommit: 18a48948fb8973efd51e29a1287c1b130bcff44b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "44407444"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "44803454"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -861,11 +861,13 @@ Las señales de alerta son:
 - Todas las alertas basadas en [directivas de alerta en el centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/alert-policies#default-alert-policies).
 - Alertas relacionadas con Office 365 generadas en [Office 365 Cloud App Security](https://docs.microsoft.com/office365/securitycompliance/office-365-cas-overview) y [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).
 
-Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay dos tipos de señales de alerta que se almacenan como el valor de la propiedad Operation del esquema común:
+Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay tres tipos de eventos de alerta que se almacenan como el valor de la propiedad Operation del esquema común:
 
 - AlertTriggered: una nueva alerta se genera debido a una coincidencia de directiva.
 
-- AlertEntityGenerated: una nueva entidad se agrega a una alerta. Este evento solo es aplicables a las alertas generadas en base a directivas de alerta en el Centro de seguridad y cumplimiento de Office 365. Cada alerta generada puede estar asociada con uno o varios de estos eventos. Por ejemplo, una directiva de alerta está definida para desencadenar una alerta si un usuario elimina más de 100 archivos en 5 minutos. Si dos usuarios superan el umbral aproximadamente al mismo tiempo, habrá dos eventos AlertEntityGenerated, pero solo un evento AlertTriggered.
+- AlertEntityGenerated: una nueva entidad se agrega a una alerta. Este evento solo es aplicable a las alertas generadas en función de las directivas de alerta en el centro de seguridad y cumplimiento. Cada alerta generada puede estar asociada con uno o varios de estos eventos. Por ejemplo, una directiva de alerta está definida para desencadenar una alerta si un usuario elimina más de 100 archivos en 5 minutos. Si dos usuarios superan el umbral aproximadamente al mismo tiempo, habrá dos eventos AlertEntityGenerated, pero solo un evento AlertTriggered.
+
+- AlertUpdated: se ha realizado una actualización de los metadatos de una alerta. Este evento se registra cuando se cambia el estado de una alerta (por ejemplo, de "activo" a "resuelto") y cuando alguien agrega un comentario a la alerta.
 
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
@@ -1153,7 +1155,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 
 |**Valor**|**Nombre del miembro**|**Descripción**|
 |:-----|:-----|:-----|
-|1|Anti-spam, HSPM|Acción de correo no deseado de alta confianza (HSPM) en la Directiva contra correo no deseado.|
+|1 |Anti-spam, HSPM|Acción de correo no deseado de alta confianza (HSPM) en la Directiva contra correo no deseado.|
 |segundo|Anti-spam, SPM|Acción de correo no deseado (SPM) en la Directiva contra correo no deseado.|
 |3|Anti-spam, Bulk|Acción masiva en la Directiva contra correo no deseado.|
 |4 |Anti-spam, PHSH|Acción de suplantación de identidad (PHSH) en la Directiva contra correo no deseado.|
@@ -1445,7 +1447,7 @@ Los registros de auditoría para eventos relacionados con aplicaciones controlad
 |ItemUrl|Edm.String|No|La dirección URL del registro que emite el registro.|
 |ItemType|Edm.String|No|Naame de la entidad.|
 |UserAgent|Edm.String|No|El identificador único del GUID de usuario en la organización.|
-|Campos|Collection(Common.NameValuePair)|No|Un objeto JSON que contiene los pares clave-valor de propiedad que se crearon o actualizaron.|
+|Fields|Collection(Common.NameValuePair)|No|Un objeto JSON que contiene los pares clave-valor de propiedad que se crearon o actualizaron.|
 |||||
 
 ### <a name="dynamics-365-entity-operation-schema"></a>Esquema de operación de la entidad Dynamics 365
@@ -1456,7 +1458,7 @@ Los eventos de entidad de las aplicaciones controladas por modelo en Dynamics 36
 |:------------------ | :------------------ | :--------------|:--------------|
 |EntityId|Edm.Guid|No|El identificador único de la entidad.|
 |EntityName|Edm.String|Sí|El nombre de la entidad de la organización. Por ejemplo, las entidades incluyen `contact` o `authentication` .|
-|Mensaje|Edm.String|Sí|Este parámetro contiene la operación que se realizó en relacionada con la entidad. Por ejemplo, si se creó un nuevo contacto, el valor de la propiedad Message es `Create` y el valor correspondiente de la propiedad EntityName es `contact` .|
+|Message|Edm.String|Sí|Este parámetro contiene la operación que se realizó en relacionada con la entidad. Por ejemplo, si se creó un nuevo contacto, el valor de la propiedad Message es `Create` y el valor correspondiente de la propiedad EntityName es `contact` .|
 |Consulta|Edm.String|No|Los parámetros de la consulta de filtro que se usó al ejecutar la operación FetchXML.|
 |PrimaryFieldValue|Edm.String|No|Indica el valor del atributo que es el campo principal de la entidad.|
 |||||
