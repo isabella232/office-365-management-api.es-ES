@@ -6,12 +6,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 0552456c2340ad170355953e274a455ff681e2c9
-ms.sourcegitcommit: d55928a0d535090fa2dbe94f38c7316d0e52e9a9
+ms.openlocfilehash: 459143049732df246edf4877551ca2dd8f7cbafe
+ms.sourcegitcommit: 745a6e43dc3a9849897a5b57eadb3e7c57511c6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "44173137"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "45083718"
 ---
 # <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de actividad de administración de Office 365
 
@@ -288,15 +288,3 @@ Los blobs de contenido están disponibles durante siete días después de la dis
 #### <a name="if-there-is-a-24-hour-delay-in-getting-a-notification-doesnt-that-mean-i-will-have-only-6-days-to-retrieve-the-content-blob"></a>Si se produce un retraso de 24 horas al obtener una notificación, ¿no quiere decir que solo dispondré de seis días para recuperar el blob de contenido?
 
 No. Incluso si la notificación se retrasa durante un período inusualmente largo (por ejemplo, en el caso de una interrupción del servicio), seguiría disponiendo de siete días después de la primera disponibilidad de la notificación para descargar el blob de contenido relacionado con el evento original.
-
-
-
-
-
-
-
-
-
-
-
-
