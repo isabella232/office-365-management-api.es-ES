@@ -6,12 +6,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: f444aa9411e0520be42ce68b2f618efe5228ac75
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: c0c7f69fcb879879244b5e51768f91ea2472faad
+ms.sourcegitcommit: a85b79e8586ae83ecbf30de808c4df90e839536b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263243"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "46612298"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introducción a las API de administración de Office 365
 
@@ -28,7 +28,6 @@ Hay cuatro pasos principales:
 4. **Llamar a las API de administración de Office 365**. Los tokens de acceso solo de aplicación se pasan a las API de administración de Office 365 para autenticar y autorizar la aplicación.
     
 En el diagrama siguiente, se muestra la secuencia de solicitudes de tokens de acceso y consentimiento.
-
 
 ![Flujo de autorización de introducción a las API de administración](images/authorization-flow.png)
 
@@ -329,7 +328,6 @@ El token de acceso devuelto es un token JWT que contiene información sobre el a
   "acr": "1"
 }
 ```
-
 
 ### <a name="request-an-access-token-by-using-client-credentials"></a>Solicitar un token de acceso mediante las credenciales del cliente
 
