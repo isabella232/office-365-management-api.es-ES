@@ -6,12 +6,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: f4c35fc343593c0d61ae29b43a58db66ebf2185f
-ms.sourcegitcommit: 1047f1e1d17d873918790ff1fc6d7adcc75ab2bc
+ms.openlocfilehash: 01ca346835edc94007d90db0a85d20a9bc5b945e
+ms.sourcegitcommit: a4ba198b7417e49880905e49a38d0bd1f4ad8802
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "46672895"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "47334884"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -50,7 +50,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |[Esquema de cmdlet de seguridad del centro de datos](#data-center-security-cmdlet-schema)|Amplía el esquema base de seguridad de centro de datos con las propiedades específicas para todos los datos de auditoría cmdlet de seguridad del centro de datos.|
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
 |[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
-|[Esquema de eventos de investigación y respuesta automatizados](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR).|
+|[Esquema de eventos de investigación y respuesta automatizados](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para eventos de investigación y respuesta automatizada de Office 365 (AIR). Para ver un ejemplo, consulte el [blog de la Tech Community: mejorar la efectividad de su SOC con ATP de Office 365 y la API de administración de O365](https://techcommunity.microsoft.com/t5/microsoft-security-and/improve-the-effectiveness-of-your-soc-with-office-365-atp-and/ba-p/1525185).|
 |[Esquema de eventos de higiene](#hygiene-events-schema)|Amplía el esquema común con las propiedades específicas de los eventos en Exchange Online Protection y Advanced Threat Protection.|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 |[Esquema de Dynamics 365](#dynamics-365-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Dynamics 365.|
