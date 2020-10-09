@@ -1,4 +1,5 @@
 ---
+ms.technology: o365-service-communications
 ms.TocTitle: Office 365 Management APIs overview
 title: Información general de las API de administración de Office 365
 description: Proporciona una plataforma de extensibilidad única para todas las tareas de administración de los clientes y partners de Office 365, entre las que se incluyen las comunicaciones, la seguridad, el cumplimiento, la generación de informes y la auditoría de servicios.
@@ -6,12 +7,12 @@ ms.ContentId: 4fca85f9-efa6-3b4b-b10d-a07cb31f803f
 ms.topic: reference (API)
 ms.date: 09/28/2016
 localization_priority: Priority
-ms.openlocfilehash: 88b7e590d769699ed186d7cecaf80e162d79a095
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 4f0e9414b1f2691f43a8b79e92e39bc589beeb89
+ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263285"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "48397464"
 ---
 # <a name="office-365-management-apis-overview"></a>Información general de las API de administración de Office 365
 

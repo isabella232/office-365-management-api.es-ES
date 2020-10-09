@@ -1,4 +1,5 @@
 ---
+ms.technology: o365-service-communications
 ms.TocTitle: Office 365 Management APIs
 title: Le damos la bienvenida a las API de administración de Office 365
 description: Las API de administración de Office 365 proporcionan una plataforma de extensibilidad única para todas las tareas de administración de los clientes y partners de Office 365, entre las que se incluyen las comunicaciones, la seguridad, el cumplimiento, la generación de informes y la auditoría de servicios.
@@ -6,12 +7,12 @@ ms.ContentId: a11a6d30-f6b7-3629-28b6-cbab527d8a5e
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c070ecdbea68702124b14442bc563f0e363d34e7
-ms.sourcegitcommit: 36d0167805d24bbb3e2cf1a02d0f011270cc31cb
+ms.openlocfilehash: 4912388e05b3ff443a78505cc54238455a2ecf36
+ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "41263229"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "48397422"
 ---
 # <a name="welcome-to-office-365-management-apis"></a>Le damos la bienvenida a las API de administración de Office 365
 
@@ -25,8 +26,7 @@ Las API de administración de Office 365 proporcionan una plataforma de extensib
 - [Referencia de las API de Actividad de administración de Office 365](office-365-management-activity-api-reference.md)
 - [Esquema de la API de Actividad de administración de Office 365](office-365-management-activity-api-schema.md)
 - [Solución de problemas de la API de Actividad de administración de Office 365](troubleshooting-the-office-365-management-activity-api.md)
-- [Preguntas más frecuentes sobre la API de actividad de administración de Office 365](office-365-management-activity-api-faq.md)
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Consulte también
 
 - [API de REST de Office 365](https://docs.microsoft.com/previous-versions/office/office-365-api/how-to/platform-development-overview)
