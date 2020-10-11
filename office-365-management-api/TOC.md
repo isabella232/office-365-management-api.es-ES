@@ -4,5 +4,4 @@
 ## [API de comunicaciones de servicio](office-365-service-communications-api-reference.md)
 ## [Referencia de las API de actividad de administración](office-365-management-activity-api-reference.md)
 ## [Esquema de la API de Actividad de administración](office-365-management-activity-api-schema.md)
-## [Solución de problemas de la API de Actividad de administración](troubleshooting-the-office-365-management-activity-api.md)
-## [Preguntas más frecuentes sobre la API de actividad de administración](office-365-management-activity-api-faq.md)
+## [Preguntas más frecuentes y solución de problemas sobre la API de actividad de administración](troubleshooting-the-office-365-management-activity-api.md)
