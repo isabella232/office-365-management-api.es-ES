@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 323407799cefe74b331dec01bb746971c41b5adf
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 218c0517697f1d71b1557f3b55a4c184fb52ec54
+ms.sourcegitcommit: c9cb078e6c94bcf0bb28cb0fffef39302ec8c197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397436"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "48425622"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -26,53 +26,45 @@ La API de actividad de administración no tiene que confundirse con la API de co
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-activity-api"></a>Preguntas más frecuentes sobre la API de Actividad de administración de Office 365
 
-**¿Cuál es el máximo de tiempo que tendré que esperar antes de que se envíe una notificación sobre un evento específico de Office 365?**
-
-No hay ninguna latencia máxima garantizada para la entrega de notificaciones (es decir, no existe un contrato de nivel de servicio). Según la experiencia del Soporte técnico de Microsoft, la mayoría de las notificaciones se enviaron en un plazo de una hora del evento. Con frecuencia, la latencia es mucho más breve, pero también puede ser más larga. Esto varía según la carga de trabajo; pero, como norma general, la mayoría de las notificaciones se entregarán en un plazo de 24 horas desde que se produjo el evento original.
-
-**¿Las notificaciones de webhook son más inmediatas? Después de todo, ¿no están controlados por eventos?**
-
-No.Las notificaciones de webhook no están controladas por eventos en el sentido de que el evento desencadena la notificación. Sigue siendo necesario crear el blob de contenido, y la creación del valor de contenido es lo que desencadena la entrega de notificaciones. Recientemente, se produjeron tiempos de espera más largos para las notificaciones al usar un webhook, en comparación con las consultas a la API realizadas directamente con la operación /content. Por lo tanto, la API de actividad de administración no tiene que considerarse un sistema de alertas de seguridad en tiempo real. Microsoft ofrece otros productos para eso. En relación con la seguridad, las notificaciones de eventos de la API de actividad de administración pueden ser más apropiadas cuando se usan para determinar patrones de uso en períodos prolongados.
-
-**¿Puedo realizar consultas a la API de actividad de administración para un id. de evento o elemento RecordType específicos, o bien otras propiedades del blob de contenido?**
-
-No.No piense que los datos disponibles mediante la API de actividad de administración se “registran” en el sentido tradicional. En su lugar, piense en esto como un volcado de los detalles del evento. Tiene que decidir si quiere recopilar todos los detalles de los eventos, almacenarlos e indexarlos localmente y, después, implementar su propia lógica de consulta con una aplicación personalizada o una herramienta de terceros.
-
-**¿Cómo sé que los datos que provienen de mi solución de auditoría existente, que recopila datos de la API de actividad de administración, son precisos y completos?**
-
-La respuesta breve es que Microsoft no ofrece ningún tipo de registro que le permita realizar una comprobación cruzada de una aplicación específica o una aplicación de terceros (ISV). Hay otros productos de seguridad de Microsoft que obtienen sus datos de la misma canalización, pero esos productos se encuentran fuera del ámbito de esta explicación y no pueden usarse para realizar una comprobación cruzada directamente de la API de actividad de administración. Si quiere conocer las posibles discrepancias entre los datos que proporciona su solución existente y los datos esperados, le recomendamos que implemente las operaciones indicadas anteriormente. Pero esto puede resultar difícil, según la forma en que la herramienta o solución existente muestre una lista de los datos y los indexe. Si la solución existente solo presenta datos ordenados por la hora de creación del evento en sí, no existe ninguna forma de consultar la API mediante la hora de creación del evento para que pueda comparar los conjuntos de resultados. En este escenario, tendrá que recopilar los blobs de contenido notificados durante varios días, indexarlos u ordenarlos de forma manual y, después, realizar una comparación aproximada.
-
-**¿Durante cuánto tiempo estarán disponibles los blobs de contenido?**
-
-Los blobs de contenido están disponibles durante siete días después de la disponibilidad de la notificación del bloque de contenido. Esto quiere decir que, si se produce un retraso significativo en la creación del blob de contenido, dispondrá de más tiempo (el retraso más siete días) después de la fecha de creación del evento real antes de que el valor de contenido deje de estar disponible.
-
-**Si se produce un retraso de 24 horas al obtener una notificación, ¿no quiere decir que solo dispondré de seis días para recuperar el blob de contenido?**
-
-No.Incluso si la notificación se retrasa durante un período inusualmente largo (por ejemplo, en el caso de una interrupción del servicio), seguiría disponiendo de siete días después de la primera disponibilidad de la notificación para descargar el blob de contenido relacionado con el evento original.
-
-**¿Qué eventos se auditan para un servicio de Office 365 específico?**
-
-La documentación del esquema de la API de Actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea Esquema de la API de Actividad de administración de Office 365. Vea también la sección "Actividades auditadas" en Buscar el registro de auditoría en el Centro de cumplimiento y seguridad para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
-
 **¿Cómo incorporo la API de actividad de administración?**
 
-Para empezar a usar la API de Actividad de administración de Office 365, vea Introducción a las API de administración de Office 365.
-
-**Queremos capturar mediante programación todos los eventos de todas las cargas de trabajo. ¿Cuál es la forma más confiable de hacerlo?**
-
-Puede hacerlo con las API de actividad de administración de Office 365. Además, le recomendamos que use el **modelo de extracción** debido a los problemas relacionados con el uso de webhooks. Para obtener más información, vea la sección “Uso de webhooks” en Solución de problemas de la API de Actividad de administración de Office 365.
-
-**¿Hay alguna diferencia entre los registros obtenidos por la API de actividad de administración y los registros obtenidos con la herramienta de búsqueda de registros de auditoría del Centro de cumplimiento de Microsoft 365?**
-
-Los datos obtenidos por ambos métodos son los mismos. No se realiza ningún tipo de filtrado. La única diferencia es que la API obtiene datos de los últimos siete días en cada operación. Al realizar búsquedas en los registros de auditoría desde el Centro de seguridad y cumplimiento (o con el cmdlet correspondiente Search-UnifiedAuditLog en Exchange Online), se pueden obtener datos de los últimos 90 días.
+Para empezar a usar la API de Actividad de administración de Office 365, vea [Introducción a las API de administración de Office 365](get-started-with-office-365-management-apis.md).
 
 **¿Qué ocurre si deshabilito la auditoría en la organización Microsoft Office 365? ¿Seguiré apareciendo eventos mediante la API de Actividad de administración?**
 
-No.La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte Activar o desactivar la búsqueda de registros de auditoría de Office 365.
+No.La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
+
+**¿Qué eventos se auditan para un servicio de Office 365 específico?**
+
+La documentación del esquema de la API de Actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea Esquema de la API de Actividad de administración de Office 365. Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
+
+**¿Hay alguna diferencia entre los registros obtenidos por la API de actividad de administración y los registros obtenidos con la herramienta de búsqueda de registros de auditoría del Centro de cumplimiento de Microsoft 365?**
+
+Los datos obtenidos por ambos métodos son los mismos. La única diferencia es que la API obtiene datos solo de los últimos siete días (para más información, consulte las preguntas que aparecen más adelante). Al realizar búsquedas en los registros de auditoría desde el Centro de seguridad y cumplimiento (o con el cmdlet correspondiente **Search-UnifiedAuditLog** en Exchange Online PowerShell), se pueden obtener datos del período de retención en efecto cuando se generan los datos (por ejemplo, 90 días o un año).
+
+**¿Cuál es el máximo de tiempo que tendré que esperar antes de que se envíe una notificación sobre un evento específico de Office 365?**
+
+No hay ninguna latencia máxima garantizada para la entrega de notificaciones (es decir, no existe un contrato de nivel de servicio). Normalmente, la mayoría de las notificaciones se envían en el plazo de una hora tras el evento. A menudo, la latencia es mucho más corta, pero este período puede ser mayor, ya que cambia de una carga de trabajo a otra.
+
+**¿No son más inmediatas las notificaciones de webhook?**
+
+No. Recientemente, se produjeron tiempos de espera más largos para las notificaciones al usar un webhook, en comparación con las consultas a la API realizadas directamente con la operación `/content`.
+
+**¿Durante cuánto tiempo estará disponible el contenido para ser recuperado a través de la API?**
+
+El contenido está disponible para ser recuperado a través de la API durante siete días después de la notificación de disponibilidad del contenido. Incluso si la notificación se retrasa durante un período inusualmente largo (por ejemplo, en el caso de una interrupción del servicio), seguiría disponiendo de siete días después de la primera disponibilidad de la notificación para descargar el blob de contenido relacionado con el evento original.
+
+**¿Puedo realizar consultas a la API de actividad de administración para un id. de evento o elemento RecordType específicos, o bien otras propiedades del blob de contenido?**
+
+No. La API de Actividad de administración proporciona todos los detalles de eventos para un registro determinado. Se puede usar para descargar todos los detalles y, después, puede implementar su propia lógica de la consulta en los datos descargados; por ejemplo, mediante una aplicación personalizada o una herramienta de terceros.
+
+**¿Cómo sé que los datos que provienen de mi solución de auditoría existente, que recopila datos de la API de actividad de administración, son precisos y completos?**
+
+La respuesta breve es que Microsoft no ofrece ningún tipo de registro que le permita realizar una comprobación cruzada de una aplicación específica o una aplicación de terceros (ISV). Hay otros productos de seguridad de Microsoft que obtienen sus datos de la misma canalización, pero dichos productos se encuentran fuera del ámbito de esta explicación y no pueden usarse para realizar una comprobación cruzada directamente de la API de Actividad de administración. Si quiere conocer las posibles discrepancias entre los datos que proporciona su solución existente y los datos esperados, le recomendamos que implemente las operaciones indicadas anteriormente. Pero esto puede resultar difícil, según la forma en que la herramienta o solución existente muestre una lista de los datos y los indexe. Si la solución existente solo presenta datos ordenados según la hora de creación del evento en sí, no existe ninguna forma de consultar la API mediante la hora de creación del evento para que pueda comparar los conjuntos de resultados. En este escenario, tendrá que recopilar los blobs de contenido notificados durante varios días, indexarlos u ordenarlos de forma manual y, después, realizar una comparación manual.
 
 **¿Cuál es el límite para la API de actividad de administración?**
 
-Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. Este no es un límite estático y predefinido, sino que se modela en base a una combinación de factores, incluido el número de puestos en la organización, y que las organizaciones de Office 365 E5 y Microsoft 365 E5 tendrán aproximadamente el doble de ancho de banda que las organizaciones que no son E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
+Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. La limitación se ajusta entonces en función de una combinación de factores, incluido el número de puestos en la organización. Asimismo, las organizaciones de Office 365 E5 y de Microsoft 365 E5 obtendrán aproximadamente el doble de ancho de banda que las organizaciones no sean E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
 
 > [!NOTE]
 > Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red.
