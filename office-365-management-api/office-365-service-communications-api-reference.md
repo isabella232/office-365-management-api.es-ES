@@ -7,24 +7,24 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9845fb5f422160a658b45bd7dd9a5bc6d4635914
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 7cd91d9a43090b4731a11df701e0bf1aa340800e
+ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397443"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "48830472"
 ---
 # <a name="office-365-service-communications-api-reference"></a>Referencia de API de comunicaciones de servicio de Office 365
 
 Puede usar la API de comunicaciones de servicio de Office 365 versión 2.0 para obtener acceso a los datos siguientes:
 
-- **Get Services**: obtiene la lista de servicios suscritos.
+- **Get Services** : obtiene la lista de servicios suscritos.
 
-- **Get Current Status**: proporciona una vista en tiempo real de las incidencias de servicio actuales y en curso
+- **Get Current Status** : proporciona una vista en tiempo real de las incidencias de servicio actuales y en curso
 
-- **Get Historical Status**: proporciona una vista histórica de incidencias de servicio.
+- **Get Historical Status** : proporciona una vista histórica de incidencias de servicio.
 
-- **Get Messages**: encuentra comunicaciones de Incidencias y del Centro de mensajes.
+- **Get Messages** : encuentra comunicaciones de Incidencias y del Centro de mensajes.
 
 Actualmente, la API de comunicaciones de servicio de Office 365 contiene datos de los servicios en la nube de Office 365, Yammer, Dynamics CRM y Microsoft Intune.
 
@@ -38,7 +38,7 @@ https://manage.office.com/api/v1.0/{tenant_identifier}/ServiceComms/{operation}
 
 La **API de comunicaciones de servicio de Office 365** es un servicio REST que le permite desarrollar soluciones con cualquier lenguaje web y entorno de hospedaje que admita HTTPS y los certificados X.509. La API usa **Microsoft Azure Active Directory** y el protocolo **OAuth2** para la autenticación y autorización. Para obtener acceso a la API desde la aplicación, primero tendrá que registrarla en Azure AD y configurarla con los permisos en el ámbito adecuado. Esto permitirá a la aplicación solicitar los tokens de acceso de OAuth2 necesarios para llamar a la API. Para obtener más información sobre cómo registrar y configurar una aplicación en Azure AD, vea [Introducción a las API de administración de Office 365](get-started-with-office-365-management-apis.md).
 
-Todas las solicitudes API necesitan el encabezado HTTP de autorización que tiene un token de acceso OAuth2 JWT válido obtenido de Azure AD que contiene la notificación **ServiceHealth.Read**; además, el identificador del espacio empresarial tiene que coincidir con el identificador de espacio empresarial de la URL raíz.
+Todas las solicitudes API necesitan el encabezado HTTP de autorización que tiene un token de acceso OAuth2 JWT válido obtenido de Azure AD que contiene la notificación **ServiceHealth.Read** ; además, el identificador del espacio empresarial tiene que coincidir con el identificador de espacio empresarial de la URL raíz.
 
 ```json
 Authorization: Bearer {OAuth2 token}
@@ -392,7 +392,7 @@ Devuelve los mensajes sobre el servicio en un intervalo de tiempo específico. U
 ||StartTime|Permite filtrar por hora de inicio (DateTimeOffset, predeterminado: ge CurrentTime - 7 días).|
 ||EndTime|Permite filtrar por hora de finalización (DateTimeOffset, predeterminado: le CurrentTime).|
 ||MessageType|Permite filtrar por MessageType (cadena, predeterminado: todo).|
-||ID|Permite filtrar por id. (cadena, predeterminado: todo).|
+||Id|Permite filtrar por id. (cadena, predeterminado: todo).|
 |**Opción de consulta**|$select|Selecciona un subconjunto de propiedades.|
 ||$top|Selecciona el mayor número de resultados (predeterminado y máximo $top=100).|
 ||$skip|Omite el número de resultados (predeterminado: $skip=0).|

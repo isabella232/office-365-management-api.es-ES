@@ -7,22 +7,25 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 218c0517697f1d71b1557f3b55a4c184fb52ec54
-ms.sourcegitcommit: c9cb078e6c94bcf0bb28cb0fffef39302ec8c197
+ms.openlocfilehash: a5661cd1650ac6412bf6723a5ffc27c3a81c11b1
+ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "48425622"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "48830479"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
-La API de Actividad de administración de Office 365 (también conocida como la *API de Auditoría unificada*) forma parte de las ofertas de seguridad y cumplimiento de Office 365, que:
+La API de Actividad de administración de Office 365 (también conocida como la *API de Auditoría unificada* ) forma parte de las ofertas de seguridad y cumplimiento de Office 365, que:
 
 - Permite el acceso mediante programación a varias cargas de trabajo de canalización de auditoría (como SharePoint y Exchange).
 
 - Es la principal interfaz usada por una amplia variedad de productos de proveedores de terceros para agregar e indexar datos de auditoría.
 
 La API de actividad de administración no tiene que confundirse con la API de comunicaciones de servicio de Office 365. La API de actividad de administración se usa para auditar actividades de usuario final en las distintas cargas de trabajo. La API de comunicaciones de servicio se usa para realizar auditorías de estado y mensajes enviadas por los servicios disponibles en Office 365 (como Dynamics CRM y el servicio de identidad).
+ 
+> [!NOTE]
+> Actualmente estamos investigando un problema debido al cual no están disponibles eventos con el tipo de contenido Audit.AzureActiveDirectory cuando se utiliza la API de Actividad de administración de Office 365. Este problema comenzó en torno al 26 de octubre de 2020. Los eventos de inicio de sesión de Azure AD no se ven afectados por este problema. Se informará cuando se solucione el problema.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-activity-api"></a>Preguntas más frecuentes sobre la API de Actividad de administración de Office 365
 
@@ -32,7 +35,7 @@ Para empezar a usar la API de Actividad de administración de Office 365, vea [I
 
 **¿Qué ocurre si deshabilito la auditoría en la organización Microsoft Office 365? ¿Seguiré apareciendo eventos mediante la API de Actividad de administración?**
 
-No.La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
+No. La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 **¿Qué eventos se auditan para un servicio de Office 365 específico?**
 
@@ -233,7 +236,7 @@ Invoke-WebRequest -Method GET -Headers $headerParams -Uri "$resource/api/v1.0/$t
 ```
 
 > [!NOTE]
-> Necesita usar ambos parámetros (*starttime* y *endtime*) o ninguno.
+> Necesita usar ambos parámetros ( *starttime* y *endtime* ) o ninguno.
 
 ```json
 [{      "contentUri" : "https://<your_API_endpoint>/api/v1.0/<your_tenant_guid>/activity/feed/audit/20171014180051748005825$20171014180051748005825$audit_sharepoint$Audit_SharePoint",
@@ -266,7 +269,7 @@ Puede que resulte difícil probar este código en bucle, a no ser que tenga un e
 
 ### <a name="using-webhooks"></a>Uso de webhooks
 
-Hay dos formas de obtener una notificación que indique que se crearon blobs de contenido. El método de *inserción* se implementa con un punto de conexión de webhook, que es una aplicación web creada y hospedada por su cuenta o en una plataforma en la nube. El webhook se registra en el momento de crear una suscripción a un tipo de contenido auditado. También puede agregar un registro de webhook a una suscripción existente con el método siguiente. Para usar el método de *inserción*, es necesario realizar una consulta en un intervalo de tiempo específico (no superior a 24 horas) con la operación /content. La respuesta indicará los blobs de contenido que se crearon durante el período especificado.
+Hay dos formas de obtener una notificación que indique que se crearon blobs de contenido. El método de *inserción* se implementa con un punto de conexión de webhook, que es una aplicación web creada y hospedada por su cuenta o en una plataforma en la nube. El webhook se registra en el momento de crear una suscripción a un tipo de contenido auditado. También puede agregar un registro de webhook a una suscripción existente con el método siguiente. Para usar el método de *inserción* , es necesario realizar una consulta en un intervalo de tiempo específico (no superior a 24 horas) con la operación /content. La respuesta indicará los blobs de contenido que se crearon durante el período especificado.
 
 Antes de agregar un webhook, tenga en cuenta los siguientes dos problemas:
 
@@ -317,16 +320,16 @@ Al intentar recuperar los blobs de contenido disponibles, un gran número de cli
 Response Code 403: {'error':{'code':'AF429','message':'Too many requests. Method=GetBlob, PublisherId=00000000-0000-0000-0000-000000000000'}}
 ```
 
-Es probable que esto se deba a la limitación. Tenga en cuenta que es probable que el valor del parámetro PublisherId indique que el cliente no especificó el valor *PublisherIdentifier* en la solicitud. Además, tenga en cuenta que el nombre de parámetro correcto es *PublisherIdentifier*, incluso aunque vea *PublisherId* en las respuestas de error 403.
+Es probable que esto se deba a la limitación. Tenga en cuenta que es probable que el valor del parámetro PublisherId indique que el cliente no especificó el valor *PublisherIdentifier* en la solicitud. Además, tenga en cuenta que el nombre de parámetro correcto es *PublisherIdentifier* , incluso aunque vea *PublisherId* en las respuestas de error 403.
 
 > [!NOTE]
 > En la referencia de API, el parámetro *PublisherIdentifier* se muestra en todas las operaciones de la API, pero también tiene que incluirse en la solicitud GET a la URL de contentUri al recuperar el blob de contenido.
 
-Si realiza llamadas API sencillas para la solución de problemas (por ejemplo, para comprobar si una suscripción específica está activa), puede omitir de forma segura el parámetro *PublisherIdentifier*, pero todo el código para entornos de producción tiene que contener el parámetro *PublisherIdentifier* en todas las llamadas.
+Si realiza llamadas API sencillas para la solución de problemas (por ejemplo, para comprobar si una suscripción específica está activa), puede omitir de forma segura el parámetro *PublisherIdentifier* , pero todo el código para entornos de producción tiene que contener el parámetro *PublisherIdentifier* en todas las llamadas.
 
 Si implementa un cliente para el espacio empresarial de la empresa, *PublisherIdentifier* es el GUID de espacio empresarial. Si crea un complemento o aplicación de ISV para varios clientes, el elemento *PublisherIdentifier* tiene que ser el GUID del espacio empresarial del ISV, y no el GUID del espacio empresarial de la compañía del usuario final.
 
-Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublisherIdentifier*, estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier*:
+Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublisherIdentifier* , estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier* :
 
 ```json
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]
