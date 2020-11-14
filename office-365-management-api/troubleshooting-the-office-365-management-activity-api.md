@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: a5661cd1650ac6412bf6723a5ffc27c3a81c11b1
-ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
+ms.openlocfilehash: a65c8dff39d80b57b1c885639be2e228e8119cb7
+ms.sourcegitcommit: 263cfbc04033ea8a1d765215e8777739587818e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "48830479"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "49021012"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -22,10 +22,10 @@ La API de Actividad de administración de Office 365 (también conocida como la 
 
 - Es la principal interfaz usada por una amplia variedad de productos de proveedores de terceros para agregar e indexar datos de auditoría.
 
-La API de actividad de administración no tiene que confundirse con la API de comunicaciones de servicio de Office 365. La API de actividad de administración se usa para auditar actividades de usuario final en las distintas cargas de trabajo. La API de comunicaciones de servicio se usa para realizar auditorías de estado y mensajes enviadas por los servicios disponibles en Office 365 (como Dynamics CRM y el servicio de identidad).
+La API de actividad de administración no tiene que confundirse con la API de comunicaciones de servicio de Office 365. La API de actividad de administración se usa para auditar actividades de usuario final en las distintas cargas de trabajo. La API de comunicaciones de servicio se usa para realizar auditorías del estado y de los mensajes enviados por los servicios disponibles en Office 365 (como Dynamics CRM y el Servicio de identidad).
  
 > [!NOTE]
-> Actualmente estamos investigando un problema debido al cual no están disponibles eventos con el tipo de contenido Audit.AzureActiveDirectory cuando se utiliza la API de Actividad de administración de Office 365. Este problema comenzó en torno al 26 de octubre de 2020. Los eventos de inicio de sesión de Azure AD no se ven afectados por este problema. Se informará cuando se solucione el problema.
+> Hubo un problema con los eventos pertenecientes al tipo de contenido Audit.AzureActiveDirectory en el que dichos eventos no estuvieron disponibles a través de la API de Actividad de administración de Office 365 entre el 22 de octubre y el 6 de noviembre de 2020. Los eventos de inicio de sesión de Azure AD no se vieron afectados por este problema. Los eventos faltantes para el período de impacto estarán disponibles en los próximos días y está previsto que se completen a más tardar el 20 de noviembre de 2020. En algunos casos, los clientes podrían notar que los datos de los eventos generados entre el 26 de octubre y el 5 de noviembre de 2020 están duplicados.
 
 ## <a name="frequently-asked-questions-about-the-office-365-management-activity-api"></a>Preguntas más frecuentes sobre la API de Actividad de administración de Office 365
 
