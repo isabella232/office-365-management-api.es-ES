@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 829af6eb582175c99239720c04bfe7d0ce286af9
-ms.sourcegitcommit: e74da95f449e4f8e04ee82e2d376c041f8403524
+ms.openlocfilehash: c39865d8b3aff5a11aaf113482982e1c407b9800
+ms.sourcegitcommit: 0f988a3c25a34491a6e80307cfcf097a85aa26fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "49086806"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "49385172"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -49,9 +49,9 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |[Esquema de base de seguridad del centro de datos](#data-center-security-base-schema)|Amplía el esquema común con las propiedades específicas para todos los datos de auditoría de seguridad del centro de datos.|
 |[Esquema de cmdlet de seguridad del centro de datos](#data-center-security-cmdlet-schema)|Amplía el esquema base de seguridad de centro de datos con las propiedades específicas para todos los datos de auditoría cmdlet de seguridad del centro de datos.|
 |[Esquema de Microsoft Teams](#microsoft-teams-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Teams.|
-|[Esquema de Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas](#office-365-advanced-threat-protection-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de datos de Investigación y respuesta de amenazas y de la Protección contra amenazas avanzada de Office 365.|
-|[Esquema de eventos de investigación y respuesta automatizada](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para los eventos de investigación y respuesta automatizada (AIR) de Office 365. Para ver un ejemplo, consulte el [blog de Tech Community: Mejorar la efectividad de su SOC con la ATP de Office 365 y la API de administración de O365](https://techcommunity.microsoft.com/t5/microsoft-security-and/improve-the-effectiveness-of-your-soc-with-office-365-atp-and/ba-p/1525185).|
-|[Esquema de eventos de higiene](#hygiene-events-schema)|Amplía el esquema común con las propiedades específicas de los eventos en Exchange Online Protection y Advanced Threat Protection.|
+|[Esquema de respuesta e Investigación de amenazas y Microsoft Defender para Office 365](#microsoft-defender-for-office-365-and-threat-investigation-and-response-schema)|Amplía el esquema común con las propiedades específicas de Defender para Office 365 y la investigación de amenazas y los datos de respuesta.|
+|[Esquema de eventos de investigación y respuesta automatizada](#automated-investigation-and-response-events-in-office-365)|Amplía el esquema común con las propiedades específicas para los eventos de investigación y respuesta automatizada (AIR) de Office 365. Para ver un ejemplo, consulte el [Blog de la Comunidad técnica: Mejorar la efectividad de su SOC con Microsoft Defender para Office 365 y la API de administración de O365](https://techcommunity.microsoft.com/t5/microsoft-security-and/improve-the-effectiveness-of-your-soc-with-office-365-atp-and/ba-p/1525185).|
+|[Esquema de eventos de higiene](#hygiene-events-schema)|Amplía el esquema común con las propiedades específicas de los eventos en Exchange Online Protection y Microsoft Defender para Office 365.|
 |[Esquema de Power BI](#power-bi-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Power BI.|
 |[Esquema de Dynamics 365](#dynamics-365-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Dynamics 365.|
 |[Esquema de Workplace Analytics](#workplace-analytics-schema)|Amplía el esquema común con las propiedades específicas para todos los eventos de Microsoft Workplace Analytics.|
@@ -111,8 +111,8 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |23|SkypeForBusinessCmdlets|Eventos de Skype Empresarial.|
 |24|Descubrimiento|Eventos de actividades de eDiscovery realizadas ejecutando búsquedas de contenido y administrando casos de eDiscovery en el Centro de seguridad y cumplimiento.|
 |25|MicrosoftTeams|Eventos de Microsoft Teams.|
-|28|ThreatIntelligence|Eventos de suplantación de identidad y malware de Exchange Online Protection y Protección contra amenazas avanzada de Office 365.|
-|29|MailSubmission|Eventos de envío desde Exchange Online Protection y Protección contra amenazas avanzada de Office 365.|
+|28|ThreatIntelligence|Eventos de suplantación de identidad y malware de Exchange Online Protection y Microsoft Defender para Office 365.|
+|29|MailSubmission|Eventos de envío desde Exchange Online Protection y Microsoft Defender para Office 365.|
 |30|MicrosoftFlow|Eventos de Microsoft Power Automate (conocido anteriormente como Microsoft Flow).|
 |31|AeD|Eventos de eDiscovery avanzado.|
 |32|MicrosoftStream|Eventos de Microsoft Stream.|
@@ -124,13 +124,13 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |38|DataGovernance|Eventos relacionados con las directivas y etiquetas de retención en el Centro de seguridad y cumplimiento|
 |39|Kaizala|Eventos de Kaizala.|
 |40|SecurityComplianceAlerts|Señales de alertas de seguridad y cumplimiento.|
-|41|ThreatIntelligenceUrl|Vínculos seguros de tiempo de bloqueo y eventos de invalidación de bloqueo de la Protección contra amenazas avanzada de Office 365.|
+|41|ThreatIntelligenceUrl|Tiempo de bloqueo de Vínculos seguros y eventos de invalidación de bloqueo de Microsoft Defender para Office 365.|
 |42|SecurityComplianceInsights|Eventos relacionados con las perspectivas e informes en el centro de seguridad y cumplimiento de Office 365.|
 |43|MIPLabel|Eventos relacionados con la detección en la canalización de Transporte de mensajes de correo electrónico que se han etiquetado (manual o automáticamente) con etiquetas de confidencialidad. |
 |44|WorkplaceAnalytics|Eventos de Workplace Analytics.|
 |45|PowerAppsApp|Eventos de Power Apps.|
 |46|PowerAppsPlan|Eventos de los planes de suscripción a Power Apps. |
-|47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para los archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de la Protección contra amenazas avanzada de Office 365.|
+|47|ThreatIntelligenceAtpContent|Eventos de suplantación de identidad y malware para archivos en SharePoint, OneDrive para la Empresa y Microsoft Teams de Microsoft Defender para Office 365.|
 |48|LabelContentExplorer|Eventos relacionados con el [explorador de contenido de clasificación de datos](https://docs.microsoft.com/microsoft-365/compliance/data-classification-content-explorer).|
 |49|TeamsHealthcare|Eventos relacionados con la [aplicación Pacientes](https://docs.microsoft.com/MicrosoftTeams/expand-teams-across-your-org/healthcare/patients-audit) en Microsoft Teams para asistencia sanitaria.|
 |50|ExchangeItemAggregated|Eventos relacionados con [la acción MailItemsAccessed de auditoría de buzón](https://docs.microsoft.com/microsoft-365/compliance/mailitemsaccessed-forensics-investigations)|
@@ -161,7 +161,7 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |76|CortanaBriefing|Eventos del Informe de tareas pendientes del correo electrónico.|
 |77|Búsqueda|Eventos relacionados con la realización de consultas de búsqueda en SharePoint y Exchange.|
 |78|WDATPAlerts|Eventos relacionados con las alertas generadas por Windows Defender para el punto de conexión.|
-|81|MDATPAudit|Eventos de la Protección contra amenazas avanzada de Microsoft Defender (ATP).|
+|81|MDATPAudit|Eventos de Microsoft Defender para punto de conexión.|
 |82|SensitivityLabelPolicyMatch|Eventos que se generan cuando se abre o se le cambia el nombre a un archivo etiquetado con una etiqueta de confidencialidad.|
 |83|SensitivityLabelAction|Evento generado cuando se aplican, actualizan o quitan las etiquetas de confidencialidad de un archivo.|
 |84|SensitivityLabeledFileAction|Eventos que se generan cuando se abre o se le cambia el nombre a un archivo etiquetado con una etiqueta de confidencialidad.|
@@ -221,12 +221,12 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |**Parámetro**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |Site|Edm.Guid|No|El GUID del sitio donde se encuentra el archivo o la carpeta a la que obtuvo acceso el usuario.|
-|ItemType|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[ItemType](#itemtype)"|No|El tipo de objeto al que se obtuvo acceso o que se modificó. Vea la tabla [ItemType](#itemtype) para obtener más información sobre los tipos de objetos.|
-|EventSource|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[EventSource](#eventsource)"|No|Identifica que un evento se produjo en SharePoint. Los valores posibles son **SharePoint** u **ObjectModel**.|
+|ItemType|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[ItemType](#itemtype)"|No|El tipo de objeto al que se accedió o que se modificó. Vea la tabla [ItemType](#itemtype) para obtener más información sobre los tipos de objetos.|
+|EventSource|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[EventSource](#eventsource)"|No|Identifica que se produjo un evento en SharePoint. Los valores posibles son **SharePoint** u **ObjectModel**.|
 |SourceName|Edm.String|No|La entidad que ha activado la operación auditada. Los valores posibles son SharePoint u **ObjectModel**.|
 |UserAgent|Edm.String|No|Información sobre el cliente o el explorador del usuario. Esta información la proporciona el cliente o el explorador.|
-|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización del dispositivo. Esta información se registra solo si está presente en la solicitud.|
-|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización del dispositivo. Esta información se registra solo si está presente en la solicitud.|
+|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización de dispositivos. Esta información se registra solo si está presente en la solicitud.|
+|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización de dispositivos. Esta información se registra solo si está presente en la solicitud.|
 |||||
 
 ### <a name="enum-itemtype---type-edmint32"></a>Enum: ItemType - Tipo: Edm.Int32
@@ -260,9 +260,9 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |**Nombre del miembro**|**Descripción**|
 |:-----|:-----|
 |AccessInvitationAccepted|El destinatario de una invitación para ver o editar un archivo compartido (o carpeta) que ha obtenido acceso al archivo compartido haciendo clic en el vínculo de la invitación.|
-|AccessInvitationCreated|El usuario envía una invitación a otra persona (dentro o fuera de su organización) para ver o editar una carpeta o un archivo compartido en un sitio de SharePoint o de OneDrive para la Empresa. Los detalles de la entrada de evento identifican el nombre del archivo que se ha compartido, el usuario al que se envió la invitación y el tipo de los permisos de uso compartido seleccionados por la persona que envió la invitación.|
-|AccessInvitationExpired|Una invitación enviada a un usuario externo expira. De forma predeterminada, una invitación enviada a un usuario fuera de su organización expira después de 7 días si no se acepta la invitación.|
-|AccessInvitationRevoked|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa retira una invitación enviada a un usuario fuera de su organización. Una invitación puede retirarse antes de que se acepte.|
+|AccessInvitationCreated|El usuario envía una invitación a otra persona (dentro o fuera de su organización) para ver o editar un archivo o carpeta compartidos en un sitio de SharePoint o OneDrive para la Empresa. Los detalles de la entrada de evento identifican el nombre del archivo que se ha compartido, el usuario al que se envió la invitación y el tipo de los permisos de uso compartido seleccionados por la persona que envió la invitación.|
+|AccessInvitationExpired|Una invitación enviada a un usuario externo caduca. De forma predeterminada, una invitación enviada a un usuario fuera de su organización expira después de 7 días si no se acepta la invitación.|
+|AccessInvitationRevoked|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa retira una invitación enviada a un usuario fuera de su organización. Una invitación solo se puede retirar antes de ser aceptada.|
 |AccessInvitationUpdated|El usuario que creó y envió una invitación a otra persona para ver o editar una carpeta o un archivo compartido en un sitio de SharePoint o de OneDrive para la Empresa vuelve a enviar la invitación.|
 |AccessRequestApproved|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa aprueba una solicitud de usuario para acceder al sitio o documento.|
 |AccessRequestCreated|El usuario solicita acceso a un sitio o un documento en SharePoint o en OneDrive para la empresa para el que no tienen permiso de acceso. |
@@ -281,13 +281,13 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |CustomFieldOrLookupTableCreated|El usuario ha creado un campo personalizado o un elemento o tabla de búsqueda en Project Web App.|
 |CustomFieldOrLookupTableDeleted|El usuario ha eliminado un campo personalizado o un elemento o tabla de búsqueda en Project Web App.|
 |CustomFieldOrLookupTableModified|El usuario ha modificado un campo personalizado o un elemento o tabla de búsqueda en Project Web App.|
-|CustomizeExemptUsers|El administrador global ha personalizado la lista de agentes de usuario exentos en el centro de administración de SharePoint. Puede especificar qué agentes de usuario están exentos de recibir una página web completa para indexarla. Esto significa que cuando un agente de usuario que ha especificado como exento encuentra un formulario de InfoPath, el formulario se devolverá como un archivo XML en lugar de como una página web completa. Esto acelera la indexación de formularios de InfoPath.|
+|CustomizeExemptUsers|El administrador global ha personalizado la lista de agentes de usuario exentos en el Centro de administración de SharePoint. Puede especificar qué agentes de usuario están exentos de recibir una página web completa para indexar. Esto significa que cuando un agente de usuario que ha especificado como exento encuentra un formulario de InfoPath, el formulario se devolverá como un archivo XML en lugar de una página web completa. Esto hace que la indexación de formularios de InfoPath sea más rápida. |
 |DefaultLanguageChangedInTermStore*|Se ha cambiado la configuración de idioma en el almacén de terminología.|
 |DelegateModified|El usuario ha creado o modificado un delegado de seguridad en Project Web App.|
 |DelegateRemoved|El usuario ha eliminado un delegado de seguridad en Project Web App.|
 |DeleteSSOApplication|Se ha eliminado una aplicación SSO.|
-|eDiscoveryHoldApplied|Se ha colocado una conservación local en un origen de contenido. Una colección de sitios de eDiscovery administra las retenciones locales (por ejemplo, el Centro de eDiscovery) en SharePoint.|
-|eDiscoveryHoldRemoved|Se ha eliminado una conservación local de un origen de contenido. Una colección de sitios de eDiscovery administra las retenciones locales (por ejemplo, el Centro de eDiscovery) en SharePoint.|
+|eDiscoveryHoldApplied|Se colocó una conservación local en una fuente de contenido. Las conservaciones locales se administran con una colección de sitios de eDiscovery (por ejemplo, el Centro de eDiscovery) en SharePoint.|
+|eDiscoveryHoldRemoved|Se quitó una conservación local de una fuente de contenido. Las conservaciones locales se administran con una colección de sitios de eDiscovery (por ejemplo, el Centro de eDiscovery) en SharePoint.|
 |eDiscoverySearchPerformed|Se ha realizado una búsqueda de eDiscovery con una colección de sitios de eDiscovery en SharePoint.|
 |EngagementAccepted|El usuario acepta una interacción de recursos en Project Web App.|
 |EngagementModified|El usuario modifica una interacción de recursos en Project Web App.|
@@ -296,11 +296,11 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |EntityDeleted|El usuario elimina a planilla de horas trabajadas en Project Web App.|
 |EntityForceCheckedIn|El usuario fuerza una protección en un calendario, un campo personalizado o una tabla de búsqueda en Project Web App.|
 |ExemptUserAgentSet|El administrador global agrega un agente de usuario a la lista de agentes de usuario exentos en el centro de administración de SharePoint.|
-|FileAccessed|La cuenta del sistema o el usuario obtiene acceso a un archivo en un sitio de SharePoint o de OneDrive para la Empresa. Las cuentas del sistema también pueden generar eventos FileAccessed.|
+|FileAccessed|La cuenta del sistema o el usuario accede a un archivo en un sitio de SharePoint o de OneDrive para la Empresa. Las cuentas del sistema también pueden generar eventos FileAccessed.|
 |FileCheckOutDiscarded|El usuario descarta (o deshace) la extracción del repositorio de un archivo. Eso significa que cualquier cambio que haya realizado en el archivo cuando estaba extraído del repositorio se descarta y no se guarda en la versión del documento de la biblioteca de documentos.|
 |FileCheckedIn|El usuario inserta en el repositorio un documento que se extrajo de una biblioteca de documentos de SharePoint o de OneDrive para la Empresa.|
-|FileCheckedOut|El usuario extrae un documento ubicado en una biblioteca de documentos de SharePoint o de OneDrive para la Empresa. Los usuarios pueden extraer del repositorio y modificar documentos que se han compartido con ellos.|
-|FileCopied|El usuario copia un documento de un sitio de SharePoint o de OneDrive para la Empresa. El archivo copiado puede guardarse en otra carpeta del sitio.|
+|FileCheckedOut|El usuario extrae del repositorio un documento ubicado en una biblioteca de documentos de SharePoint o OneDrive para la Empresa. Los usuarios pueden extraer del repositorio y modificar documentos que se han compartido con ellos.|
+|FileCopied|El usuario copia un documento de un sitio de SharePoint o OneDrive para la Empresa. El archivo copiado puede guardarse en otra carpeta del sitio.|
 |FileDeleted|El usuario elimina un documento de un sitio de SharePoint o de OneDrive para la Empresa.|
 |FileDeletedFirstStageRecycleBin|El usuario elimina un archivo de la papelera de reciclaje de un sitio de SharePoint o de OneDrive para la Empresa.|
 |FileDeletedSecondStageRecycleBin|El usuario elimina un archivo de la papelera de reciclaje de segundo nivel de un sitio de SharePoint o de OneDrive para la Empresa.|
@@ -312,9 +312,9 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |FileRenamed|El usuario cambia el nombre de un documento de un sitio de SharePoint o de OneDrive para la Empresa.|
 |FileRestored|El usuario restaura un documento de una papelera de reciclaje de un sitio de SharePoint o de OneDrive para la Empresa. |
 |FileSyncDownloadedFull|El usuario establece una relación de sincronización y descarga archivos correctamente por primera vez en su equipo desde una biblioteca de documentos de SharePoint o de OneDrive para la Empresa.|
-|FileSyncDownloadedPartial|El usuario descarga correctamente cualquier cambio en los archivos de una biblioteca de documentos de SharePoint o de OneDrive para la Empresa. Este evento indica que los cambios realizados en los archivos de la biblioteca de documentos se descargaron en el equipo del usuario. Solo se descargaron los cambios porque el usuario había descargado previamente la biblioteca de documentos (como se indica en el evento FileSyncDownloadedFull).|
+|FileSyncDownloadedPartial|El usuario descarga correctamente cualquier cambio a los archivos de una biblioteca de documentos de SharePoint o OneDrive para la Empresa. Este evento indica que cualquier cambio que se realice en los archivos de la biblioteca de documentos se descarga en el equipo del usuario. Solo se descargaron los cambios porque el usuario había descargado previamente la biblioteca de documentos (como se indica en el evento FileSyncDownloadedFull).|
 |FileSyncUploadedFull|El usuario establece una relación de sincronización y carga archivos correctamente por primera vez desde su equipo a una biblioteca de documentos de SharePoint o de OneDrive para la Empresa.|
-|FileSyncUploadedPartial|El usuario carga correctamente los cambios en los archivos en una biblioteca de documentos de SharePoint o de OneDrive para la Empresa. Este evento indica que cualquier cambio realizado en la versión local de un archivo de una biblioteca de documentos se carga correctamente en dicha biblioteca. Solo se descargan los cambios porque el usuario había cargado anteriormente esos archivos (como se indica en el evento FileSyncUploadedFull).|
+|FileSyncUploadedPartial|El usuario carga correctamente los cambios a una biblioteca de documentos de SharePoint o OneDrive para la Empresa. Este evento indica que cualquier cambio realizado en la versión local de un archivo desde una biblioteca de documentos se carga correctamente a dicha biblioteca. Solo se cargaron los cambios porque el usuario había cargado previamente esos archivos (como se indica en el evento FileSyncUploadedFull).|
 |FileUploaded|El usuario carga un documento en una carpeta en un sitio de SharePoint o de OneDrive para la Empresa. |
 |FileViewed|Este evento se ha sustituido por el evento FileAccessed y está en desuso.|
 |FolderCopied|El usuario copia una carpeta de un sitio de SharePoint o de OneDrive para la Empresa en otra ubicación de SharePoint o de OneDrive para la Empresa.|
@@ -322,25 +322,25 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |FolderDeleted|El usuario elimina una carpeta de un sitio de SharePoint o de OneDrive para la Empresa.|
 |FolderDeletedFirstStageRecycleBin|El usuario elimina una carpeta de la papelera de reciclaje de un sitio de SharePoint o de OneDrive para la Empresa.|
 |FolderDeletedSecondStageRecycleBin|El usuario elimina una carpeta de la papelera de reciclaje de segundo nivel de un sitio de SharePoint o de OneDrive para la Empresa.|
-|FolderModified|El usuario modifica una carpeta en un sitio de SharePoint o de OneDrive para la Empresa. Este evento incluye cambios de metadatos de carpeta, como etiquetas y propiedades.|
+|FolderModified|El usuario modifica una carpeta en un sitio de SharePoint o OneDrive para la Empresa. Este evento incluye cambios de metadatos de carpeta, como etiquetas y propiedades.|
 |FolderMoved|El usuario mueve una carpeta desde un sitio de SharePoint o de OneDrive para la Empresa.|
 |FolderRenamed|El usuario cambia el nombre de una carpeta en un sitio de SharePoint o de OneDrive para la Empresa.|
 |FolderRestored|El usuario restaura una carpeta de la papelera de reciclaje de un sitio de SharePoint o de OneDrive para la Empresa.|
-|GroupAdded|El propietario o administrador del sitio crea un grupo para un sitio de SharePoint o de OneDrive para la Empresa, o realiza una tarea que tiene como resultado la creación de un grupo. Por ejemplo, la primera vez que un usuario crea un vínculo para compartir un archivo, se agrega un grupo del sistema al sitio de OneDrive para la Empresa del usuario. Este evento también puede ser un resultado de que un usuario crease un vínculo con permisos de edición para un archivo compartido.|
+|GroupAdded|El administrador o el propietario del sitio crea un grupo para un sitio de SharePoint o OneDrive para la Empresa o realiza una tarea que provoca la creación de un grupo. Por ejemplo, la primera vez que un usuario crea un vínculo para compartir un archivo, se agrega un grupo de sistema al sitio de OneDrive para la Empresa del usuario. Este evento también puede ser el resultado de que un usuario cree un vínculo con permisos de edición para un archivo compartido.|
 |GroupRemoved|El usuario elimina un grupo de un sitio de SharePoint o de OneDrive para la Empresa. |
-|GroupUpdated|El propietario o el administrador del sitio cambia la configuración de un grupo para un sitio de SharePoint o de OneDrive para la Empresa. Esto puede incluir cambiar el nombre del grupo, quién puede ver o editar la pertenencia al grupo y cómo se controlan las solicitudes de pertenencia.|
+|GroupUpdated|El administrador o el propietario del sitio cambia la configuración de un grupo para un sitio de SharePoint o OneDrive para la Empresa. Esto puede incluir cambiar el nombre del grupo, quién puede ver o editar la pertenencia del grupo, y cómo se controlan las solicitudes de pertenencia.|
 |LanguageAddedToTermStore|Se agregó un idioma al almacén de términos.|
 |LanguageRemovedFromTermStore|Se quitó un idioma del almacén de términos.|
-|LegacyWorkflowEnabledSet|El propietario o el administrador del sitio agrega el tipo de contenido de tarea de flujo de trabajo de SharePoint al sitio. Los administradores globales también pueden habilitar los flujos de trabajo para toda la organización en el centro de administración de SharePoint.|
-|LookAndFeelModified|El usuario modifica un inicio rápido, los formatos de gráfico de Gantt o los formatos del grupo.  O bien, el usuario crea, modifica o elimina una vista en Project Web App.|
-|ManagedSyncClientAllowed|El usuario establece correctamente una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa. La relación de sincronización es correcta porque el equipo del usuario es un miembro de un dominio que se ha agregado a la lista de dominios (denominada lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. Para obtener más información sobre esta característica, vea [Usar SharePoint Online PowerShell](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros.|
+|LegacyWorkflowEnabledSet|El administrador o el propietario del sitio agrega el tipo de contenido Tarea de flujo de trabajo de SharePoint al sitio. Los administradores globales también pueden habilitar los flujos de trabajo para toda la organización en el Centro de administración de SharePoint.|
+|LookAndFeelModified|El usuario modifica un inicio rápido, formatos de diagrama de Gantt o formatos de grupo. O bien, el usuario crea, modifica o elimina una vista en Project Web App.|
+|ManagedSyncClientAllowed|El usuario establece correctamente una relación de sincronización con un sitio de SharePoint o OneDrive para la Empresa. La relación de sincronización es correcta porque el equipo del usuario es un miembro de un dominio que se ha agregado a la lista de dominios (denominada lista de destinatarios seguros) que puede tener acceso a las bibliotecas de documentos de su organización. Para más información, consulte [Usar SharePoint Online PowerShell](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros.|
 |MaxQuotaModified|Se ha modificado la cuota máxima de un sitio.|
 |MaxResourceUsageModified|Se ha modificado el uso máximo permitido de recursos para un sitio.|
 |MySitePublicEnabledSet|El administrador del servicio SharePoint ha configurado la marca que habilita a los usuarios para tener Mis sitios en modo público.|
-|NewsFeedEnabledSet|El propietario o el administrador activa la fuente RSS para un sitio de SharePoint o de OneDrive para la Empresa. Los administradores globales pueden habilitar las fuentes RSS para toda la organización en el Centro de administración de SharePoint.|
+|NewsFeedEnabledSet|El administrador o el propietario del sitio habilita las fuentes RSS para un sitio de SharePoint o OneDrive para la Empresa. Los administradores globales pueden habilitar las fuentes RSS para toda la organización en el Centro de administración de SharePoint.|
 |ODBNextUXSettings|Se ha habilitado la nueva interfaz de usuario de OneDrive para la Empresa.|
-|OfficeOnDemandSet|El administrador del sitio habilita Office a petición, lo que permite a los usuarios obtener acceso a la última versión de las aplicaciones de escritorio de Office. Office a petición se habilita en el Centro de administración de SharePoint y requiere una suscripción a Office 365 que incluye aplicaciones de Office completas e instaladas.|
-|PageViewed|El usuario mira una página de un documento de un sitio de SharePoint o de OneDrive para la Empresa. Esto no incluye la visualización de archivos de la biblioteca de documentos de un sitio de SharePoint o de OneDrive para la Empresa en un explorador.|
+|OfficeOnDemandSet|El administrador del sitio habilita Office a petición, que permite a los usuarios acceder a la versión más reciente de las aplicaciones de escritorio de Office. Office a petición está habilitado en el Centro de administración de SharePoint y requiere una suscripción a Office 365 que incluye aplicaciones de Office completas e instaladas.|
+|PageViewed|El usuario ve una página en un sitio de SharePoint o en un sitio de OneDrive para la Empresa. Esto no incluye la visualización de archivos de la biblioteca de documentos de un sitio de SharePoint o de OneDrive para la Empresa en un explorador.|
 |PeopleResultsScopeSet|El administrador del sitio crea o cambia el origen de resultados para las búsquedas de personas para un sitio de SharePoint.|
 |PermissionSyncSettingModified|El usuario modifica la configuración de sincronización de permisos de proyecto en Project Web App.|
 |PermissionTemplateModified|El usuario crea, modifica o elimina una plantilla de permisos en Project Web App.|
@@ -349,7 +349,7 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |PreviewModeEnabledSet|El administrador del sitio habilita la vista previa de documentos de un sitio de SharePoint.|
 |ProjectAccessed|El usuario obtiene acceso al contenido del proyecto en Project Web App.|
 |ProjectCheckedIn|El usuario inserta un proyecto que extrajo de Project Web App.|
-|ProjectCheckedOut|El usuario extrae un proyecto que se encuentra en Project Web App. Los usuarios pueden desproteger y realizar cambios en los proyectos para los que tienen permiso de apertura.|
+|ProjectCheckedOut|El usuario extrae del repositorio un proyecto ubicado en Project Web App. Los usuarios pueden desproteger y realizar cambios en los proyectos para los que tienen permiso de apertura.|
 |ProjectCreated|El usuario crea un proyecto en Project Web App.|
 |ProjectDeleted|El usuario elimina un proyecto en Project Web App.|
 |ProjectForceCheckedIn|El usuario fuerza una inserción en un proyecto en Project Web App.|
@@ -381,15 +381,15 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |SecondaryMySiteOwnerSet|Un usuario ha agregado un propietario secundario para su sitio.|
 |SecurityCategoryModified|El usuario crea, modifica o elimina una categoría de seguridad en Project Web App.|
 |SecurityGroupModified|El usuario crea, modifica o elimina un grupo de seguridad en Project Web App.|
-|SendToConnectionAdded|El administrador global crea una nueva conexión Enviar a en la página Administración de registros en el Centro de administración de SharePoint. Una conexión Enviar a especifica la configuración de un repositorio de documentos o un centro de registros. Cuando crea una conexión Enviar a, un Organizador de contenido puede enviar documentos a la ubicación especificada.|
+|SendToConnectionAdded|El administrador global crea una nueva conexión Enviar a en la página Administración de registros en el Centro de administración de SharePoint. Una conexión Enviar a especifica la configuración de un repositorio de documentos o de un centro de registros. Cuando crea una conexión Enviar a, un Organizador de contenido puede enviar documentos a la ubicación especificada.|
 |SendToConnectionRemoved|El administrador global elimina una conexión Enviar a en la página Administración de registros en el Centro de administración de SharePoint.|
-|SharedLinkCreated|El usuario crea un vínculo a un archivo compartido en SharePoint o en OneDrive para la Empresa. Este vínculo puede enviarse a otras personas para proporcionarles acceso al archivo. Un usuario puede crear dos tipos de vínculos: un vínculo que permite al usuario ver y editar el archivo compartido o un vínculo que solo permite al usuario ver el archivo.|
+|SharedLinkCreated|El usuario crea un vínculo a un archivo compartido en SharePoint o OneDrive para la Empresa. Este vínculo se puede enviar a otras personas para darles acceso al archivo. Un usuario puede crear dos tipos de vínculos: un vínculo que permite al usuario ver y editar el archivo compartido o un vínculo que solo permite al usuario ver el archivo.|
 |SharedLinkDisabled|El usuario deshabilita (permanentemente) un vínculo para compartir un archivo creado.|
-|SharingInvitationAccepted *|El usuario acepta una invitación para compartir un archivo o carpeta. Este evento se registra cuando un usuario comparte un archivo con otros usuarios.|
-|SharingRevoked|El usuario deja de compartir un archivo o carpeta que se había compartido con otros usuarios. Este evento se registra cuando un usuario deja de compartir un archivo con otros usuarios.|
+|SharingInvitationAccepted*|El usuario acepta una invitación para compartir un archivo o carpeta. Este evento se registra cuando un usuario comparte un archivo con otros usuarios.|
+|SharingRevoked|El usuario deja de compartir un archivo o carpeta que se compartió previamente con otros usuarios. Este evento se registra cuando un usuario deja de compartir un archivo con otros usuarios.|
 |SharingSet|El usuario comparte un archivo o carpeta que se encuentra en SharePoint o en OneDrive para la Empresa con otro usuario de su organización.|
-|SiteAdminChangeRequest|Solicitudes de usuario para que se les agregue como administrador de colección de sitios para una colección de sitios de SharePoint. Los administradores de colección de sitios tienen permisos de control total para la colección de sitios y todos los subsitios.|
-|SiteCollectionAdminAdded*|El administrador de colección de sitios o el propietario agrega a una persona como un administrador de colección de sitios de un sitio de SharePoint o de OneDrive para la Empresa. Los administradores de colección de sitios tienen permisos de control total para la colección de sitios y todos los sub sitios.|
+|SiteAdminChangeRequest|Las solicitudes de usuario se agregan como un administrador de la colección de sitios para una colección de sitios de SharePoint. Los administradores de la colección de sitios tienen permisos de control total para la colección de sitios y para todos los subsitios.|
+|SiteCollectionAdminAdded*|El administrador de la colección de sitios o el propietario agrega una persona como administrador de la colección de sitios a un sitio de SharePoint o OneDrive para la Empresa. Los administradores de la colección de sitios tienen permisos de control total para la colección de sitios y para todos los subsitios.|
 |SiteCollectionCreated| El administrador global crea una nueva colección de sitios de su organización de SharePoint.|
 |SiteRenamed|El propietario o el administrador cambia el nombre de un sitio de SharePoint o de OneDrive para la Empresa.|
 |StatusReportModified|El usuario crea, modifica o elimina un informe de estado en Project Web App.|
@@ -404,10 +404,10 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |TimesheetRejected|El usuario rechaza una planilla de horas trabajadas en Project Web App.|
 |TimesheetSaved|El usuario guarda una planilla de horas trabajadas en Project Web App.|
 |TimesheetSubmitted|El usuario envía una planilla de horas trabajadas de estado en Project Web App.|
-|UnmanagedSyncClientBlocked|El usuario intenta establecer una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa desde un equipo que no es miembro del dominio de su organización o es un miembro de un dominio que no se ha agregado a la lista de dominios (denominada la lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. La relación de sincronización no se permite y el equipo del usuario queda bloqueado para sincronizar, descargar o cargar archivos en una biblioteca de documentos. Para obtener más información sobre esta característica, vea [Usar cmdlets de Windows PowerShell para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros](https://docs.microsoft.com/powershell/module/sharepoint-online/index).|
+|UnmanagedSyncClientBlocked|El usuario intenta establecer una relación de sincronización con un sitio de SharePoint o OneDrive para la Empresa desde un equipo que no es un miembro del dominio de la organización o es un miembro de un dominio que no se ha agregado a la lista de dominios (denominada la lista de destinatarios seguros) que puede tener acceso a las bibliotecas de documentos de su organización. La relación de sincronización no se permite y el equipo del usuario está bloqueado para sincronizar, descargar o cargar archivos en una biblioteca de documentos. Para obtener información sobre esta característica, consulte [Usar cmdlets de Windows PowerShell para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros](https://docs.microsoft.com/powershell/module/sharepoint-online/index).|
 |UpdateSSOApplication|La aplicación de destino se actualizó en el Servicio de almacenamiento seguro.|
-|UserAddedToGroup|El propietario o el administrador agrega a un usuario a un grupo en un sitio de SharePoint o de OneDrive para la Empresa. Agregar a un usuario a un grupo concede al usuario los permisos asignados al grupo. |
-|UserRemovedFromGroup|El propietario o el administrador quita a un usuario de un grupo en un sitio de SharePoint o de OneDrive para la Empresa. Después de quitar la persona, no se le concede los permisos asignados al grupo. |
+|UserAddedToGroup|El propietario o el administrador agrega a un usuario a un grupo en un sitio de SharePoint o de OneDrive para la Empresa. Agregar una persona a un grupo otorga al usuario los permisos que se asignaron al grupo. |
+|UserRemovedFromGroup|El administrador o propietario del sitio quita a una persona de un grupo en un sitio de SharePoint o OneDrive para la Empresa. Una vez que se elimina a la persona, ya no se le otorgan los permisos que se asignaron al grupo. |
 |WorkflowModified|El usuario crea, modifica o elimina un tipo de proyecto empresarial o fases de flujo de trabajo o fases de Project Web App.|
 |||||
 
@@ -418,19 +418,19 @@ Los eventos de SharePoint relacionados con archivos que aparecen en la sección 
 |**Parámetro**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |SiteUrl|Edm.String|Sí|La dirección URL del sitio donde se encuentra el archivo o la carpeta a la que obtuvo acceso el usuario.|
-|SourceRelativeUrl|Edm.String|No|La dirección URL de la carpeta que contiene el archivo al que obtuvo acceso el usuario. La combinación de los valores de los parámetros _SiteURL_, _SourceRelativeURL_ y _SourceFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo al que obtuvo acceso el usuario.|
+|SourceRelativeUrl|Edm.String|No|La URL de la carpeta que contiene el archivo al que accede el usuario. La combinación de los valores de los parámetros _SiteURL_, _SourceRelativeURL_ y _SourceFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo al que accedió el usuario.|
 |SourceFileName|Edm.String|Sí|El nombre del archivo o carpeta al que obtuvo acceso el usuario.|
-|SourceFileExtension|Edm.String|No|La extensión del archivo al que obtuvo acceso el usuario. Esta propiedad está en blanco si el objeto al que se obtuvo acceso es una carpeta.|
-|DestinationRelativeUrl|Edm.String|No|La dirección URL de la carpeta de destino donde se copia o se mueve un archivo. La combinación de los valores de los parámetros _SiteURL_, _DestinationRelativeURL_ y _DestinationFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo que se copió. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
-|DestinationFileName|Edm.String|No|El nombre del archivo que se copia o mueve. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
-|DestinationFileExtension|Edm.String|No|La extensión del archivo que se copia o mueve. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
+|SourceFileExtension|Edm.String|No|La extensión del archivo al que el usuario accedió. Esta propiedad está en blanco si el objeto al que se accedió es una carpeta.|
+|DestinationRelativeUrl|Edm.String|No|La dirección URL de la carpeta de destino en la que se copia o se mueve un archivo. La combinación de los valores de los parámetros _SiteURL_, _DestinationRelativeURL_ y _DestinationFileName_ es la misma que el valor de la propiedad **ObjectID**, que es el nombre completo de la ruta de acceso del archivo copiado. Esta propiedad se muestra únicamente para los eventos de usuario FileCopied y FileMoved.|
+|DestinationFileName|Edm.String|No|El nombre del archivo que se copia o se mueve. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
+|DestinationFileExtension|Edm.String|No|La extensión de archivo de un archivo que se copia o se mueve. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
 |UserSharedWith|Edm.String|No|El usuario con el que se compartió un recurso.|
-|SharingType|Edm.String|No|El tipo de permisos de uso compartido que se asignan al usuario con el que se compartió el recurso. Este usuario se identifica mediante el parámetro _UserSharedWith_.|
+|SharingType|Edm.String|No|El tipo de permisos de uso compartido asignado al usuario con el que se compartió el recurso. Este usuario se identifica por el parámetro _UserSharedWith_.|
 |||||
 
 ## <a name="sharepoint-sharing-schema"></a>Esquema de uso compartido de SharePoint
 
- Los eventos de SharePoint relacionados con el uso compartido de archivos. Se diferencian de los eventos relacionados con archivos y carpetas en que un usuario realiza una acción que tiene algún efecto en otro usuario. Para obtener información sobre el esquema de uso compartido de SharePoint, vea [Uso compartido de auditoría en el registro de auditoría de Office 365](https://docs.microsoft.com/microsoft-365/compliance/use-sharing-auditing
+ Los eventos de SharePoint relacionados con el recurso compartido de archivos. Se diferencian de los eventos relacionados con archivos y carpetas en que un usuario realiza una acción que tiene algún efecto en otro usuario. Para obtener información sobre el esquema de uso compartido de SharePoint, consulte [Usar la auditoría de uso compartido en el registro de auditoría de Office 365](https://docs.microsoft.com/microsoft-365/compliance/use-sharing-auditing
 ).
 
 |**Parámetro**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
@@ -448,10 +448,10 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |CustomEvent|Edm.String|No|Cadena opcional para los eventos personalizados.|
 |EventData|Edm.String|No|Carga opcional para los eventos personalizados.|
-|ModifiedProperties|Collection(ModifiedProperty)|No|La propiedad se incluye para los eventos de administración, como agregar un usuario como miembro de un sitio o un grupo de administradores de colección de sitios. La propiedad incluye el nombre de la propiedad modificada (por ejemplo, el grupo de administradores del sitio), el nuevo valor de la propiedad modificada (como el usuario agregado como administrador de sitio) y el valor anterior del objeto modificado.|
+|ModifiedProperties|Collection(ModifiedProperty)|No|La propiedad se incluye para los eventos de administración (por ejemplo, agregar un usuario como miembro de un sitio o de un grupo de administradores de colecciones de sitios). La propiedad incluye el nombre de la propiedad modificada (por ejemplo, el grupo de administradores de sitios), el nuevo valor de la propiedad modificada (como el usuario agregado como administrador de sitio) y el valor anterior del objeto modificado.|
 |||||
 
-## <a name="project-schema"></a>Esquema de Project
+## <a name="project-schema"></a>Esquema de proyecto
 
 |**Parámetro**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
@@ -532,10 +532,10 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|ModifiedObjectResolvedName|Edm.String|No|Este es el nombre descriptivo del objeto modificado por el cmdlet. Esto solo se registra si el cmdlet modifica el objeto.|
+|ModifiedObjectResolvedName|Edm.String|No|Este es el nombre descriptivo del objeto modificado por el cmdlet. Esto se registra solo si el cmdlet modifica el objeto.|
 |Parámetros|Collection(Common.NameValuePair)|No|El nombre y valor de todos los parámetros usados con el cmdlet que se identifica en la propiedad Operations.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|No|La propiedad se incluye para los eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior del objeto modificado.|
-|ExternalAccess|Edm.Boolean|Sí|Especifica si el cmdlet lo ejecutó un usuario de la organización, el personal del centro de datos de Microsoft o una cuenta de servicio del centro de datos, o un administrador delegado. El valor **False** indica que el cmdlet lo ejecutó algún usuario de su organización. El valor **True** indica que el cmdlet lo ejecutó el personal del centros de datos, una cuenta de servicio del centro de datos o un administrador delegado.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|No|La propiedad está incluida para eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior del objeto modificado.|
+|ExternalAccess|Edm.Boolean|Sí|Especifica si un usuario ejecutó el cmdlet en la organización, si lo hizo el personal del centro de datos de Microsoft o una cuenta de servicio del centro de datos, o bien un administrador delegado. El valor **False** indica que algún usuario de su organización ejecutó el cmdlet. El valor **True** indica que el cmdlet lo ejecutó el personal del centro de datos, una cuenta de servicio del centro de datos o un administrador delegado.|
 |OriginatingServer|Edm.String|No|El nombre del servidor desde el que se ejecutó el cmdlet.|
 |OrganizationName|Edm.String|No|El nombre del inquilino.|
 |||||
@@ -556,7 +556,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |OriginatingServer |Edm.String|No|Representa dónde se originó la operación.|
 |OrganizationName|Edm.String|No|El nombre del inquilino.|
 |ClientInfoString|Edm.String|No|Información sobre el cliente de correo electrónico que se usó para realizar la operación, como la versión de explorador, la versión de Outlook o información del dispositivo móvil.|
-|ClientIPAddress|Edm.String|No|La dirección IP del dispositivo que se ha usado cuando la operación se ha registrado. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
+|ClientIPAddress|Edm.String|No|La dirección IP del dispositivo que se ha usado al registrar la operación. La dirección IP se muestra en formato de dirección IPv4 o IPv6.|
 |ClientMachineName|Edm.String|No|El nombre del equipo que hospeda al cliente de Outlook.|
 |ClientProcessName|Edm.String|No|El cliente de correo electrónico que se usó para acceder al buzón. |
 |ClientVersion|Edm.String|No|La versión del cliente de correo electrónico.|
@@ -583,10 +583,10 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |Folder|Self.[ExchangeFolder](#exchangefolder-complex-type)|No|La carpeta donde se encuentra un grupo de elementos.|
 |CrossMailboxOperations|Edm.Boolean|No|Indica si la operación implicó más de un buzón.|
-|DestMailboxId|Edm.Guid|No|Establece si el valor del parámetro CrossMailboxOperations es **True**. Especifica el GUID del buzón de correo de destino.|
-|DestMailboxOwnerUPN|Edm.String|No|Establece si el valor del parámetro CrossMailboxOperations es **True**. Especifica el UPN del propietario del buzón de correo de destino.|
-|DestMailboxOwnerSid|Edm.String|No|Establece si el valor del parámetro CrossMailboxOperations es **True**. Especifica el SID del buzón de correo de destino.|
-|DestMailboxOwnerMasterAccountSid|Edm.String|No|Establece si el valor del parámetro CrossMailboxOperations es **True**. Especifica el SID de la cuenta principal y el SID del propietario del buzón de destino.|
+|DestMailboxId|Edm.Guid|No|Se establece solo si el parámetro CrossMailboxOperations es **True**. Especifica el GUID del buzón de destino.|
+|DestMailboxOwnerUPN|Edm.String|No|Se establece solo si el parámetro CrossMailboxOperations es **True**. Especifica el UPN del propietario del buzón de correo de destino.|
+|DestMailboxOwnerSid|Edm.String|No|Se establece solo si el parámetro CrossMailboxOperations es **True**. Especifica el SID del buzón de destino.|
+|DestMailboxOwnerMasterAccountSid|Edm.String|No|Se establece solo si el parámetro CrossMailboxOperations es **True**. Especifica el SID para el SID de la cuenta maestra del propietario del buzón de destino.|
 |DestFolder|Self.[ExchangeFolder](#exchangefolder-complex-type)|No|La carpeta de destino, para operaciones como Mover.|
 |Folders|Collection(Self.[ExchangeFolder](#exchangefolder-complex-type))|No|Información sobre las carpetas de origen implicadas en una operación; por ejemplo, si las carpetas están seleccionadas y después se eliminan.|
 |AffectedItems|Collection(Self.[ExchangeItem](#exchangeitem-complex-type))|No|Información sobre cada elemento del grupo.|
@@ -628,7 +628,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |AzureActiveDirectoryEventType|Self.[AzureActiveDirectoryEventType](#azureactivedirectoryeventtype)|Sí|El tipo de evento de Azure AD. |
 |ExtendedProperties|Collection(Common.NameValuePair)|No|Las propiedades extendidas del evento de Azure AD.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|No|Esta propiedad se incluye para los eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|No|Esta propiedad está incluida para eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
 |||||
 
 ### <a name="enum-azureactivedirectoryeventtype---type--edmint32"></a>Enum: AzureActiveDirectoryEventType - Tipo: Edm.Int32
@@ -647,7 +647,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |Application|Edm.String|No|La aplicación que desencadena el evento de inicio de sesión de la cuenta, como Office 15.|
 |Client|Edm.String|No|Información sobre el dispositivo del cliente, el sistema operativo del dispositivo y explorador del dispositivo que se usó para del evento de inicio de sesión de cuenta.|
-|LoginStatus|Edm.Int32|Sí|Esta propiedad procede directamente de OrgIdLogon.LoginStatus. Puede realizarse la asignación de varios errores de inicio de sesión interesantes mediante algoritmos de alerta.|
+|LoginStatus|Edm.Int32|Sí|Esta propiedad es de OrgIdLogon.LoginStatus directamente. Puede realizarse la asignación de varios errores de inicio de sesión interesantes mediante algoritmos de alerta.|
 |UserDomain|Edm.String|Sí|La información de identidad del inquilino (TII).|
 |||||
 
@@ -744,19 +744,19 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |**Parameters**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|No|El GUID que representa la aplicación que solicita el inicio de sesión. Se puede buscar el nombre para mostrar a través de la API de Graph de Azure Active Directory.|
-|Client|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
-|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión. Para obtener una descripción completa de LogonErrors consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+|Cliente|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
+|LogonError|Edm.String|No|Para inicios de sesión fallidos, contiene el motivo por el que falló el inicio de sesión. Para obtener una descripción completa de LogonErrors, consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
 |||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
 
-Los eventos DLP están disponibles para Exchange Online, SharePoint Online y OneDrive para la Empresa. Tenga en cuenta que los eventos DLP en Exchange solo están disponibles para los eventos basados en directiva DLP unificada (por ejemplo, configurados mediante el Centro de seguridad y cumplimiento). Los eventos DLP basados en las reglas de transporte de Exchange no son compatibles.
+Los eventos de DLP están disponibles para Exchange Online, SharePoint Online y OneDrive para la Empresa. Tenga en cuenta que los eventos DLP en Exchange solo están disponibles para los eventos basados en una directiva DLP unificada (por ejemplo, configurados mediante el Centro de seguridad y cumplimiento). No se admiten los eventos de DLP basados en las reglas de transporte de Exchange.
 
-Los eventos DLP (prevención de pérdida de datos) siempre tendrán UserKey="DlpAgent" en el esquema común. Hay tres tipos de DlpEvents que se almacenan como el valor de la propiedad Operation del esquema común:
+Los eventos de DLP (prevención de pérdida de datos) siempre tendrán UserKey="DlpAgent" en el esquema común. Hay tres tipos de DlpEvents que se almacenan como el valor de la propiedad Operation del esquema común:
 
-- DlpRuleMatch: indica que se encontró una coincidencia con una regla. Estos eventos se encuentran en Exchange, SharePoint Online y en OneDrive para la Empresa. Para Exchange incluye los falsos positivos y reemplazar información. En SharePoint Online y en OneDrive para la Empresa, los falsos positivos y los reemplazos generan eventos independientes.
+- DlpRuleMatch: esto indica que coincidió con una regla. Estos eventos existen tanto en Exchange como en SharePoint Online y OneDrive para la Empresa. Para Exchange, incluye información de falsos positivos y anulación. En SharePoint Online y en OneDrive para la Empresa, los falsos positivos y los reemplazos generan eventos independientes.
 
-- DlpRuleUndo: solo existen en SharePoint Online y en OneDrive para la Empresa e indican que una acción de la directiva aplicada anteriormente se ha "deshecho", debido a la designación de falso positivo o reemplazo por el usuario, o porque el documento ya no está sujeto a directiva (ya sea debido a cambio de directiva o a cambios al contenido del documento).
+- DlpRuleUndo: solo existen en SharePoint Online y en OneDrive para la Empresa e indican que una acción de la directiva aplicada anteriormente se ha "deshecho", debido a la designación de falso positivo o invalidación por el usuario, o porque el documento ya no está sujeto a directiva (ya sea debido a cambios de directiva o a cambios en el contenido del documento).
 
 - DlpInfo: solo se encuentran en SharePoint Online y en OneDrive para la Empresa e indican una designación de falso positivo, pero no se ha "deshecho" ninguna acción.
 
@@ -766,14 +766,14 @@ Los eventos DLP (prevención de pérdida de datos) siempre tendrán UserKey="Dlp
 |ExchangeMetaData|Self.[ExchangeMetadata](#exchangemetadata-complex-type)|No|Describe los metadatos sobre el mensaje de correo electrónico que contiene la información confidencial.|
 |ExceptionInfo|Edm.String|No|Identifica los motivos por los que ya no se aplica una directiva o cualquier información sobre falsos positivos o invalidación indicada por el usuario final.|
 |PolicyDetails|Collection(Self.[PolicyDetails](#policydetails-complex-type))|Sí|Información sobre 1 o más directivas que ha desencadenado el evento DLP.|
-|SensitiveInfoDetectionIsIncluded|Boolean|Sí|Indica si el evento contiene el valor del tipo de datos confidenciales y el contexto del contenido de origen. Obtener acceso a los datos confidenciales requiere el permiso "Leer eventos de directiva DLP como información confidencial" en Azure Active Directory.|
+|SensitiveInfoDetectionIsIncluded|Boolean|Sí|Indica si el evento contiene el valor del tipo de datos confidenciales y el contexto circundante del contenido de origen. Obtener acceso a los datos confidenciales requiere el permiso "Leer eventos de directiva DLP como información confidencial" en Azure Active Directory.|
 |||||
 
 ### <a name="sharepointmetadata-complex-type"></a>Tipo complejo SharePointMetadata
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|From|Edm.String|Sí|El usuario ha desencadenado el evento. Se trata de FileOwner, LastModifier o LastSharer.|
+|From|Edm.String|Sí|El usuario que desencadenó el evento. Se trata de FileOwner, LastModifier o LastSharer.|
 |itemCreationTime|Edm.Date|Sí|Datetimestamp en UTC de cuando se registró el evento.|
 |SiteCollectionGuid|Edm.Guid|Sí|El GUID de la colección de sitios.|
 |SiteCollectionUrl|Edm.String|Sí|El nombre del sitio de SharePoint.|
@@ -847,7 +847,7 @@ Los datos confidenciales de DLP solo están disponibles en la API de fuente de a
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|Detections|Collection(Self.Detections)|Sí|Una matriz de información confidencial que se detectó. La información contiene pares de valor con Value = valor coincidente (p. ej. valor de tarjeta de crédito de SSN) y Context = un fragmento de contenido de origen que contiene el valor coincidente. |
+|Detections|Collection(Self.Detections)|Sí|Una serie de información confidencial que se detectó. La información contiene pares de valores clave con Valor = valor coincidente (por ejemplo, valor de tarjeta de crédito de SSN) y Contexto = un fragmento de contenido de origen que contiene el valor coincidente. |
 |ResultsTruncated|Edm.Boolean|Sí|Indica si los registros se truncan debido al gran número de resultados. |
 |||||
 
@@ -866,13 +866,13 @@ Los datos confidenciales de DLP solo están disponibles en la API de fuente de a
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |StartTime|Edm.Date|No|La fecha y hora en que se ejecutó el cmdlet.|
-|ClientRequestId|Edm.String|No|Un GUID que puede usarse para correlacionar este cmdlet con las operaciones de UX del Centro de seguridad y cumplimiento. Solo el soporte técnico de Microsoft utiliza esta información.|
+|ClientRequestId|Edm.String|No|Un GUID que puede usarse para correlacionar este cmdlet con las operaciones de UX del Centro de seguridad y cumplimiento. Esta información solo la utiliza el soporte de Microsoft.|
 |CmdletVersion|Edm.String|No|La versión de compilación del cmdlet cuando se ejecutó.|
-|EffectiveOrganization|Edm.String|No|El GUID de la organización que se han visto afectada por el cmdlet. (En desuso: este parámetro dejará de aparecer en el futuro.)|
+|EffectiveOrganization|Edm.String|No|El GUID de la organización afectada por el cmdlet. (En desuso: este parámetro dejará de aparecer en el futuro).|
 |UserServicePlan|Edm.String|No|El plan de servicio de Exchange Online Protection asignado al usuario que ejecutó el cmdlet.|
 |ClientApplication|Edm.String|No|Si una aplicación ejecutó el cmdlet, a diferencia de un PowerShell remoto, este campo contiene el nombre de la aplicación.|
 |Parámetros|Edm.String|No|El nombre y valor de los parámetros usados con el cmdlet que no incluyen información de identificación personal.|
-|NonPiiParameters|Edm.String|No|El nombre y valor de los parámetros usados con el cmdlet que incluyen información de identificación personal. (En desuso: este campo dejará de aparecer en el futuro y su contenido se combinará con el campo Parameters.)|
+|NonPiiParameters|Edm.String|No|El nombre y valor de los parámetros usados con el cmdlet que incluyen información de identificación personal. (En desuso: este campo dejará de aparecer en el futuro y su contenido se fusionará con el campo Parámetros).|
 |||||
 
 ## <a name="security-and-compliance-alerts-schema"></a>Esquema de alertas de seguridad y cumplimiento
@@ -882,28 +882,28 @@ Las señales de alerta son:
 - Todas las alertas basadas en [directivas de alerta en el centro de seguridad y cumplimiento](https://docs.microsoft.com/office365/securitycompliance/alert-policies#default-alert-policies).
 - Alertas relacionadas con Office 365 generadas en [Office 365 Cloud App Security](https://docs.microsoft.com/office365/securitycompliance/office-365-cas-overview) y [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security).
 
-Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay tres tipos de alerta que se almacenan como el valor de la propiedad Operation del esquema común:
+El UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay tres tipos de alerta que se almacenan como el valor de la propiedad Operation del esquema común:
 
 - AlertTriggered: una nueva alerta se genera debido a una coincidencia de directiva.
 
-- AlertEntityGenerated: una nueva entidad se agrega a una alerta. Este evento solo es aplicables a las alertas generadas según directivas de Alerta en el Centro de seguridad y cumplimiento. Cada alerta generada puede estar asociada con uno o varios de estos eventos. Por ejemplo, una directiva de alerta está definida para desencadenar una alerta si un usuario elimina más de 100 archivos en 5 minutos. Si dos usuarios superan el umbral aproximadamente al mismo tiempo, habrá dos eventos AlertEntityGenerated, pero solo un evento AlertTriggered.
+- AlertEntityGenerated: se agrega una nueva entidad a una alerta. Este evento solo es aplicable a las alertas generadas según las directivas de alerta en el Centro de seguridad y cumplimiento. Cada alerta generada se puede asociar con uno o varios de estos eventos. Por ejemplo, una directiva de alerta se define para activar una alerta si algún usuario elimina más de 100 archivos en 5 minutos. Si dos usuarios superan el umbral aproximadamente al mismo tiempo, habrá dos eventos AlertEntityGenerated, pero solo un evento AlertTriggered.
 
-- AlertUpdated: se ha realizado una actualización de los metadatos de una alerta. Este evento se registra cuando el estado de una alerta se cambia (por ejemplo, de "Activo" a "Resuelto") y cuando alguien agrega un comentario a la alerta.
+- AlertUpdated: se realizó una actualización de los metadatos de una alerta. Este evento se registra cuando el estado de una alerta se cambia (por ejemplo, de "Activo" a "Resuelto") y cuando alguien agrega un comentario a la alerta.
 
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |AlertId|Edm.Guid|Sí|El GUID de la alerta.|
-|AlertType|Self.String|Sí|Tipo de la alerta. Los tipos de alertas son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Sistema</p></li><li><p>Personalizado</p></li>|
+|AlertType|Self.String|Sí|Tipo de la alerta. Los tipos de alerta incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Sistema</p></li><li><p>Personalizado</p></li>|
 |Nombre|Edm.String|Sí|Nombre de la alerta.|
 |PolicyId|Edm.Guid|No|El GUID de la directiva que activó la alerta.|
-|Estado|Edm.String|No|Estado de la alerta. Los estados son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Activo</p></li><li><p>Investigando</p></li><li><p>Resuelto</p></li><li><p>Descartada</p></li></ul>|
-|Severity|Edm.String|No|Gravedad de la alerta. Los niveles de gravedad son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Bajo</p></li><li><p>Mediano</p></li><li><p>Alto</p></li></ul>|
-|Categoría|Edm.String|No|Categoría de la alerta. Las categorías son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>AccessGovernance</p></li><li><p>DataGovernance</p></li><li><p>DataLossPrevention</p></li><li><p>InsiderRiskManagement</p></li><li><p>MailFlow</p></li><li><p>ThreatManagement</p></li><li><p>Otros</p></li></ul>|
-|Origen|Edm.String|No|Origen de la alerta. Los orígenes son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Centro de seguridad y cumplimiento de Office 365</p></li><li><p>Cloud App Security</p></li></ul>|
-|Comentarios|Edm.String|No|Comentarios de los usuarios que han visto la alerta. De forma predeterminada, es "Nueva alerta".|
+|Estado|Edm.String|No|Estado de la alerta. Los estados incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Activo</p></li><li><p>Investigando</p></li><li><p>Resuelto</p></li><li><p>Descartada</p></li></ul>|
+|Severity|Edm.String|No|Gravedad de la alerta. Los niveles de gravedad incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Bajo</p></li><li><p>Mediano</p></li><li><p>Alto</p></li></ul>|
+|Categoría|Edm.String|No|Categoría de la alerta. Las categorías incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>AccessGovernance</p></li><li><p>DataGovernance</p></li><li><p>DataLossPrevention</p></li><li><p>InsiderRiskManagement</p></li><li><p>MailFlow</p></li><li><p>ThreatManagement</p></li><li><p>Otros</p></li></ul>|
+|Origen|Edm.String|No|Origen de la alerta. Los orígenes incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Centro de seguridad y cumplimiento de Office 365</p></li><li><p>Cloud App Security</p></li></ul>|
+|Comentarios|Edm.String|No|Comentarios de los usuarios que han visto la alerta. De forma predeterminada, es "Alerta nueva".|
 |Datos|Edm.String|No|El blob de datos detallados de la alerta o la entidad de la alerta.|
 |AlertEntityId|Edm.String|No|El identificador de la entidad de alerta. Este parámetro solo es válido para los eventos AlertEntityGenerated.|
-|EntityType|Edm.String|No|Tipo de la alerta o de la entidad de la alerta. Los tipos de entidad de alertas son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Usuario</p></li><li><p>Destinatarios</p></li><li><p>Remitente</p></li><li><p>MalwareFamily</p></li></ul>Este parámetro solo es válido para los eventos AlertEntityGenerated.|
+|EntityType|Edm.String|No|Tipo de la alerta o entidad de la alerta. Los tipos de entidad incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Usuario</p></li><li><p>Destinatarios</p></li><li><p>Remitente</p></li><li><p>MalwareFamily</p></li></ul>Este parámetro solo es válido para los eventos AlertEntityGenerated.|
 |||||
 
 ## <a name="yammer-schema"></a>Esquema de Yammer
@@ -921,7 +921,7 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |IsSoftDelete|Edm.Boolean|No|Devuelve "true" si se establece la directiva de retención de datos de la red en Eliminación temporal; devuelve "false" si se establece la directiva de retención de datos de la red en Eliminación.|
 |MessageId|Edm.Int64|No|Id. del mensaje en la operación.|
 |YammerNetworkId|Edm.Int64|No|El id. de la red del usuario que llevó a cabo la operación.|
-|TargetUserId|Edm.String|No|El correo electrónico del usuario de destino en la operación. Se mostrará en blanco si no es relevante para la operación.|
+|TargetUserId|Edm.String|No|Correo electrónico del usuario de destino en la operación. Se mostrará en blanco si no es relevante para la operación.|
 |TargetYammerUserId|Edm.Int64|No|El id. del usuario de destino en la operación.|
 |VersionId|Edm.Int64|No|El id. de versión del archivo en la operación.|
 |||||
@@ -972,10 +972,10 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |AddOnType|Self.[AddOnType](#addontype)|No|El tipo de complemento que generó el evento.|
 |AddonName|Edm.String|No|El nombre del complemento que generó el evento.|
 |AddOnGuid|Edm.Guid|No|Un identificador único del complemento que generó el evento.|
-|TabType|Edm.String|No|Solo está disponible para los eventos de pestaña. El tipo de pestaña que generó el evento.|
-|Nombre|Edm.String|No|Solo está disponible para eventos de configuración. Nombre de la configuración que ha cambiado.|
-|OldValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor antiguo de la configuración.|
-|NewValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor nuevo de la configuración.|
+|TabType|Edm.String|No|Solo presente para eventos de pestaña. El tipo de pestaña que generó el evento.|
+|Name|Edm.String|No|Solo presente para eventos de configuración. Nombre de la configuración que cambió.|
+|OldValue|Edm.String|No|Solo presente para eventos de configuración. Valor antiguo de la configuración.|
+|NewValue|Edm.String|No|Solo presente para eventos de configuración. Valor nuevo de la configuración.|
 ||||
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complejo MicrosoftTeamsMember
@@ -1017,28 +1017,28 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |3|Tab|Una pestaña de Microsoft Teams.|
 ||||
 
-## <a name="office-365-advanced-threat-protection-and-threat-investigation-and-response-schema"></a>Esquema de Protección contra amenazas avanzada y de Investigación y respuesta de amenazas de Office 365
+## <a name="microsoft-defender-for-office-365-and-threat-investigation-and-response-schema"></a>Esquema de Investigación y respuesta de amenazas y Microsoft Defender para Office 365
 
-Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs.microsoft.com/office365/securitycompliance/office-365-atp) (ATP) y de Investigación y respuesta de amenazas están disponibles para los clientes de Office 365 que tienen una suscripción de Protección contra amenazas avanzada de Office 365 Plan 1, Protección contra amenazas avanzada de Office 365 Plan 2 o una suscripción de E5. Cada evento en la fuente de Office 365 ATP corresponde a los siguientes que se determinaron que contienen una amenaza:
+[Microsoft Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/office-365-atp) y los eventos de Investigación y respuesta de amenazas están disponibles para los clientes de Office 365 que tienen una suscripción de Defender para Office 365 Plan 1, Defender para Office 365 Plan 2 o E5. Cada evento en la fuente de Defender para Office 365 corresponde a los siguientes eventos que se determinó que contenían una amenaza:
 
-- Un mensaje de correo electrónico enviado o recibido por un usuario de la organización para el que se realizan detecciones en los mensajes en el momento de entrega y de [Purga automáticamente](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15). 
+- Un mensaje de correo electrónico enviado o recibido por un usuario de la organización para el que se realizan detecciones en los mensajes en el momento de entrega y de [Purga automa de hora cero](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15). 
 
-- Direcciones URL en las que ha hecho clic un usuario de la organización que se han detectado como malintencionadas en tiempo de clic según la protección de [Vínculos seguros de ATP de Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).  
+- Direcciones URL en las que ha hecho clic un usuario de la organización que se han detectado como malintencionadas en el momento del clic según la protección de [Vínculos seguros en Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).  
 
-- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.
+- Un archivo en SharePoint Online, OneDrive para la Empresa o Microsoft Teams que la protección de [Microsoft Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-for-spo-odb-and-teams) ha detectado como malintencionado.
 
 - Una alerta que se desencadena y que inició una [investigación automatizada](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office).
 
 > [!NOTE]
-> Las funciones de la Protección contra amenazas avanzada de Office 365 y de Investigación y respuesta de amenazas de Office 365 (anteriormente conocida como Inteligencia sobre amenazas de Office 365) ahora forman parte de la Protección contra amenazas avanzada de Office 365 Plan 2, con funciones de protección contra amenazas adicionales. Para obtener más información, consulte [Planes y precios de ATP de Office 365](https://products.office.com/exchange/advance-threat-protection) y [Descripción del servicio de ATP de Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description).
+> Las funciones de Microsoft Defender para Office 365 y de Investigación y respuesta de amenazas de Office 365 (anteriormente conocida como Inteligencia sobre amenazas de Office 365) ahora forman parte de Microsoft Defender para Office 365 Plan 2, con funciones de protección contra amenazas adicionales. Para más información, consulte [Planes y precios de Microsoft Defender para Office 365](https://products.office.com/exchange/advance-threat-protection) y la [Descripción del servicio de Defender para Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description).
 
 ### <a name="email-message-events"></a>Eventos de mensaje de correo electrónico
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |AttachmentData|Collection(Self.[AttachmentData](#attachmentdata))|No|Datos sobre los datos adjuntos en el mensaje de correo electrónico que ha desencadenado el evento.|
-|DetectionType|Edm.String|Sí|El tipo de detección (por ejemplo, **Inline** : detectado durante la entrega; **Delayed**: detectado después de la entrega; **ZAP**: mensajes eliminados por la [purga automática](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Los eventos con el tipo de detección ZAP normalmente irán precedidos de un mensaje con el tipo de detección **Delayed**.|
-|DetectionMethod|Edm.String|Sí|El método o la tecnología usada por ATP de Office 365 para la detección.|
+|DetectionType|Edm.String|Sí|El tipo de detección (por ejemplo, **Inline**: detectado durante la entrega; **Delayed**: detectado después de la entrega; **ZAP**: mensajes eliminados por la [Purga automática de hora cero](https://support.office.com/article/Zero-hour-auto-purge-protection-against-spam-and-malware-96deb75f-64e8-4c10-b570-84c99c674e15)). Los eventos con el tipo de detección ZAP generalmente estarán precedidos por un mensaje con un tipo de detección **Delayed**.|
+|DetectionMethod|Edm.String|Sí|El método o la tecnología usada por Defender para Office 365 para la detección.|
 |InternetMessageId|Edm.String|Sí|El Id. del mensaje de Internet.|
 |NetworkMessageId|Edm.String|Sí|El id. de mensaje de red en línea de Exchange.|
 |P1Sender|Edm.String|Sí|La ruta de devolución del remitente del mensaje de correo electrónico.|
@@ -1047,7 +1047,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |Policy|Self.[PolicyAction](#policy-action)|Sí|La acción configurada en la directiva de filtrado (por ejemplo, **Mover a la carpeta de correo no deseado** o **Cuarentena**) relevante para el mensaje de correo electrónico.|
 |P2Sender|Edm.String|Sí|El **De:** el remitente del mensaje de correo electrónico.|
 |Recipients|Collection(Edm.String)|Sí|Una matriz de los destinatarios del mensaje de correo electrónico.|
-|SenderIp|Edm.String|Sí|La dirección IP que envió el correo electrónico de Office 365. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
+|SenderIp|Edm.String|Sí|La dirección IP que envió el correo electrónico de Office 365. La dirección IP se muestra en formato de dirección IPv4 o IPv6.|
 |Subject|Edm.String|Sí|La línea de asunto del mensaje.|
 |Verdict|Edm.String|Sí|El veredicto del mensaje.|
 |MessageTime|Edm.Date|Sí|Fecha y hora en formato de hora universal coordinada (UTC) en la que el mensaje se ha recibido o enviado.|
@@ -1095,7 +1095,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |7|Anti-phish, SPOOF|Acción de suplantación en la Directiva antiphishing.|
 |8|Anti-phish, GIMP|La acción de inteligencia de buzón en la directiva ANTIPHISH.|
 |9|Programas anti-malware, AMP| La acción de la directiva contra malware en la directiva antimalware.|
-|10|Datos adjuntos seguros, SAP| La acción de directiva en la directiva de datos adjuntos seguros de Office 365 ATP.|
+|10|Datos adjuntos seguros, SAP| La acción de directiva en la directiva Datos adjuntos seguros en Defender para Office 365.|
 |11|Regla de transporte de Exchange, ETR| La acción de directiva en la regla de transporte de Exchange.|
 |12|Antimalware, ZAPM| La acción de directiva de malware en la Directiva antimalware que se aplica a la purga automática de cero horas (ZAP).|
 |13|Anti-phish, ZAPP| La acción política en la política antiphish aplicada a ZAP.|
@@ -1127,11 +1127,11 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |:-----|:-----|:-----|:-----|
 |UserId|Edm.String|Sí|El identificador (por ejemplo, la dirección de correo electrónico) para el usuario que hizo clic en la dirección URL.|
 |AppName|Edm.String|Sí|El servicio de Office 365 desde el que se hizo clic en la dirección URL (por ejemplo, Correo).|
-|URLClickAction|Self.[URLClickAction](#urlclickaction)|Sí|Haga clic en la dirección URL en función de las directivas de la organización para [Office 365 ATP Safe Links](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links) (Vínculos seguros de ATP de Office 365).|
+|URLClickAction|Self.[URLClickAction](#urlclickaction)|Sí|Acción de clic para la dirección URL según las directivas de la organización para [Vínculos seguros en Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
 |SourceId|Edm.String|Sí|El identificador para el servicio de Office 365 desde el que se hizo clic en la dirección URL (por ejemplo, para el correo es el id. de mensaje de red de Exchange Online).|
 |TimeOfClick|Edm.Date|Sí|La fecha y hora en formato Hora universal coordinada (UTC) cuando el usuario hizo clic en la dirección URL.|
 |URL|Edm.String|Sí|Dirección URL en la que el usuario hizo clic.|
-|UserIp|Edm.String|Sí|La dirección IP para el usuario que hizo clic en la dirección URL. La dirección IP se muestra en el formato de dirección IPv4 o IPv6.|
+|UserIp|Edm.String|Sí|La dirección IP del usuario que hizo clic en la dirección URL. La dirección IP se muestra en formato de dirección IPv4 o IPv6.|
 |||||
 
 ### <a name="enum-urlclickaction---type-edmint32"></a>Enum: URLClickAction - Tipo: Edm.Int32
@@ -1140,10 +1140,10 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 
 |**Valor**|**Nombre del miembro**|**Descripción**|
 |:-----|:-----|:-----|
-|2|Blockpage|Usuario bloqueado para navegar a la dirección URL por [vínculos seguros de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
-|3|PendingDetonationPage|Usuario al que [vínculos seguros de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links) muestra la página de detonación pendiente.|
-|4|BlockPageOverride|Usuario bloqueado para navegar a la dirección URL por [vínculos seguros de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha esquivado el bloqueo para navegar a la URL.|
-|5|PendingDetonationPageOverride|Usuario al que [vínculos seguros de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links) muestra la página de detonación pendiente; sin embargo, el usuario ha esquivado el bloqueo para navegar a la URL.|
+|2|Blockpage|Usuario bloqueado para navegar a la dirección URL por [Vínculos seguros en Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
+|3|PendingDetonationPage|Usuario presentado con la página de detonación pendiente por [Vínculos seguros en Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links).|
+|4|BlockPageOverride|Usuario bloqueado para navegar a la dirección URL por [Vínculos seguros de Office 365 ATP](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha omitido el bloqueo para navegar a la URL.|
+|5|PendingDetonationPageOverride|Usuario presentado con la página de detonación pendiente por [Vínculos seguros en Defender para Office 365](https://docs.microsoft.com/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha omitido el bloqueo para navegar a la URL.|
 |||||
 
 ### <a name="file-events"></a>Eventos de archivo
@@ -1152,7 +1152,7 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 |:-----|:-----|:-----|:-----|
 |FileData|Self.[FileData](#filedata)|Sí|Datos sobre el archivo que ha desencadenado el evento.|
 |SourceWorkload|Self.[SourceWorkload](#sourceworkload)|Sí|Carga de trabajo o servicio en el que se encontró el archivo (por ejemplo, SharePoint Online, OneDrive para la Empresa o Microsoft Teams)
-|DetectionMethod|Edm.String|Sí|El método o la tecnología usada por ATP de Office 365 para la detección.|
+|DetectionMethod|Edm.String|Sí|El método o la tecnología usada por Microsoft Defender para Office 365 para la detección.|
 |LastModifiedDate|Edm.Date|Sí|Fecha y hora en formato de hora universal coordinada (UTC) en la que el archivo fue creado o modificado por última vez.|
 |LastModifiedBy|Edm.String|Sí|El identificador (por ejemplo, la dirección de correo electrónico) para el usuario que creó o modificó por última vez el archivo.|
 |EventDeepLink|Edm.String|Sí|Vínculo profundo para el evento de archivo en los informes en tiempo real o el explorador en el Centro de seguridad y cumplimiento.|
@@ -1186,9 +1186,9 @@ Los eventos de [Protección contra amenazas avanzada de Office 365](https://docs
 
 ## <a name="automated-investigation-and-response-events-in-office-365"></a>Eventos de investigación y respuesta automatizada en Office 365
 
-Los eventos de [investigación y respuesta automatizada (AIR) de Office 365](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office) están disponibles para los clientes de Office 365 que tienen una suscripción que incluye la Protección contra amenazas avanzada de Office 365 Plan 2 u Office 365 E5. Los eventos de investigación se registran en función de un cambio en el estado de investigación. Por ejemplo, cuando un administrador realiza una acción que cambia el estado de una investigación de Acciones pendientes a Completada, se registra un evento. 
+Los eventos de [Investigación y respuesta automatizada (AIR) de Office 365](https://docs.microsoft.com/office365/securitycompliance/automated-investigation-response-office) están disponibles para los clientes de Office 365 que tienen una suscripción que incluye Microsoft Defender para Office 365 Plan 2 u Office 365 E5. Los eventos de investigación se registran en función de un cambio en el estado de la investigación. Por ejemplo, cuando un administrador realiza una acción que cambia el estado de una investigación de Acciones pendientes a Completada, se registra un evento.
 
-Actualmente, solo se registran las investigaciones automatizadas. (Próximamente estarán disponibles los eventos para las investigaciones generadas manualmente). Se registran los siguientes valores de estado:
+Actualmente, solo se registran las investigaciones automatizadas (próximamente estarán disponibles los eventos para las investigaciones generadas manualmente). Se registran los siguientes valores de estado:
 
 - Investigación iniciada
 - No se encontraron amenazas
@@ -1207,13 +1207,13 @@ Actualmente, solo se registran las investigaciones automatizadas. (Próximamente
 |----|----|----|
 |InvestigationId    |Edm.String    |Identificador de la investigación/GUID |
 |InvestigationName    |Edm.String    |Nombre de la investigación |
-|InvestigationType    |Edm.String    |Tipo de investigación Puede tomar uno de los siguientes valores:<br/>- Mensajes notificados por el usuario<br/>- Malware purgado automáticamente<br/>- Suplantación de identidad purgada automáticamente<br/>- Cambio de veredicto de dirección URL<p>(Las investigaciones manuales no están disponibles actualmente, pero lo estarán próximamente). |
+|InvestigationType    |Edm.String    |Tipo de investigación. Puede tomar uno de los siguientes valores:<br/>- Mensajes notificados por el usuario<br/>- Malware purgado automáticamente<br/>- Suplantación de identidad purgada automáticamente<br/>- Cambio de veredicto de dirección URL<p>(Las investigaciones manuales no están disponibles actualmente, pero lo estarán próximamente). |
 |LastUpdateTimeUtc    |Edm.Date    |Hora UTC de la última actualización para una investigación |
 |StartTimeUtc    |Edm.Date    |Hora de inicio de una investigación |
 |Estado     |Edm.String     |Estado de investigación, En ejecución, Acciones pendientes, etc. |
 |DeeplinkURL    |Edm.String    |Dirección URL de vínculo profundo de una investigación en el Centro de seguridad y cumplimiento de Office 365 |
 |Acciones |Colección (Edm.String)    |Colección de acciones recomendada por una investigación |
-|Datos    |Edm.String    |Cadena de datos que contiene más información sobre las entidades de investigación e información sobre las alertas relacionadas con la investigación. Las entidades están disponibles en un nodo independiente dentro del blob de datos. |
+|Datos    |Edm.String    |Cadena de datos que contiene más información sobre las entidades de investigación e información sobre las alertas relacionadas con la investigación. Las entidades están disponibles en un nodo separado dentro del blob de datos. |
 ||||
 
 ### <a name="actions"></a>Acciones
@@ -1305,7 +1305,7 @@ FileHashes |Colección (Edm.String)    |Los hash de archivo asociados al archivo
 |NetworkMessageIds    |Colección (Edm.String)    |Lista de los identificadores de mensajes de correo que forman parte del clúster de correo |
 |CountByDeliveryStatus    |Colecciones (Edm.String)    |Recuento de mensajes de correo por representación de cadena DeliveryStatus  |
 |CountByThreatType    |Colecciones (Edm.String) |Recuento de mensajes de correo por representación de cadena ThreatType |
-|Amenazas    |Colecciones (Edm.String)    |Las amenazas de los mensajes de correo que forman parte del clúster de correo. Entre las amenazas se incluyen valores como Phish y Malware. |
+|Amenazas    |Colecciones (Edm.String)    |Las amenazas de los mensajes de correo que forman parte del clúster de correo. Las amenazas incluyen valores como suplantación de identidad y software malintencionado. |
 |Consulta    |Edm.String    |La consulta que se usó para identificar los mensajes del clúster de correo electrónico  |
 |QueryTime    |Edm.DateTime    |La hora de la consulta  |
 |MailCount    |Edm.Int    |El número de mensaje de correo que forman parte del clúster de correo.  |
@@ -1314,7 +1314,7 @@ FileHashes |Colección (Edm.String)    |Los hash de archivo asociados al archivo
 
 ## <a name="hygiene-events-schema"></a>Esquema de eventos de higiene
 
-Los eventos de higiene se relacionan con la protección de correo no deseado saliente. Estos eventos se relacionan con los usuarios a los que no se les permite enviar correo electrónico. Para más información, vea:
+Los eventos de higiene están relacionados con la protección contra correo no deseado saliente. Estos eventos se relacionan con los usuarios a los que no se les permite enviar correo electrónico. Para más información, vea:
 
 - [Protección contra correo no deseado saliente](https://docs.microsoft.com/microsoft-365/security/office-365-security/outbound-spam-controls)
 
@@ -1366,7 +1366,7 @@ Los eventos de Power BI que aparecen en [Buscar el registro de auditoría en el 
 
 ## <a name="dynamics-365-schema"></a>Esquema de Dynamics 365
 
-Los registros de auditoría para eventos relacionados con las aplicaciones controladas por modelos en eventos de Dynamics 365 usan un esquema de operación de base y de entidad. Para más información, consulte [Habilitar y usar el Registro de actividad](https://docs.microsoft.com/power-platform/admin/enable-use-comprehensive-auditing#model-driven-apps-in-dynamics-365-schema).
+Los registros de auditoría para eventos relacionados con las aplicaciones controladas por modelos en eventos de Dynamics 365 usan un esquema de operación de base y de entidad. Para más información, consulte [Habilitar y usar el registro de actividad](https://docs.microsoft.com/power-platform/admin/enable-use-comprehensive-auditing#model-driven-apps-in-dynamics-365-schema).
 
 ### <a name="dynamics-365-base-schema"></a>Esquema base de Dynamics 365
 
@@ -1387,8 +1387,8 @@ Los eventos de entidad de aplicaciones controladas por modelos en Dynamics 365 u
 | **Parámetros**     | **Tipo**            | **¿Es obligatoria?** | **Descripción**|
 |:------------------ | :------------------ | :--------------|:--------------|
 |EntityId|Edm.Guid|No|El identificador único de la entidad.|
-|EntityName|Edm.String|Sí|El nombre único de la entidad en la organización. Un ejemplo de una entidad es `contact` o `authentication`.|
-|Message|Edm.String|Sí|Este parámetro contiene la operación que se realizó relacionada con la entidad. Por ejemplo, si se creó un nuevo contacto, el valor de la propiedad Message es `Create` y el valor correspondiente de la propiedad EntityName es `contact`.|
+|EntityName|Edm.String|Sí|El nombre de la entidad en la organización. Los ejemplos de entidades incluyen `contact` o `authentication`.|
+|Mensaje|Edm.String|Sí|Este parámetro contiene la operación que se realizó en relación con la entidad. Por ejemplo, si se creó un nuevo contacto, el valor de la propiedad Message es `Create` y el valor correspondiente de la propiedad EntityName es `contact`.|
 |Consulta|Edm.String|No|Los parámetros de la consulta de filtro que se usaron al ejecutar la operación FetchXML.|
 |PrimaryFieldValue|Edm.String|No|Indica el valor del atributo que es el campo principal de la entidad.|
 |||||
@@ -1401,12 +1401,12 @@ Los eventos de Workplace Analytics que aparecen en [Buscar el registro de audito
 |:------------------ | :------------------ | :--------------|:--------------|
 | WpaUserRole        | Edm.String | No     | El rol de Workplace Analytics del usuario que realizó la operación.|
 | ModifiedProperties | Colección (Common.ModifiedProperty) | No | Esta propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
-| OperationDetails   | Colección (Common.NameValuePair)    | No | Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Name** y un **Value**.|
+| OperationDetails   | Colección (Common.NameValuePair)    | No | Una lista de propiedades extendidas de la configuración que se ha cambiado. Cada propiedad tendrá un **Nombre** y un **Valor**.|
 ||||
 
 ## <a name="quarantine-schema"></a>Esquema de cuarentena
 
-Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#quarantine-activities) usarán este esquema. Para obtener más información sobre la cuarentena, vea [Mensajes de correo electrónico en cuarentena en Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/quarantine-email-messages).
+Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en el Centro de seguridad y cumplimiento de Office 365](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#quarantine-activities) usarán este esquema. Para más información sobre la cuarentena, consulte [Mensajes de correo electrónico en cuarentena en Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/quarantine-email-messages).
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
@@ -1442,7 +1442,7 @@ Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|FormsUserTypes|Collection(Self.[FormsUserTypes](#formsusertypes))|Sí|El rol del usuario que realizó la acción.  Los valores de este parámetro son Admin (Administrador), Owner (Propietario), Responder (Respondedor) o Coauthor (Coautor).|
+|FormsUserTypes|Collection(Self.[FormsUserTypes](#formsusertypes))|Sí|El rol del usuario que realizó la acción. Los valores de este parámetro son Administrador, Propietario, Respondedor o Coautor.|
 |SourceApp|Edm.String|Sí|Indica si la acción proviene del sitio web de Forms o de otra aplicación.|
 |FormName|Edm.String|No|El nombre del formulario actual.|
 |FormId |Edm.String|No|El ID del formulario de destino.|
@@ -1469,17 +1469,17 @@ Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría
 |**Valor**|**Tipos de formulario**|**Descripción**|
 |:-----|:-----|:-----|
 |0|Formulario|Formularios creados con la opción Nuevo formulario.|
-|1|Cuestionario|Cuestionarios creados con la opción Nuevo cuestionario.  Un cuestionario es un tipo especial de formulario que incluye características adicionales, como valores de puntuación, calificación automática y manual, y comentarios.|
-|2|Encuesta|Encuestas creadas con la opción Nueva encuesta.  Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
+|1|Cuestionario|Cuestionarios creados con la opción Nuevo cuestionario. Un cuestionario es un tipo especial de formulario que incluye características adicionales, como valores de puntuación, calificación automática y manual, y comentarios.|
+|2|Encuesta|Encuestas creadas con la opción Nueva encuesta. Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
 ||||
 
 ## <a name="mip-label-schema"></a>Esquema de etiqueta MIP
 
-Los eventos del esquema de etiquetas de Microsoft Information Protection (MIP) se activan cuando Microsoft 365 detecta un mensaje de correo procesado por agentes en la canalización de transporte a la que se ha aplicado una etiqueta de confidencialidad. Es posible que la etiqueta de confidencialidad se haya aplicado manual o automáticamente, y puede que se haya aplicado dentro o fuera de la canalización de transporte. Las etiquetas de confidencialidad se pueden aplicar automáticamente a los mensajes de correo electrónico mediante directivas de etiqueta de aplicación automática.
+Los eventos del esquema de etiquetas de Microsoft Information Protection (MIP) se activan cuando Microsoft 365 detecta un mensaje de correo procesado por agentes en la canalización de transporte a la que se ha aplicado una etiqueta de confidencialidad. Es posible que la etiqueta de confidencialidad se haya aplicado de forma manual o automática, y puede que se haya aplicado dentro o fuera de la canalización de transporte. Las etiquetas de confidencialidad se pueden aplicar automáticamente a los mensajes de correo electrónico mediante la aplicación automática de directivas de etiquetas.
 
-El propósito de este esquema de auditoría es representar la suma de todas las actividades de correo electrónico que impliquen etiquetas de confidencialidad. Es decir, debe haber una actividad de auditoría registrada para cada mensaje de correo electrónico que se envía a o desde los usuarios de la organización que tienen una etiqueta de confidencialidad aplicada, independientemente de cuándo o cómo se aplicó la etiqueta de confidencialidad. Para más información sobre las etiquetas de confidencialidad, vea:
+La intención de este esquema de auditoría es representar la suma de toda la actividad de correo electrónico que involucra etiquetas de confidencialidad. Es decir, debe haber una actividad de auditoría registrada para cada mensaje de correo electrónico que se envía a o desde los usuarios de la organización que tienen una etiqueta de confidencialidad aplicada, independientemente de cuándo o cómo se aplicó la etiqueta de confidencialidad. Para más información sobre las etiquetas de confidencialidad, consulte:
 
-- [Información sobre las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels)
+- [Más información sobre las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels)
 
 - [Aplicar una etiqueta de confidencialidad automáticamente al contenido](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically)
 
@@ -1492,12 +1492,12 @@ El propósito de este esquema de auditoría es representar la suma de todas las 
 |LabelName|Edm.String|No|El nombre de la etiqueta de confidencialidad aplicada al mensaje de correo electrónico.|
 |LabelAction|Edm.String|No|Las acciones especificadas por la etiqueta de confidencialidad que se aplicaron al mensaje de correo electrónico antes de que el mensaje entrara a la canalización de transporte de correo.|
 |LabelAppliedDateTime|Edm.Date|No|La fecha en la que se aplicó la etiqueta de confidencialidad al mensaje de correo electrónico.|
-|ApplicationMode|Edm.String|No|Especifica cómo se aplicó la etiqueta de confidencialidad al mensaje de correo electrónico. El valor **Privileged** indica que un usuario ha aplicado manualmente la etiqueta. El valor **Standard** indica que la etiqueta se aplicó automáticamente por un proceso de etiquetado del lado del cliente o del servicio.|
+|ApplicationMode|Edm.String|No|Especifica cómo se aplicó la etiqueta de confidencialidad al mensaje de correo electrónico. El valor **Privilegiado** indica que un usuario aplicó manualmente la etiqueta. El valor **Estándar** indica que la etiqueta se aplicó automáticamente por un proceso de etiquetado del lado del cliente o del servicio.|
 |||||
 
 ## <a name="communication-compliance-exchange-schema"></a>Esquema de Exchange del Cumplimiento de comunicaciones
 
-Los eventos del Cumplimiento de comunicaciones que aparecen en el registro de auditoría de Office 365 usan este esquema. Esto incluye los registros de auditoría de la operación **SupervisoryReviewOLAudit**, que se generan cuando el contenido del mensaje de correo contiene lenguaje vulgar que ha sido identificado por los modelos de correo no deseado con una precisión \>= 99,5 %.
+Los eventos de cumplimiento de comunicaciones que se enumeran en el registro de auditoría de Office 365 usan este esquema. Esto incluye los registros de auditoría de la operación **SupervisoryReviewOLAudit**, que se generan cuando el contenido del mensaje de correo contiene lenguaje vulgar que ha sido identificado por los modelos de correo no deseado con una precisión \>= 99,5 %.
 
 |**Parámetros**  |**Tipo**|**¿Es obligatoria?** |**Descripción**|
 |:---------------|:-------|:--------------|:--------------|
