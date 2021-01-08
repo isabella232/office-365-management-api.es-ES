@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: a65c8dff39d80b57b1c885639be2e228e8119cb7
-ms.sourcegitcommit: 263cfbc04033ea8a1d765215e8777739587818e0
+ms.openlocfilehash: 9c909220d660e0202c3ebda2777b2d8922da45a3
+ms.sourcegitcommit: c3bb30b86a4569e9f18891f1cdc30cbffc8c8db4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "49021012"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "49784210"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -79,6 +79,10 @@ Abra una incidencia con el Soporte técnico de Microsoft y solicite un nuevo lí
 **¿Por qué TargetUpdatedProperties ya no están en ExtendedProperties en los registros de auditoría de actividades de Azure Active Directory?**
 
 TargetUpdatedProperties aparecían en ExtendedProperties. Sin embargo, se han quitado de Propiedades extensas y ahora aparecerán en Propiedades modificadas.
+
+**¿Por qué los registros de auditoría de errores de UserAccountNotFound para las actividades de inicio de sesión de Azure Active Directory (Azure AD) no están disponibles a través de la API de actividad de administración?**
+
+A partir de noviembre de 2020, los registros de auditoría para las actividades de inicio de sesión de Azure AD se recopilan en el registro de auditoría unificado de los centros de eventos de Azure AD. Como los errores de inicio de sesión UserAccountNotFound no están disponibles en centros de eventos, la API de actividad de administración ya no devuelve los registros de auditoría de errores de UserAccountNotFound.
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de Actividad de administración de Office 365
 
