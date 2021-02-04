@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c39865d8b3aff5a11aaf113482982e1c407b9800
-ms.sourcegitcommit: 0f988a3c25a34491a6e80307cfcf097a85aa26fa
+ms.openlocfilehash: c71536ad05afe50e675661cebbfe1826cf6af3fa
+ms.sourcegitcommit: 3a6a64742924b9fbc1ffd6826b5651eb5583f70c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "49385172"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "50096958"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -332,7 +332,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |GroupUpdated|El propietario o el administrador del sitio cambia la configuración de un grupo para un sitio de SharePoint o de OneDrive para la Empresa. Esto puede incluir cambiar el nombre del grupo, quién puede ver o editar la pertenencia al grupo y cómo se controlan las solicitudes de pertenencia.|
 |LanguageAddedToTermStore|Se agregó un idioma al almacén de términos.|
 |LanguageRemovedFromTermStore|Se quitó un idioma del almacén de términos.|
-|LegacyWorkflowEnabledSet|El propietario o el administrador del sitio agrega el tipo de contenido de tarea de flujo de trabajo de SharePoint al sitio. Los administradores globales también pueden habilitar los flujos de trabajo para toda la organización en el centro de administración de SharePoint.|
+|LegacyWorkflowEnabledSet|El propietario o administrador del sitio agrega el tipo de contenido de tarea de flujo de trabajo de SharePoint al sitio. Los administradores globales también pueden habilitar los flujos de trabajo para toda la organización en el Centro de administración de SharePoint.|
 |LookAndFeelModified|El usuario modifica un inicio rápido, los formatos de gráfico de Gantt o los formatos de grupo.  O bien, el usuario crea, modifica o elimina una vista en Project Web App.|
 |ManagedSyncClientAllowed|El usuario establece correctamente una relación de sincronización con un sitio de SharePoint o de OneDrive para la Empresa. La relación de sincronización es correcta porque el equipo del usuario es un miembro de un dominio que se ha agregado a la lista de dominios (denominada lista de destinatarios seguros) que puede obtener acceso a las bibliotecas de documentos de su organización. Para obtener más información sobre esta característica, vea [Usar SharePoint Online PowerShell](https://go.microsoft.com/fwlink/p/?LinkID=534609) para habilitar la sincronización de OneDrive para los dominios que están en la lista de destinatarios seguros.|
 |MaxQuotaModified|Se ha modificado la cuota máxima de un sitio.|
@@ -746,7 +746,8 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|No|El GUID que representa la aplicación que solicita el inicio de sesión. Se puede buscar el nombre para mostrar a través de la API de Graph de Azure Active Directory.|
 |Client|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
-|LogonError|Edm.String|No|Para inicios de sesión erróneos, contiene el motivo por el que ha fallado el inicio de sesión. Para obtener una descripción completa de LogonErrors consulte la lista de [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes).
+|ErrorCode|Edm.String|No|Para inicios de sesión con errores (donde el valor de la propiedad Operation es UserLoginFailed), esta propiedad contiene el código de error STS (AADSTS) de Azure Active Directory. Para ver descripciones de estos códigos de error, consulte [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes). Un valor de `0` indica que el inicio de sesión se ha realizado correctamente.|
+|LogonError|Edm.String|No|En el caso de los inicios de sesión con errores, esta propiedad contiene una descripción legible del motivo del error en el inicio de sesión.|
 |||||
 
 ## <a name="dlp-schema"></a>Esquema DLP
@@ -871,7 +872,7 @@ Los datos confidenciales de DLP solo están disponibles en la API de fuente de a
 |CmdletVersion|Edm.String|No|La versión de compilación del cmdlet cuando se ejecutó.|
 |EffectiveOrganization|Edm.String|No|El GUID de la organización que se han visto afectada por el cmdlet. (En desuso: este parámetro dejará de aparecer en el futuro.)|
 |UserServicePlan|Edm.String|No|El plan de servicio de Exchange Online Protection asignado al usuario que ejecutó el cmdlet.|
-|ClientApplication|Edm.String|No|Si una aplicación ejecutó el cmdlet, a diferencia de un PowerShell remoto, este campo contiene el nombre de la aplicación.|
+|ClientApplication|Edm.String|No|Si una aplicación ejecutó el cmdlet, en lugar de un PowerShell remoto, este campo contiene el nombre de la aplicación.|
 |Parámetros|Edm.String|No|El nombre y valor de los parámetros usados con el cmdlet que no incluyen información de identificación personal.|
 |NonPiiParameters|Edm.String|No|El nombre y valor de los parámetros usados con el cmdlet que incluyen información de identificación personal. (En desuso: este campo dejará de aparecer en el futuro y su contenido se combinará con el campo Parameters.)|
 |||||
@@ -931,7 +932,7 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|DataCenterSecurityEventType|Self.[DataCenterSecurityEventType](#datacentersecurityeventtype)|Sí|El tipo de evento dmdlet en el cuadro de bloqueo.|
+|DataCenterSecurityEventType|Self.[DataCenterSecurityEventType](#datacentersecurityeventtype)|Sí|El tipo de evento cmdlet en el cuadro de bloqueo.|
 |||||
 
 ### <a name="enum-datacentersecurityeventtype---type-edmint32"></a>Enum: DataCenterSecurityEventType - Tipo: Edm.Int32
@@ -1376,7 +1377,7 @@ Los registros de auditoría para eventos relacionados con las aplicaciones contr
 |CrmOrganizationUniqueName|Edm.String|Sí|Nombre único de la organización.|
 |InstanceUrl|Edm.String|Sí|Dirección URL de la instancia.|
 |ItemUrl|Edm.String|No|La dirección URL al registro.|
-|ItemType|Edm.String|No|Nombre de la entidad|
+|ItemType|Edm.String|No|El nombre de la entidad.|
 |UserAgent|Edm.String|No|Identificador de GUID de usuario único en la organización.|
 |Fields|Collection(Common.NameValuePair)|No|Un objeto JSON que contiene las parejas de clave y valor de propiedad que se crearon o actualizaron.|
 |||||
