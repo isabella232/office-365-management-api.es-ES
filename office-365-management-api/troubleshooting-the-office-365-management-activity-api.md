@@ -2,17 +2,17 @@
 ms.technology: o365-service-communications
 ms.TocTitle: Troubleshooting the Office 365 Management Activity API
 title: Solución de problemas de la API de actividad de administración de Office 365
-description: Resumen de las preguntas más frecuentes que recibe el soporte técnico de Microsoft sobre el uso de esta API.
+description: Resume las preguntas más comunes que recibe el Soporte técnico de Microsoft para admitir la API de Actividad de administración de Office 365.
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9c909220d660e0202c3ebda2777b2d8922da45a3
-ms.sourcegitcommit: c3bb30b86a4569e9f18891f1cdc30cbffc8c8db4
+ms.openlocfilehash: d954cc97320953ed35d6e46cb118395469c93394
+ms.sourcegitcommit: 24ef06fd001f273d16be72733509b5ec202d3ebb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "49784210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "50418191"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -80,9 +80,9 @@ Abra una incidencia con el Soporte técnico de Microsoft y solicite un nuevo lí
 
 TargetUpdatedProperties aparecían en ExtendedProperties. Sin embargo, se han quitado de Propiedades extensas y ahora aparecerán en Propiedades modificadas.
 
-**¿Por qué los registros de auditoría de errores de UserAccountNotFound para las actividades de inicio de sesión de Azure Active Directory (Azure AD) no están disponibles a través de la API de actividad de administración?**
+**¿Por qué los registros de auditoría con errores "LogonError" UserAccountNotFound para las actividades de inicio de sesión de Azure Active Directory (Azure AD) no están disponibles a través de la API de actividad de administración?**
 
-A partir de noviembre de 2020, los registros de auditoría para las actividades de inicio de sesión de Azure AD se recopilan en el registro de auditoría unificado de los centros de eventos de Azure AD. Como los errores de inicio de sesión UserAccountNotFound no están disponibles en centros de eventos, la API de actividad de administración ya no devuelve los registros de auditoría de errores de UserAccountNotFound.
+Desde noviembre de 2020, los registros de auditoría para las actividades de inicio de sesión de Azure AD se recopilan en el registro de auditoría unificado de los centros de eventos de Azure AD. Como resultado de este cambio, no es posible rellenar la propiedad "LogonError" con el valor UserAccountNotFound. Desde la primera semana de febrero de 2021, la [propiedad ErrorCode del esquema de auditoría de inicio de sesión de Azure AD](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-schema#azure-active-directory-secure-token-service-sts-logon-schema) coincide ahora con [códigos de error de AADSTS](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#lookup-current-error-code-information). Además, el parámetro UserId no se rellenará con el nombre de usuario del inicio de sesión intentado para los errores UserAccountNotFound porque ese nombre de usuario no existe en el directorio de Azure AD de la organización.
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de Actividad de administración de Office 365
 
@@ -219,15 +219,16 @@ Para crear una suscripción, use la operación /start: En el punto de conexión 
 
 ```powershell
 Invoke-WebRequest -Method Post -Headers $headerParams -Uri "https://<YOUR_API_ENDPOINT>/api/v1.0/$tenantGUID/activity/feed/subscriptions/start?contentType=Audit.AzureActiveDirectory"
+```
 
 > [!NOTE]
-> Remember that `$headerParams` was populated in the first part of the script listed in the [Connecting to the API](#connecting-to-the-api) section in this article.
+> Recuerde que se rellenó `$headerParams` en la primera parte del script de la sección [Conectarse a la API](#connecting-to-the-api) de este artículo.
 
-The previous code will create a new subscription to the Audit.AzureActiveDirectory content type, with a webhook that is null. You can then check your subscriptions using the code in the [Checking your subscriptions](#checking-your-subscriptions) section in this article.
+El código anterior creará una suscripción al tipo de contenido Audit.AzureActiveDirectory, con un webhook nulo. Después, puede comprobar la suscripciones con el código que se incluye en la sección [Comprobar la suscripciones de este artículo](#checking-your-subscriptions).
 
-## Checking content availability
+## <a name="checking-content-availability"></a>Comprobar la disponibilidad del contenido
 
-To check what content blobs were created during a certain period, you can add the following line to the script in the “Connecting to the API” section.
+Para comprobar los blobs de contenido que se crearon durante un período específico, puede agregar la línea siguiente al script en la sección "Conectarse a la API":
 
 ```powershell
 Invoke-WebRequest -Method GET -Headers $headerParams -Uri "$resource/api/v1.0/$tenantGUID/activity/feed/subscriptions/content?contentType=Audit.SharePoint"
