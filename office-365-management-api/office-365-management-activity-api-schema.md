@@ -7,23 +7,20 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: c0e253532abd43779cb624d5b63b907600e0f5b5
-ms.sourcegitcommit: bd92bba316c564fd7c09d5202ce46c1f9276f5ee
+ms.openlocfilehash: 1d4fdfd920ae10331e789847ef76dc1a719ad2fc
+ms.sourcegitcommit: 1bd313b6add47b58e5aa1af53cd00d2872610556
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "50726901"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "50903358"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
 El esquema de la API de Actividad de administración de Office 365 se proporciona como un servicio de datos en dos niveles:
 
-- **Esquema común**. La interfaz de acceso principal de Office 365 audita conceptos como el tipo de registro, la hora de creación, el tipo de usuario y la acción, y también proporciona información específica de la ubicación (como la dirección IP del cliente), las dimensiones principales (como el id. de usuario) y las propiedades específicas del producto (como el id. de objeto). Establece vistas coherentes y uniformes para que los usuarios extraigan todos los datos de auditoría de Office 365 en varias vistas de nivel superior con los parámetros adecuados, y proporciona un esquema fijo para todos los orígenes de datos, lo que reduce significativamente el costo de aprendizaje. El esquema común tiene origen en los datos del producto que pertenecen a cada equipo de producto, como Exchange, SharePoint, Azure Active Directory, Yammer y OneDrive para la Empresa. Los equipos de producto pueden ampliar el campo Id. de objeto para agregar propiedades específicas del producto.
+- **Esquema común**. La interfaz para acceder a los conceptos básicos de auditoría de Office 365, como Tipo de registro, Hora de creación, Tipo de usuario y Acción, así como para proporcionar dimensiones básicas (como ID de usuario), detalles de ubicación (como la dirección IP del cliente) y servicios específicos. propiedades (como ID de objeto). Establece vistas coherentes y uniformes para que los usuarios extraigan todos los datos de auditoría de Office 365 en varias vistas de nivel superior con los parámetros adecuados, y proporciona un esquema fijo para todos los orígenes de datos, lo que reduce significativamente el costo de aprendizaje. El esquema común tiene origen en los datos del producto que pertenecen a cada equipo de producto, como Exchange, SharePoint, Azure Active Directory, Yammer y OneDrive para la Empresa. Los equipos de productos de Microsoft 365 pueden ampliar el campo de Id. de objeto para agregar propiedades específicas del servicio.
 
-- **Esquema específico del producto**. Basado en el esquema común para proporcionar un conjunto de atributos específicos del producto; por ejemplo, esquemas de SharePoint, esquemas de OneDrive para la Empresa y esquemas de administración de Exchange.
-
-**¿Qué nivel debería utilizar para su escenario?**
-En general, si los datos están disponibles en un nivel superior, no debe volver a un nivel inferior. Es decir, si se ajusta el requisito de datos en un esquema específico de producto, no es necesario volver al esquema común. 
+- **Esquema específico de servicio**. Basado en el esquema común para proporcionar un conjunto de atributos específicos del servicio de Microsoft 365; por ejemplo, esquema de SharePoint, esquema de OneDrive para la Empresa y esquema de administración de Exchange.
 
 ## <a name="office-365-management-api-schemas"></a>Esquemas de API de administración de Office 365
 
@@ -1067,7 +1064,40 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |Verdict|Edm.String|Sí|El veredicto del mensaje.|
 |MessageTime|Edm.Date|Sí|Fecha y hora en formato de hora universal coordinada (UTC) en la que el mensaje se ha recibido o enviado.|
 |EventDeepLink|Edm.String|Sí|Vínculo profundo para el evento de correo electrónico en los informes en tiempo real o el explorador en el Centro de seguridad y cumplimiento de Office 365.|
+|Acción de entrega (próximo campo) |Edm.String|Sí|La acción de entrega original en el mensaje de correo electrónico.|
+|Ubicación de entrega original (próximo campo) |Edm.String|Sí|La ubicación de entrega original del mensaje de correo electrónico.|
+|Ubicación de entrega más reciente (próximo campo) |Edm.String|Sí|La última ubicación de entrega del mensaje de correo electrónico en el momento del evento.|
+|Bidireccionalidad (campo próximo) |Edm.String|Sí|Identifica si un mensaje de correo electrónico era entrante, saliente o un mensaje dentro de la organización.|
+|ThreatsAndDetectionTech (próximo campo) |Edm.String|Sí|Las amenazas y las tecnologías de detección correspondientes. Este campo expone todas las amenazas en un mensaje de correo electrónico, incluida la última adición en el veredicto de correo no deseado.  Por ejemplo, ["Phish: [Spoof DMARC]","Spam: [reputación malintencionada de URL]"]. A continuación se describen las diferentes tecnologías de detección y amenazas de detección.|
 |||||
+
+> [!NOTE]
+> Le recomendamos que use el nuevo campo ThreatsAnd DetectionionTech porque muestra varios veredictos y las tecnologías de detección actualizadas. Esto también se alinea con los valores que vería en otras experiencias como el Explorador de amenazas y La búsqueda avanzada de amenazas. 
+
+### <a name="detection-technologies"></a>Tecnologías de detección
+
+|**Nombre**|**Descripción**|
+|:-----|:-----|
+|Filtro general |Señales de suplantación de identidad (phishing) basadas en reglas.|
+|Suplantación de marca | El tipo de archivo de los datos adjuntos.|
+|Suplantación de seguridad de dominio externo |El remitente está intentando suplantación de identidad de algún otro dominio.|
+|Suplantación electrónica DMARC |Error de autenticación DMARC para los mensajes.|
+|Dominio de suplantación | Suplantación de dominios que el cliente es propietario o define.|
+|Detonación de archivos |Los datos adjuntos de archivos no son seguros durante el análisis detonado.|
+|Reputación de los archivos |Datos adjuntos de archivos marcados como malo debido a una mala reputación.|
+|Reputación de detonación de archivos |Datos adjuntos de archivo marcados como malo debido a la reputación de detonación anterior.|
+|Coincidencia de huella digital |El mensaje se marcó como malo debido a mensajes anteriores.|
+|Suplantación de inteligencia de buzón |Suplantación basada en la inteligencia de buzón.|
+|Reputación de dominio |Análisis en función de la reputación del dominio.|
+|Suplantación de seguridad para la organización |  El remitente está intentando suplantar electrónicamente el dominio del destinatario. |
+|Filtro avanzado |  Señales de suplantación de identidad (phishing) basadas en el aprendizaje automático.|
+|Motor antimalware    | Detección de los motores antimalware. |
+|Detección de análisis mixto   | Varios filtros han contribuido al veredicto de este mensaje. |
+|Reputación malintencionada de URL   | El mensaje se considera malo debido a una URL malintencionada. |
+|Detonación de URL | El mensaje se considera malo debido a una detonación anterior de URL malintencionada. |
+|Reputación de detonación de URL| El mensaje se considera malo debido a una detonación de URL malintencionada. |
+|Suplantación de usuarios|    Suplantación de usuarios definidos por el administrador o aprendidos con la inteligencia de buzones.|
+|Campaña   |Mensajes identificados como parte de una campaña.|
 
 ### <a name="attachmentdata-complex-type"></a>Tipo complejo AttachmentData
 
@@ -1081,6 +1111,9 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |MalwareFamily|Edm.String|No|La familia de malware del archivo.|
 |SHA256|Edm.String|Sí|El hash SHA256 del archivo.|
 |||||
+
+> [!NOTE]
+> Dentro de la familia de malware, podrá ver el nombre exacto de MalwareFamiily (por ejemplo, HTML/Phish.VS! MSR) o carga malintencionada como una cadena estática. Una carga malintencionada debe tratarse como correo electrónico malintencionado cuando no se identifica un nombre específico.
 
 ### <a name="enum-fileverdict---type-edmint32"></a>Enum: FileVerdict - Tipo: Edm.Int32
 
