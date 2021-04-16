@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 1d4fdfd920ae10331e789847ef76dc1a719ad2fc
-ms.sourcegitcommit: 1bd313b6add47b58e5aa1af53cd00d2872610556
+ms.openlocfilehash: 9ce20bd1fd8f0b6e706df46a5d8b63540962ffaf
+ms.sourcegitcommit: dfdacf2cdee3ad0f305167ba0c8a9bf9df8af356
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "50903358"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "51762000"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -1064,11 +1064,11 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |Verdict|Edm.String|Sí|El veredicto del mensaje.|
 |MessageTime|Edm.Date|Sí|Fecha y hora en formato de hora universal coordinada (UTC) en la que el mensaje se ha recibido o enviado.|
 |EventDeepLink|Edm.String|Sí|Vínculo profundo para el evento de correo electrónico en los informes en tiempo real o el explorador en el Centro de seguridad y cumplimiento de Office 365.|
-|Acción de entrega (próximo campo) |Edm.String|Sí|La acción de entrega original en el mensaje de correo electrónico.|
-|Ubicación de entrega original (próximo campo) |Edm.String|Sí|La ubicación de entrega original del mensaje de correo electrónico.|
-|Ubicación de entrega más reciente (próximo campo) |Edm.String|Sí|La última ubicación de entrega del mensaje de correo electrónico en el momento del evento.|
-|Bidireccionalidad (campo próximo) |Edm.String|Sí|Identifica si un mensaje de correo electrónico era entrante, saliente o un mensaje dentro de la organización.|
-|ThreatsAndDetectionTech (próximo campo) |Edm.String|Sí|Las amenazas y las tecnologías de detección correspondientes. Este campo expone todas las amenazas en un mensaje de correo electrónico, incluida la última adición en el veredicto de correo no deseado.  Por ejemplo, ["Phish: [Spoof DMARC]","Spam: [reputación malintencionada de URL]"]. A continuación se describen las diferentes tecnologías de detección y amenazas de detección.|
+|Acción de transferencia |Edm.String|Sí|La acción de entrega original en el mensaje de correo electrónico.|
+|Ubicación de entrega original |Edm.String|Sí|La ubicación de entrega original del mensaje de correo electrónico.|
+|Última ubicación de entrega |Edm.String|Sí|La última ubicación de entrega del mensaje de correo electrónico en el momento del evento.|
+|Directionality |Edm.String|Sí|Identifica si un mensaje de correo electrónico era entrante, saliente o un mensaje dentro de la organización.|
+|ThreatsAndDetectionTech |Edm.String|Sí|Las amenazas y las tecnologías de detección correspondientes. Este campo expone todas las amenazas en un mensaje de correo electrónico, incluida la última adición en el veredicto de correo no deseado.  Por ejemplo, ["Phish: [Spoof DMARC]","Spam: [reputación malintencionada de URL]"]. A continuación se describen las diferentes tecnologías de detección y amenazas de detección.|
 |||||
 
 > [!NOTE]
