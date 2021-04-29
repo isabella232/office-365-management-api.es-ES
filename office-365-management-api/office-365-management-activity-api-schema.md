@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 9ce20bd1fd8f0b6e706df46a5d8b63540962ffaf
-ms.sourcegitcommit: dfdacf2cdee3ad0f305167ba0c8a9bf9df8af356
+ms.openlocfilehash: 5e2274dd3d5050a0db433fd93aa8ea1514744549
+ms.sourcegitcommit: c3786c4bfacf3c1187f1269c162946288b45c967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "51762000"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52059944"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -294,7 +294,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |EntityDeleted|El usuario elimina a planilla de horas trabajadas en Project Web App.|
 |EntityForceCheckedIn|El usuario fuerza una protección en un calendario, un campo personalizado o una tabla de búsqueda en Project Web App.|
 |ExemptUserAgentSet|El administrador global agrega un agente de usuario a la lista de agentes de usuario exentos en el centro de administración de SharePoint.|
-|FileAccessed|La cuenta del sistema o el usuario obtiene acceso a un archivo en un sitio de SharePoint o de OneDrive para la Empresa. Las cuentas del sistema también pueden generar eventos FileAccessed.|
+|FileAccessed|La cuenta del sistema o el usuario accede a un archivo en un sitio de SharePoint o de OneDrive para la Empresa. Las cuentas del sistema también pueden generar eventos FileAccessed.|
 |FileCheckOutDiscarded|El usuario descarta (o deshace) la extracción del repositorio de un archivo. Eso significa que cualquier cambio que haya realizado en el archivo cuando estaba extraído del repositorio se descarta y no se guarda en la versión del documento de la biblioteca de documentos.|
 |FileCheckedIn|El usuario inserta en el repositorio un documento que se extrajo de una biblioteca de documentos de SharePoint o de OneDrive para la Empresa.|
 |FileCheckedOut|El usuario extrae un documento ubicado en una biblioteca de documentos de SharePoint o de OneDrive para la Empresa. Los usuarios pueden extraer del repositorio y modificar documentos que se han compartido con ellos.|
@@ -743,6 +743,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |ApplicationId|Edm.String|No|El GUID que representa la aplicación que solicita el inicio de sesión. Se puede buscar el nombre para mostrar a través de la API de Graph de Azure Active Directory.|
 |Client|Edm.String|No|Información de dispositivo cliente, proporcionada por el explorador que realiza el inicio de sesión.|
+|DeviceProperties|Collection(Common.NameValuePair)|No|Esta propiedad incluye varios detalles de dispositivos, como Id., nombre para mostrar, SO, navegador, IsCompliant, IsCompliantAndManaged, SessionId, y DeviceTrustType. La propiedad DeviceTrustType puede tener los siguientes valores:<br/><br/>**0**: Registro de Azure AD<br/> **1**: Unirse a Azure AD<br/> **2**: Unido a Azure AD híbrido|
 |ErrorCode|Edm.String|No|Para inicios de sesión con errores (donde el valor de la propiedad Operation es UserLoginFailed), esta propiedad contiene el código de error STS (AADSTS) de Azure Active Directory. Para ver descripciones de estos códigos de error, consulte [Códigos de error de autenticación y autorización](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#aadsts-error-codes). Un valor de `0` indica que el inicio de sesión se ha realizado correctamente.|
 |LogonError|Edm.String|No|En el caso de los inicios de sesión con errores, esta propiedad contiene una descripción legible del motivo del error en el inicio de sesión.|
 |||||
@@ -900,7 +901,7 @@ Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay 
 
 - AlertEntityGenerated: una nueva entidad se agrega a una alerta. Este evento solo es aplicables a las alertas generadas según directivas de Alerta en el Centro de seguridad y cumplimiento. Cada alerta generada puede estar asociada con uno o varios de estos eventos. Por ejemplo, una directiva de alerta está definida para desencadenar una alerta si un usuario elimina más de 100 archivos en 5 minutos. Si dos usuarios superan el umbral aproximadamente al mismo tiempo, habrá dos eventos AlertEntityGenerated, pero solo un evento AlertTriggered.
 
-- AlertUpdated: se ha realizado una actualización de los metadatos de una alerta. Este evento se registra cuando el estado de una alerta se cambia (por ejemplo, de "Activo" a "Resuelto") y cuando alguien agrega un comentario a la alerta.
+- AlertUpdated: se realizó una actualización de los metadatos de una alerta. Este evento se registra cuando el estado de una alerta se cambia (por ejemplo, de "Activo" a "Resuelto") y cuando alguien agrega un comentario a la alerta.
 
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
@@ -988,6 +989,7 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](https://
 |Nombre|Edm.String|No|Solo está disponible para eventos de configuración. Nombre de la configuración que ha cambiado.|
 |OldValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor antiguo de la configuración.|
 |NewValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor nuevo de la configuración.|
+|MessageURLs|Edm.String|No|Disponible para cualquier URL enviada en los mensajes de Teams.|
 ||||
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complejo MicrosoftTeamsMember
@@ -1518,7 +1520,7 @@ Los eventos de Microsoft Forms que aparecen en [Buscar el registro de auditoría
 |:-----|:-----|:-----|
 |0|Formulario|Formularios creados con la opción Nuevo formulario.|
 |1|Cuestionario|Cuestionarios creados con la opción Nuevo cuestionario.  Un cuestionario es un tipo especial de formulario que incluye características adicionales, como valores de puntuación, calificación automática y manual, y comentarios.|
-|2|Encuesta|Encuestas creadas con la opción Nueva encuesta.  Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
+|2|Encuesta|Encuestas creadas con la opción Nueva encuesta. Una encuesta es un tipo especial de formulario que incluye características adicionales, como la integración con CMS y la compatibilidad con Reglas de flujo.|
 ||||
 
 ## <a name="mip-label-schema"></a>Esquema de etiqueta MIP
