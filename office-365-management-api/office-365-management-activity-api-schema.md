@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 5e2274dd3d5050a0db433fd93aa8ea1514744549
-ms.sourcegitcommit: c3786c4bfacf3c1187f1269c162946288b45c967
+ms.openlocfilehash: fe70aa617829bcfc9709c32f6349798f0ceb27aa
+ms.sourcegitcommit: b112bebdb289e0be863009ac032b11107a12c1f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "52059944"
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "53242694"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -24,7 +24,7 @@ El esquema de la API de Actividad de administración de Office 365 se proporcion
 
 ## <a name="office-365-management-api-schemas"></a>Esquemas de API de administración de Office 365
 
-Este artículo proporciona información sobre el esquema común y sobre los esquemas específicos de cada producto. En la siguiente tabla se describen los esquemas disponibles.
+Este artículo proporciona información sobre el esquema común y para cada esquema específico de producto. En la tabla siguiente, se describen los esquemas disponibles.
 
 |Nombre del esquema|Descripción|
 |:-----|:-----|
@@ -69,7 +69,7 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |RecordType|Self.[AuditLogRecordType](#auditlogrecordtype)|Sí|El tipo de operación indicado por el registro. Vea la tabla [AuditLogRecordType](#auditlogrecordtype) para obtener más información sobre los tipos de registros de auditoría.|
 |CreationTime|Edm.Date|Sí|La fecha y hora en formato Hora universal coordinada (UTC) en las que el usuario ha realizado la actividad.|
 |Operación|Edm.String|Sí|El nombre de la actividad de usuario o administrador. Para obtener una descripción de las operaciones o actividades más comunes, vea [Buscar en el registro de auditoría del Centro de seguridad y cumplimiento de Office 365](https://go.microsoft.com/fwlink/p/?LinkId=708432). Esta propiedad identifica el nombre del cmdlet ejecutado para la actividad de administración de Exchange. Para eventos DLP, puede ser "DlpRuleMatch", "DlpRuleUndo" o "DlpInfo", que se describen en "Esquema DLP" a continuación.|
-|OrganizationId|Edm.Guid|Sí|El GUID del inquilino de Office 365 de su organización. Este valor debe ser siempre el mismo en su organización, independientemente del servicio de Office 365 en que se produce.|
+|OrganizationId|Edm.Guid|Sí|El GUID del espacio empresarial de Office 365 de su organización. Este valor debe ser siempre el mismo en su organización, independientemente del servicio de Office 365 en el que se produce.|
 |UserType|Self.[UserType](#user-type)|Sí|El tipo de usuario que llevó a cabo la operación. Vea la tabla [UserType](#user-type) para obtener más información sobre los tipos de usuarios.|
 |UserKey|Edm.String|Sí|Un id. alternativo para el usuario identificado en la propiedad id. de usuario. Por ejemplo, esta propiedad se rellena con el identificador único de passport (PUID) para los eventos efectuados por los usuarios en SharePoint, OneDrive para la Empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad id. de usuario para los eventos que se producen en otros servicios y eventos efectuados por cuentas del sistema.|
 |Carga de trabajo|Edm.String|No|El servicio de Office 365 en el que se produjo la actividad. 
@@ -223,8 +223,8 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |EventSource|Edm.String String="Microsoft.Office.Audit.Schema.SharePoint.[EventSource](#eventsource)"|No|Identifica que un evento se produjo en SharePoint. Los valores posibles son **SharePoint** u **ObjectModel**.|
 |SourceName|Edm.String|No|La entidad que ha activado la operación auditada. Los valores posibles son SharePoint u **ObjectModel**.|
 |UserAgent|Edm.String|No|Información sobre el cliente o el explorador del usuario. Esta información la proporciona el cliente o el explorador.|
-|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización del dispositivo. Esta información se registra solo si está presente en la solicitud.|
-|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización del dispositivo. Esta información se registra solo si está presente en la solicitud.|
+|MachineDomainInfo|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización de dispositivos. Esta información se registra solo si está presente en la solicitud.|
+|MachineId|Edm.String Term="Microsoft.Office.Audit.Schema.PIIFlag" Bool="true"|No|Información sobre las operaciones de sincronización de dispositivos. Esta información se registra solo si está presente en la solicitud.|
 |||||
 
 ### <a name="enum-itemtype---type-edmint32"></a>Enum: ItemType - Tipo: Edm.Int32
@@ -259,8 +259,8 @@ Este artículo proporciona información sobre el esquema común y sobre los esqu
 |:-----|:-----|
 |AccessInvitationAccepted|El destinatario de una invitación para ver o editar un archivo compartido (o carpeta) que ha obtenido acceso al archivo compartido haciendo clic en el vínculo de la invitación.|
 |AccessInvitationCreated|El usuario envía una invitación a otra persona (dentro o fuera de su organización) para ver o editar una carpeta o un archivo compartido en un sitio de SharePoint o de OneDrive para la Empresa. Los detalles de la entrada de evento identifican el nombre del archivo que se ha compartido, el usuario al que se envió la invitación y el tipo de los permisos de uso compartido seleccionados por la persona que envió la invitación.|
-|AccessInvitationExpired|Una invitación enviada a un usuario externo expira. De forma predeterminada, una invitación enviada a un usuario fuera de su organización expira después de 7 días si no se acepta la invitación.|
-|AccessInvitationRevoked|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa retira una invitación enviada a un usuario fuera de su organización. Una invitación puede retirarse antes de que se acepte.|
+|AccessInvitationExpired|Una invitación enviada a un usuario externo caduca. De forma predeterminada, una invitación enviada a un usuario fuera de su organización expira después de 7 días si no se acepta la invitación.|
+|AccessInvitationRevoked|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa retira una invitación enviada a un usuario fuera de su organización. Una invitación solo se puede retirar antes de ser aceptada.|
 |AccessInvitationUpdated|El usuario que creó y envió una invitación a otra persona para ver o editar una carpeta o un archivo compartido en un sitio de SharePoint o de OneDrive para la Empresa vuelve a enviar la invitación.|
 |AccessRequestApproved|El administrador del sitio o el propietario de un sitio o un documento en SharePoint o en OneDrive para la Empresa aprueba una solicitud de usuario para acceder al sitio o documento.|
 |AccessRequestCreated|El usuario solicita acceso a un sitio o un documento en SharePoint o en OneDrive para la empresa para el que no tienen permiso de acceso. |
@@ -532,7 +532,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |ModifiedObjectResolvedName|Edm.String|No|Este es el nombre descriptivo del objeto modificado por el cmdlet. Esto solo se registra si el cmdlet modifica el objeto.|
 |Parámetros|Collection(Common.NameValuePair)|No|El nombre y valor de todos los parámetros usados con el cmdlet que se identifica en la propiedad Operations.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|No|La propiedad se incluye para los eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior del objeto modificado.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|No|La propiedad está incluida para eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior del objeto modificado.|
 |ExternalAccess|Edm.Boolean|Sí|Especifica si el cmdlet lo ejecutó un usuario de la organización, el personal del centro de datos de Microsoft o una cuenta de servicio del centro de datos, o un administrador delegado. El valor **False** indica que el cmdlet lo ejecutó algún usuario de su organización. El valor **True** indica que el cmdlet lo ejecutó el personal del centros de datos, una cuenta de servicio del centro de datos o un administrador delegado.|
 |OriginatingServer|Edm.String|No|El nombre del servidor desde el que se ejecutó el cmdlet.|
 |OrganizationName|Edm.String|No|El nombre del inquilino.|
@@ -626,7 +626,7 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |:-----|:-----|:-----|:-----|
 |AzureActiveDirectoryEventType|Self.[AzureActiveDirectoryEventType](#azureactivedirectoryeventtype)|Sí|El tipo de evento de Azure AD. |
 |ExtendedProperties|Collection(Common.NameValuePair)|No|Las propiedades extendidas del evento de Azure AD.|
-|ModifiedProperties|Collection(Common.ModifiedProperty)|No|Esta propiedad se incluye para los eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
+|ModifiedProperties|Collection(Common.ModifiedProperty)|No|Esta propiedad está incluida para eventos de administración. La propiedad incluye el nombre de la propiedad modificada, el nuevo valor de la propiedad modificada y el valor anterior de la propiedad modificada.|
 |||||
 
 ### <a name="enum-azureactivedirectoryeventtype---type--edmint32"></a>Enum: AzureActiveDirectoryEventType - Tipo: Edm.Int32
@@ -784,6 +784,7 @@ Los eventos DLP (prevención de pérdida de datos) siempre tendrán UserKey="Dlp
 |DocumentSharer|Edm.String|Sí|El usuario que ha modificado por última vez el uso compartido del documento.|
 |UniqueId|Edm.String|Sí|Un GUID que identifica el archivo.|
 |LastModifiedTime|Edm.DateTime|Sí|Marca de tiempo en UTC que indica la última vez que se modificó el documento.|
+|IsViewableByExternalUsers|Edm.Boolean|Sí|Determina si el archivo es accesible para cualquier usuario externo.|
 |||||
 
 ### <a name="exchangemetadata-complex-type"></a>Tipo complejo ExchangeMetadata
@@ -879,7 +880,7 @@ Los datos confidenciales de DLP solo están disponibles en la API de fuente de a
 |**Parámetros**|**Tipo**|**Obligatorio**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |StartTime|Edm.Date|No|La fecha y hora en que se ejecutó el cmdlet.|
-|ClientRequestId|Edm.String|No|Un GUID que puede usarse para correlacionar este cmdlet con las operaciones de UX del Centro de seguridad y cumplimiento. Solo el soporte técnico de Microsoft utiliza esta información.|
+|ClientRequestId|Edm.String|No|Un GUID que puede usarse para correlacionar este cmdlet con las operaciones de UX del Centro de seguridad y cumplimiento. Esta información solo la utiliza el soporte de Microsoft.|
 |CmdletVersion|Edm.String|No|La versión de compilación del cmdlet cuando se ejecutó.|
 |EffectiveOrganization|Edm.String|No|El GUID de la organización que se han visto afectada por el cmdlet. (En desuso: este parámetro dejará de aparecer en el futuro.)|
 |UserServicePlan|Edm.String|No|El plan de servicio de Exchange Online Protection asignado al usuario que ejecutó el cmdlet.|
@@ -916,7 +917,7 @@ Los UserId y UserKey de estos eventos son siempre SecurityComplianceAlerts. Hay 
 |Comentarios|Edm.String|No|Comentarios de los usuarios que han visto la alerta. De forma predeterminada, es "Nueva alerta".|
 |Datos|Edm.String|No|El blob de datos detallados de la alerta o la entidad de la alerta.|
 |AlertEntityId|Edm.String|No|El identificador de la entidad alerta. Este parámetro solo es válido para los eventos AlertEntityGenerated.|
-|EntityType|Edm.String|No|Tipo de la alerta o de la entidad de la alerta. Los tipos de entidad de alertas son: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Usuario</p></li><li><p>Destinatarios</p></li><li><p>Remitente</p></li><li><p>MalwareFamily</p></li></ul>Este parámetro solo es válido para los eventos AlertEntityGenerated.|
+|EntityType|Edm.String|No|Tipo de la alerta o entidad de la alerta. Los tipos de entidad incluyen: <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>Usuario</p></li><li><p>Destinatarios</p></li><li><p>Remitente</p></li><li><p>MalwareFamily</p></li></ul>Este parámetro solo es válido para los eventos AlertEntityGenerated.|
 |||||
 
 ## <a name="yammer-schema"></a>Esquema de Yammer
