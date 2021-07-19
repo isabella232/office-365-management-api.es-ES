@@ -7,12 +7,12 @@ ms.ContentId: 52749845-37f8-6076-7ea5-49d9a4055445
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 92eb7f2838e673992a778043075b6c0ef3f8d133
-ms.sourcegitcommit: e998d2175540269e94db529e74532efd4c43fab9
+ms.openlocfilehash: c8eb59433b49c9735ddfefea0d1e6804e8937439
+ms.sourcegitcommit: f08ff7cfd17aedd9d2ca85b5df0666ca986c9aed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "50094986"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "53447901"
 ---
 # <a name="office-365-management-activity-api-reference"></a>Referencia de la API de Actividad de administración de Office 365
 
@@ -30,7 +30,7 @@ Para obtener información sobre los datos que devuelve la API de Actividad de ad
 
 ## <a name="working-with-the-office-365-management-activity-api"></a>Trabajar con la API de Actividad de administración de Office 365
 
-La API de Actividad de administración de Office 365 agrega acciones y eventos en blobs de contenido específicos del espacio empresarial, que se clasifican según el tipo y el origen del contenido que contienen. En la actualidad, se admiten estos tipos de contenido:
+La API de Actividad de administración de Office 365 agrega acciones y eventos en blobs de contenido específicos del inquilino, que se clasifican por el tipo y la fuente del contenido que contienen. Actualmente, se admiten estos tipos de contenido:
 
 - Audit.AzureActiveDirectory
     
@@ -88,7 +88,7 @@ https://manage.office365.us/api/v1.0/{tenant_id}/activity/feed/{operation}
 https://manage.protection.apps.mil/api/v1.0/{tenant_id}/activity/feed/{operation}
 ```
 
-Todas las operaciones de API requieren un encabezado de autorización HTTP con un token de acceso obtenido de Azure AD. El identificador de espacio empresarial en el token de acceso debe coincidir con el de la dirección URL raíz de la API y el token de acceso debe contener la notificación ActivityFeed.Read (que se corresponde con el permiso [Leer datos de actividad de la organización] que ha configurado para la aplicación en Azure AD).
+Todas las operaciones de API requieren un encabezado HTTP de autorización con un token de acceso obtenido de Azure AD. El identificador de inquilino del token de acceso debe coincidir con el identificador de inquilino de la dirección URL raíz de la API y el token de acceso debe contener la notificación ActivityFeed.Read (corresponde al permiso [Leer datos de actividad de una organización] que configuró para la aplicación en Azure AD).
 
 ```json
 Authorization: Bearer eyJ0e...Qa6wg
@@ -132,7 +132,7 @@ Esta operación inicia una suscripción para el tipo de contenido especificado. 
 ||PublisherIdentifier|El GUID de espacio empresarial del proveedor que codifica la API. Este **no** es el GUID de aplicación ni el del cliente que usa la aplicación, sino el GUID de la empresa que escribe el código. Este parámetro se usa para limitar la velocidad de la solicitud. Asegúrese de que este parámetro se especifica en todas las solicitudes emitidas para obtener una cuota dedicada. Todas las solicitudes recibidas sin este parámetro compartirán la misma cuota.|
 |**Cuerpo**|webhook|Objeto JSON opcional con tres propiedades:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>: punto de conexión HTTPS requerido que puede recibir notificaciones.  Se enviará un mensaje de prueba al webhook para validarlo antes de crear la suscripción.</p></li><li><p><b>authId</b>: cadena opcional que se incluirá como el encabezado WebHook-AuthID de las notificaciones que se envían al webhook como medio para identificar y autorizar el origen de la solicitud al webhook.</p></li><li><p><b>expiration</b>: valor de fecha y hora opcional que indica una fecha y hora después de la que no se deben enviar más notificaciones al webhook.</p></li></ul>|
 |**Respuesta**|contentType|El tipo de contenido especificado en la llamada.|
-||status|El estado de la suscripción. Si una suscripción está deshabilitada, no podrá enumerar o recuperar el contenido.|
+||status|Estado de la suscripción. Si una suscripción está deshabilitada, no podrá enumerar ni recuperar contenido.|
 ||webhook|Las propiedades del webhook especificado en la llamada junto con el estado del webhook. Si el webhook está deshabilitado, no recibirá notificaciones, pero todavía podrá enumerar y recuperar el contenido, siempre que la suscripción esté habilitada.|
 
 #### <a name="sample-request"></a>Solicitud de muestra
@@ -547,11 +547,11 @@ Al enumerar el historial de notificaciones para un intervalo de tiempo, el núme
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
-NextPageUrl: https://manage.office.com/api/v1/{tenant_id}/activity/feed/subscriptions/content?contentType=Audit.SharePoint&amp;startTime=2015-10-01&amp;endTime=2015-10-02&amp;nextPage=2015101900R022885001761
+NextPageUri: https://manage.office.com/api/v1/{tenant_id}/activity/feed/subscriptions/content?contentType=Audit.SharePoint&amp;startTime=2015-10-01&amp;endTime=2015-10-02&amp;nextPage=2015101900R022885001761
 
 ```
 
-Para mostrar todo el contenido disponible para un intervalo de tiempo especificado, es posible que tenga que recuperar varias páginas hasta que reciba una respuesta sin el encabezado **NextPageUrl**.
+Para mostrar todo el contenido disponible para un intervalo de tiempo especificado, es posible que tenga que recuperar varias páginas hasta que reciba una respuesta sin el encabezado **NextPageUri**.
 
 ## <a name="retrieve-resource-friendly-names"></a>Recuperar los nombres descriptivos de recurso
 
@@ -600,12 +600,12 @@ HTTP/1.1 200 OK
 
 Las organizaciones que tienen acceso a registros de auditoría a través de la API de Actividad de administración de Office 365 se restringieron con límites en el nivel de editor. Esto significa que, para un editor que extrae datos en nombre de varios clientes, todos los clientes han compartido el límite.
 
-Estamos cambiando de un límite de nivel de editor a un límite de nivel de espacio empresarial. El resultado es que cada organización obtendrá su propia cuota de ancho de banda completamente asignada para tener acceso a los datos de auditoría. Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. Este no es un límite estático y predefinido, sino que se modela en base a una combinación de factores, incluido el número de puestos en la organización, y que las organizaciones de Office 365 y Microsoft 365 E5 tendrán aproximadamente el doble de ancho de banda que las organizaciones que no son E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
+Estamos cambiando de un límite de nivel de editor a un límite de nivel de espacio empresarial. El resultado es que cada organización obtendrá su propia cuota de ancho de banda completamente asignada para tener acceso a los datos de auditoría. Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. Este no es un límite estático y predefinido, sino que se modela en base a una combinación de factores, incluido el número de puestos en la organización, y que las organizaciones de Office 365 y Microsoft 365 E5 tendrán aproximadamente el doble de ancho de banda que las organizaciones que no son E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
 
 Para obtener más información, vea la sección "acceso de banda ancha a la API de Actividad de administración de Office 365" en [Auditoría avanzada en Microsoft 365](https://docs.microsoft.com/microsoft-365/compliance/advanced-audit#high-bandwidth-access-to-the-office-365-management-activity-api).
 
 > [!NOTE] 
-> Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red. 
+> Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red. 
 
 ## <a name="errors"></a>Errores
 
@@ -635,7 +635,7 @@ Cuando el servicio encuentra un error, notificará el código de respuesta de er
 |AF20012|El identificador de espacio empresarial ({0}) especificado no está configurado correctamente en el sistema. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>    {0} = el identificador de espacio empresarial que se pasa en la dirección URL</p></li></ul>|
 |AF20013|El identificador de espacio empresarial que se pasa en la dirección URL ({0}) no es un GUID válido.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p> {0} = el identificador de espacio empresarial que se pasa en la dirección URL</p></li></ul>|
 |AF20020|El tipo de contenido especificado no es válido.|
-|AF20021|El punto de conexión de webhook {{0}) no se pudo validar. {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = dirección del webhook.</p></li><li><p>{1} = "El punto de conexión no devolvió HTTP 200". o bien, "La dirección debe comenzar con HTTPS".</p></li></ul>|
+|AF20021|El punto de conexión de webhook {{0}) no se pudo validar.{1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = dirección del webhook.</p></li><li><p>{1} = "El punto de conexión no devolvió HTTP 200". o bien, "La dirección debe comenzar con HTTPS".</p></li></ul>|
 |AF20022|No se encontró ninguna suscripción para el tipo de contenido especificado.|
 |AF20023|{0} ha deshabilitado la suscripción.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = "un administrador de espacio empresarial" o "un administrador de servicio"</p></li></ul>|
 |AF20030|Se debe especificar la hora de inicio y la hora de finalización (o bien omitirse), con una diferencia menor o igual de 24 horas, y la hora de inicio no debe tener más de siete días de antigüedad. |
