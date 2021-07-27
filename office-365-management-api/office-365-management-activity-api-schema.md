@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 8ee293d2e82fc2a4cc5cce04289c7428f39339d5
-ms.sourcegitcommit: 1c2efaeeeb4942591cf37f16edb64b3b41b9e83c
+ms.openlocfilehash: 6bb8d836281ebb4e98ef90957ab98d24e0c1342d
+ms.sourcegitcommit: f08ff7cfd17aedd9d2ca85b5df0666ca986c9aed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "53326605"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "53447908"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -976,22 +976,26 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 
 |**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
-|MessageId|Edm.String|No|Un identificador de mensaje de un canal o chat.|
-|Members|Collection(Self.[MicrosoftTeamsMember](#microsoftteamsmember-complex-type))|No|Una lista de usuarios en un equipo.|
-|TeamName|Edm.String|No|El nombre del equipo que se audita.|
-|TeamGuid|Edm.Guid|No|Un identificador único del equipo que se audita.|
-|ChannelType|Edm.String|No|El tipo de canal que se está auditando (estándar o privado).|
-|ChannelName|Edm.String|No|El nombre del canal que se audita.|
-|ChannelGuid|Edm.Guid|No|Un identificador único para el canal que se audita.|
-|ExtraProperties|Collection(Self.[KeyValuePair](#keyvaluepair-complex-type))|No|Una lista de propiedades adicionales.|
-|AddOnType|Self.[AddOnType](#addontype)|No|El tipo de complemento que generó el evento.|
-|AddonName|Edm.String|No|El nombre del complemento que generó el evento.|
 |AddOnGuid|Edm.Guid|No|Un identificador único del complemento que generó el evento.|
-|TabType|Edm.String|No|Solo está disponible para los eventos de pestaña. El tipo de pestaña que generó el evento.|
-|Nombre|Edm.String|No|Solo está disponible para eventos de configuración. Nombre de la configuración que ha cambiado.|
-|OldValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor antiguo de la configuración.|
-|NewValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor nuevo de la configuración.|
+|AddOnName|Edm.String|No|El nombre del complemento que generó el evento.|
+|AddOnType|Self.[AddOnType](#addontype)|No|El tipo de complemento que generó el evento.|
+|ChannelGuid|Edm.Guid|No|Un identificador único para el canal que se audita.|
+|ChannelName|Edm.String|No|El nombre del canal que se audita.|
+|ChannelType|Edm.String|No|El tipo de canal que se está auditando (estándar o privado).|
+|ExtraProperties|Collection(Self.[KeyValuePair](#keyvaluepair-complex-type))|No|Una lista de propiedades adicionales.|
+|HostedContents|Colección(Auto.[HostedContent](#hostedcontent-complex-type))|No|Una colección de contenidos alojados en el chat o en el canal.|
+|Members|Collection(Self.[MicrosoftTeamsMember](#microsoftteamsmember-complex-type))|No|Una lista de usuarios en un equipo.|
+|MessageId|Edm.String|No|Un identificador de mensaje de un canal o chat.|
 |MessageURLs|Edm.String|No|Disponible para cualquier URL enviada en los mensajes de Teams.|
+|Mensajes|Colección(Auto.[Mensaje](#message-complex-type))|No|Una colección de mensajes del chat o del canal.|
+|MessageSizeInBytes|Edm.Int64|No|El tamaño de un mensaje de chat o canal en bytes con codificación UTF-16.|
+|Nombre|Edm.String|No|Solo está disponible para eventos de configuración. Nombre de la configuración que ha cambiado.|
+|NewValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor nuevo de la configuración.|
+|OldValue|Edm.String|No|Solo está disponible para eventos de configuración. Valor antiguo de la configuración.|
+|SubscriptionId|Edm.String|No|Un identificador único de una suscripción de notificación de cambios de Microsoft Graph.|
+|TabType|Edm.String|No|Solo está disponible para los eventos de pestaña. El tipo de pestaña que generó el evento.|
+|TeamGuid|Edm.Guid|No|Un identificador único del equipo que se audita.|
+|TeamName|Edm.String|No|El nombre del equipo que se audita.|
 ||||
 
 ### <a name="microsoftteamsmember-complex-type"></a>Tipo complejo MicrosoftTeamsMember
@@ -1033,6 +1037,32 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 |3|Tab|Una pestaña de Microsoft Teams.|
 ||||
 
+### <a name="hostedcontent-complex-type"></a>Tipo complejo HostedContent
+
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+|Id|Edm.String|Sí|Un identificador único del contenido del mensaje alojado.|
+|SizeInBytes|Edm.Int64|No|El tamaño del contenido del mensaje alojado en bytes.|
+|||||
+
+### <a name="message-complex-type"></a>Tipo complejo Mensaje
+
+|**Parámetros**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
+|:-----|:-----|:-----|:-----|
+|AADGroupId|Edm.String|No|Un identificador único del grupo en Azure Active Directory al que pertenece el mensaje.|
+|Id|Edm.String|Sí|Un identificador único del mensaje del chat o del canal.|
+|ChannelGuid|Edm.String|No|Un identificador único del canal al que pertenece el mensaje.|
+|ChannelName|Edm.String|No|El nombre del canal al que pertenece el mensaje.|
+|ChannelType|Edm.String|No|El tipo de canal al que pertenece el mensaje.|
+|ChatName|Edm.String|No|El nombre del chat al que pertenece el mensaje.|
+|ChatThreadId|Edm.String|No|Un identificador único del chat al que pertenece el mensaje.|
+|ParentMessageId|Edm.String|No|Un identificador único del mensaje de chat o canal principal.|
+|SizeInBytes|Edm.Int64|No|El tamaño del mensaje en bytes con codificación UTF-16.|
+|TeamGuid|Edm.String|No|Un identificador único del equipo al que pertenece el mensaje.|
+|TeamName|Edm.String|No|El nombre del equipo al que pertenece el mensaje.|
+|Versión|Edm.String|No|La versión del mensaje del chat o del canal.|
+|||||
+ 
 ## <a name="microsoft-defender-for-office-365-and-threat-investigation-and-response-schema"></a>Esquema de Investigación y respuesta de amenazas y Microsoft Defender para Office 365
 
 [Microsoft Defender para Office 365](/office365/securitycompliance/office-365-atp) y los eventos de Investigación y respuesta de amenazas están disponibles para los clientes de Office 365 que tienen una suscripción de Defender para Office 365 Plan 1, Defender para Office 365 Plan 2 o E5. Cada evento en la fuente de Defender para Office 365 corresponde a los siguientes eventos que se determinó que contenían una amenaza:
@@ -1073,7 +1103,7 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 |Última ubicación de entrega |Edm.String|Sí|La última ubicación de entrega del mensaje de correo electrónico en el momento del evento.|
 |Directionality |Edm.String|Sí|Identifica si un mensaje de correo electrónico era entrante, saliente o un mensaje dentro de la organización.|
 |ThreatsAndDetectionTech |Edm.String|Sí|Las amenazas y las tecnologías de detección correspondientes. Este campo expone todas las amenazas en un mensaje de correo electrónico, incluida la última adición en el veredicto de correo no deseado.  Por ejemplo, ["Phish: [Spoof DMARC]","Spam: [reputación malintencionada de URL]"]. A continuación se describen las diferentes tecnologías de detección y amenazas de detección.|
-|AdditionalActionsAndResults |Collection(Edm.String)|No|Las acciones adicionales que se realizaron en el correo electrónico, como ZAP o corrección manual. También incluye los resultados correspondientes.|
+|AdditionalActionsAndResults |Collection(Edm.String)|No|Las acciones adicionales que se tomaron sobre el correo electrónico, como ZAP o Remediación Manual. También incluye los resultados correspondientes.|
 |Conectores |Edm.String|No|Nombres y GUID de los conectores asociados al correo electrónico.|
 |AuthDetails |Collection(Self.[AuthDetails](#authdetails))|No|Las comprobaciones de autenticación que se realizan para el correo electrónico. También incluye los valores de SPF, DKIM, DMARC y CompAuth.|
 |SystemOverrides |Collection(Self.[SystemOverrides](#systemoverrides))|No|Invalidaciones aplicables al correo electrónico. Pueden ser invalidaciones del sistema o del usuario.|
