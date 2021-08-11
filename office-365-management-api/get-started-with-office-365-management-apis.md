@@ -7,12 +7,12 @@ ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: d11644a4a9985096c14ad4ae265471159243b65b
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 64406bc52070f89223142fbf06313c9357d97a79311a2f00c95bfa4c829147e1
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397450"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274273"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introducción a las API de administración de Office 365
 
@@ -117,9 +117,9 @@ Una aplicación que se ejecuta en segundo plano, como un demonio servicio, puede
 
 Para obtener más información, vea [Llamadas entre servicios con credenciales de cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-Necesita configurar un certificado X.509 con la aplicación para usarlo como las credenciales de cliente al solicitar tokens de acceso solo de aplicación desde Azure AD. Este proceso se divide en dos pasos:
+Necesita configurar un certificado X.509 con la aplicación para poder usarlo como credenciales de cliente al solicitar desde Azure AD tokens de acceso solo de aplicación. Este proceso requiere de dos pasos:
 
-- Obtener un certificado X.509. Puede usar un certificado autofirmado o un certificado emitido por una entidad de certificación de confianza pública.
+- Obtener un certificado X.509. Puede usar un certificado autofirmado o un certificado emitido por una entidad de certificación pública de confianza.
     
 - Modificar el manifiesto de la aplicación para incluir la huella digital y la clave pública del certificado.
     
@@ -229,7 +229,7 @@ Por ejemplo:
 https://login.windows.net/common/oauth2/authorize?response_type=code&resource=https%3A%2F%2Fmanage.office.com&client_id=2d4d11a2-f814-46a7-890a-274a72a7309e&redirect_uri=http%3A%2F%2Fwww.mycompany.com%2Fmyapp%2F
 ```
 
-Para probar la URL de consentimiento, péguela en un explorador e inicie sesión con las credenciales de administrador de Office 365 de un espacio empresarial distinto del espacio empresarial que usó para registrar la aplicación. Verá la solicitud para conceder permisos a la aplicación para usar las API de administración de Office.
+Para probar la URL de consentimiento, péguela en un explorador e inicie sesión con las credenciales de administrador de Office 365 de un espacio empresarial distinto del que usó para registrar la aplicación. Verá una solicitud para conceder permiso a la aplicación y así poder utilizar las API de administración de Office.
 
 
 ![Página agregada de aplicación Azure AD](images/azure-ad-app-added-page.png)

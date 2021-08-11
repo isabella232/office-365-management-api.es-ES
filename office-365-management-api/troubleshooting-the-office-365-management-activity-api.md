@@ -7,12 +7,12 @@ ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: d954cc97320953ed35d6e46cb118395469c93394
-ms.sourcegitcommit: 24ef06fd001f273d16be72733509b5ec202d3ebb
+ms.openlocfilehash: 086b40d0207fba761db66d918d74dc872ae66c9471ceced91d2b4b6dfe73ac1e
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "50418191"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274353"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -55,7 +55,7 @@ No. Recientemente, se produjeron tiempos de espera más largos para las notifica
 
 **¿Durante cuánto tiempo estará disponible el contenido para ser recuperado a través de la API?**
 
-El contenido está disponible para ser recuperado a través de la API durante siete días después de la notificación de disponibilidad del contenido. Incluso si la notificación se retrasa durante un período inusualmente largo (por ejemplo, en el caso de una interrupción del servicio), seguiría disponiendo de siete días después de la primera disponibilidad de la notificación para descargar el blob de contenido relacionado con el evento original.
+Puede acceder al contenido a través de la API hasta 7 días después de haber recibido la notificación de disponibilidad del contenido. Aunque la notificación sufra retrasos considerables (por ejemplo, en caso de una interrupción del servicio), seguiría disponiendo de siete días después de haber recibido la notificación para poder descargar el blob de contenido relacionado con el evento original.
 
 **¿Puedo realizar consultas a la API de actividad de administración para un id. de evento o elemento RecordType específicos, o bien otras propiedades del blob de contenido?**
 
@@ -67,10 +67,10 @@ La respuesta breve es que Microsoft no ofrece ningún tipo de registro que le pe
 
 **¿Cuál es el límite para la API de actividad de administración?**
 
-Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. La limitación se ajusta entonces en función de una combinación de factores, incluido el número de puestos en la organización. Asimismo, las organizaciones de Office 365 E5 y de Microsoft 365 E5 obtendrán aproximadamente el doble de ancho de banda que las organizaciones no sean E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
+Se asigna inicialmente una línea base de 2 000 solicitudes por minuto a todas las organizaciones. La limitación se ajusta entonces en función de una combinación de factores, incluido el número de puestos en la organización. Asimismo, las organizaciones de Office 365 E5 y de Microsoft 365 E5 obtendrán aproximadamente el doble de ancho de banda que las organizaciones no sean E5. También habrá un límite en el ancho de banda máximo para proteger el estado del servicio.
 
 > [!NOTE]
-> Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red.
+> Aunque cada espacio empresarial puede enviar en un principio hasta 2 000 solicitudes por minuto, Microsoft no garantiza una velocidad de respuesta. La velocidad de respuesta depende de varios factores, como el rendimiento del sistema cliente y la capacidad y la velocidad de la red.
 
 **Veo un error de limitación en la API de actividad de administración.**
 
@@ -78,7 +78,7 @@ Abra una incidencia con el Soporte técnico de Microsoft y solicite un nuevo lí
 
 **¿Por qué TargetUpdatedProperties ya no están en ExtendedProperties en los registros de auditoría de actividades de Azure Active Directory?**
 
-TargetUpdatedProperties aparecían en ExtendedProperties. Sin embargo, se han quitado de Propiedades extensas y ahora aparecerán en Propiedades modificadas.
+TargetUpdatedProperties aparecía en ExtendedProperties. Sin embargo, se han quitado de ExtendedProperties y ahora aparece en ModifiedProperties.
 
 **¿Por qué los registros de auditoría con errores "LogonError" UserAccountNotFound para las actividades de inicio de sesión de Azure Active Directory (Azure AD) no están disponibles a través de la API de actividad de administración?**
 
@@ -86,7 +86,7 @@ Desde noviembre de 2020, los registros de auditoría para las actividades de ini
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de Actividad de administración de Office 365
 
-Una cosa que debe quedar clara para cualquiera que esté comenzando con la API de Actividad de administración de Office 365 es que no existe un concepto de consulta por eventos específicos, como la fecha en que ocurrió el evento, desde qué colección de sitios se podría haber disparado un evento, o el tipo de evento. En su lugar, se crean suscripciones a cargas de trabajo específicas (por ejemplo, SharePoint o Azure AD) y cada suscripción se corresponde con un espacio empresarial.
+Algo que debe quedar claro si está comenzando a utilizar la API de Actividad de administración de Office 365 es que no es posible hacer consultas específicas de eventos tales como el tipo de evento, la fecha en que ocurrió o desde qué colección de sitios se podría haber desencadenado. Lo que se crean son suscripciones a cargas de trabajo específicas (por ejemplo, SharePoint o Azure AD) y cada suscripción abarca un espacio empresarial.
 
 En las secciones siguientes se resumen las preguntas más frecuentes que tienen los clientes en el uso de la API de Actividad de administración de Office 365:
 
@@ -174,7 +174,7 @@ access_token   : eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjJLVmN1enFBaWRPTHF
 
 ### <a name="checking-your-subscriptions"></a>Comprobar las suscripciones
 
-Si ha experimentado una interrupción del flujo de datos a un cliente o una solución de la API de actividad de administración existente, puede que se pregunte si hubo algún problema con la suscripción. Para comprobar las suscripciones activas, agregue lo siguiente al script anterior:
+Si ha experimentado una interrupción del flujo de datos hacia un cliente de la API de actividad de administración existente o a una solución, quizás podría haber surgido algún problema con la suscripción. Para comprobar las suscripciones activas, agregue esto al script anterior:
 
 ```powershell
 Invoke-WebRequest -Headers $headerParams -Uri "$resource/api/v1.0/$tenantGUID/activity/feed/subscriptions/list" 
@@ -334,7 +334,7 @@ Si realiza llamadas API sencillas para la solución de problemas (por ejemplo, p
 
 Si implementa un cliente para el espacio empresarial de la empresa, *PublisherIdentifier* es el GUID de espacio empresarial. Si crea un complemento o aplicación de ISV para varios clientes, el elemento *PublisherIdentifier* tiene que ser el GUID del espacio empresarial del ISV, y no el GUID del espacio empresarial de la compañía del usuario final.
 
-Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublisherIdentifier*, estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier*:
+Si incluye el elemento *PublisherIdentifier* válido, estará en un grupo que tiene permiso para realizar 60 000 solicitudes por minuto por espacio empresarial. Este es un número de solicitudes excepcionalmente elevado. Pero, si no incluye el parámetro *PublisherIdentifier*, estará en el grupo general con permiso para realizar 60 000 solicitudes por minuto para todos los espacios empresariales. En este caso, es más que probable que se produzcan limitaciones en las llamadas. Para evitar esto, siga este procedimiento para solicitar un blob de contenido con el elemento *PublisherIdentifier*:
 
 ```json
 $contentUri = ($response.Content | ConvertFrom-Json).contentUri[0]

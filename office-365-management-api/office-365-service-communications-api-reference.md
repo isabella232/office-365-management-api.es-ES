@@ -7,24 +7,27 @@ ms.ContentId: d0b9341a-b205-5442-1c20-8fb56407351d
 ms.topic: reference (API)
 ms.date: ''
 localization_priority: Priority
-ms.openlocfilehash: 7cd91d9a43090b4731a11df701e0bf1aa340800e
-ms.sourcegitcommit: e7f345710dc63003704399419f784c4a9b5fc529
+ms.openlocfilehash: 883c7026ea41794e290208bed73b8da4f8ce90861cd2a1f8193e731e5dd1a4ef
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "48830472"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274346"
 ---
 # <a name="office-365-service-communications-api-reference"></a>Referencia de API de comunicaciones de servicio de Office 365
 
+> [!IMPORTANT]
+> Ya está disponible la API de comunicaciones y estado del servicio en Microsoft Graph. La API de Microsoft Graph reemplaza a la API de comunicaciones de servicio a la que nos referimos en este artículo. Se retirará la versión heredada de la API de comunicaciones de servicio a partir del día 17 de diciembre de 2021. Para obtener más información sobre la nueva API de Microsoft Graph, consulte [Información general sobre el acceso al estado del servicio y las comunicaciones a través de Microsoft Graph](/graph/service-communications-concept-overview).
+
 Puede usar la API de comunicaciones de servicio de Office 365 versión 2.0 para obtener acceso a los datos siguientes:
 
-- **Get Services** : obtiene la lista de servicios suscritos.
+- **Get Services**: obtiene la lista de servicios suscritos.
 
-- **Get Current Status** : proporciona una vista en tiempo real de las incidencias de servicio actuales y en curso
+- **Get Current Status**: proporciona una vista en tiempo real de las incidencias de servicio actuales y en curso
 
-- **Get Historical Status** : proporciona una vista histórica de incidencias de servicio.
+- **Get Historical Status**: proporciona una vista histórica de incidencias de servicio.
 
-- **Get Messages** : encuentra comunicaciones de Incidencias y del Centro de mensajes.
+- **Get Messages**: encuentra comunicaciones de Incidencias y del Centro de mensajes.
 
 Actualmente, la API de comunicaciones de servicio de Office 365 contiene datos de los servicios en la nube de Office 365, Yammer, Dynamics CRM y Microsoft Intune.
 
@@ -38,7 +41,7 @@ https://manage.office.com/api/v1.0/{tenant_identifier}/ServiceComms/{operation}
 
 La **API de comunicaciones de servicio de Office 365** es un servicio REST que le permite desarrollar soluciones con cualquier lenguaje web y entorno de hospedaje que admita HTTPS y los certificados X.509. La API usa **Microsoft Azure Active Directory** y el protocolo **OAuth2** para la autenticación y autorización. Para obtener acceso a la API desde la aplicación, primero tendrá que registrarla en Azure AD y configurarla con los permisos en el ámbito adecuado. Esto permitirá a la aplicación solicitar los tokens de acceso de OAuth2 necesarios para llamar a la API. Para obtener más información sobre cómo registrar y configurar una aplicación en Azure AD, vea [Introducción a las API de administración de Office 365](get-started-with-office-365-management-apis.md).
 
-Todas las solicitudes API necesitan el encabezado HTTP de autorización que tiene un token de acceso OAuth2 JWT válido obtenido de Azure AD que contiene la notificación **ServiceHealth.Read** ; además, el identificador del espacio empresarial tiene que coincidir con el identificador de espacio empresarial de la URL raíz.
+Todas las solicitudes API necesitan el encabezado HTTP de autorización que tiene un token de acceso OAuth2 JWT válido obtenido de Azure AD que contiene la notificación **ServiceHealth.Read**; además, el identificador del espacio empresarial tiene que coincidir con el identificador de espacio empresarial de la URL raíz.
 
 ```json
 Authorization: Bearer {OAuth2 token}
@@ -278,7 +281,7 @@ Las definiciones de estado incluyen los siguientes valores:
 - PostIncidentReportPublished
 - ServiceOperational
 
-Para una descripción de estas definiciones de estado, consulte [Cómo comprobar el estado del servicio de Microsoft 365](https://docs.microsoft.com/microsoft-365/enterprise/view-service-health#status-definitions).
+Para una descripción de estas definiciones de estado, consulte [Cómo comprobar el estado del servicio de Microsoft 365](/enterprise/view-service-health#status-definitions).
 
 ## <a name="get-historical-status"></a>Get Historical Status
 
@@ -464,7 +467,6 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
     ]
 }
 ```
-
 
 ## <a name="errors"></a>Errores
 

@@ -7,12 +7,12 @@ ms.ContentId: 4fca85f9-efa6-3b4b-b10d-a07cb31f803f
 ms.topic: reference (API)
 ms.date: 09/28/2016
 localization_priority: Priority
-ms.openlocfilehash: 4f0e9414b1f2691f43a8b79e92e39bc589beeb89
-ms.sourcegitcommit: ec60dbd5990cfc61b8c000b423e7ade25fa613a8
+ms.openlocfilehash: 21c252bcd0fe422536dd8dc5a81b7a7c79fd2d04215a8f4c125af3116947b982
+ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "48397464"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "54274213"
 ---
 # <a name="office-365-management-apis-overview"></a>Información general de las API de administración de Office 365
 
@@ -22,9 +22,9 @@ Si tiene preguntas sobre las API de administración de Office 365, publíquelas 
 
 ## <a name="office-365-service-communications-api-preview"></a>API de comunicaciones de servicio de Office 365 (versión preliminar)
 
-La API de comunicaciones de servicio de Office 365 se ha publicado en modo de versión preliminar. Reemplaza la API de comunicaciones de servicio de Office 365 para proporcionar información sobre el estado del servicio a los administradores y a los partners del espacio empresarial. A diferencia de la versión anterior, la nueva API de comunicaciones de servicio ofrece una experiencia de plataforma coherente y las API de REST están creadas de forma acorde, incluido el nombre de la dirección URL, el formato de los datos y la autenticación.
+La API de comunicaciones de servicio de Office 365 se ha publicado en modo de versión preliminar. Reemplaza la API de comunicaciones de servicio de Office 365 para proporcionar información sobre el estado del servicio a los administradores y a los partners del espacio empresarial. A diferencia de la versión anterior, la nueva API de comunicaciones de servicio ofrece una experiencia de plataforma coherente y las API de REST están creadas de forma acorde, incluido el nombre de la dirección URL, el formato de los datos y la autenticación.
 
-Las características nuevas solo se agregan a la nueva versión de la API, lo que favorece una adopción anticipada por parte de los clientes heredados. Cuando se publicó el anuncio general de la API de comunicaciones de servicio de Office 365, se inició el período de desuso de la versión anterior de la API de comunicaciones de servicio. 
+Las características nuevas solo se agregan a la nueva versión de la API, lo que favorece una adopción anticipada por parte de los clientes heredados. Cuando se publicó el anuncio general de la API de comunicaciones de servicio de Office 365, se inició el período de desuso de la versión anterior de la API de comunicaciones de servicio. 
 
 Para ver la referencia de las operaciones, consulte [Referencia de la API de comunicaciones de servicio de Office 365 (versión preliminar)](office-365-service-communications-api-reference.md).
 
