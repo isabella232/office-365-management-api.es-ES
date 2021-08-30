@@ -6,13 +6,13 @@ description: Resume las preguntas más comunes que recibe el Soporte técnico de
 ms.ContentId: 50822603-a1ec-a754-e7dc-67afe36bb1b0
 ms.topic: reference (API)
 ms.date: ''
-localization_priority: Priority
-ms.openlocfilehash: 086b40d0207fba761db66d918d74dc872ae66c9471ceced91d2b4b6dfe73ac1e
-ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
+ms.localizationpriority: high
+ms.openlocfilehash: a5bceab7d18553824b604609d71c50a05f4d65d6
+ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "54274353"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "58510156"
 ---
 # <a name="office-365-management-activity-api-faqs-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas sobre la API de Actividad de administración de Office 365.
 
@@ -35,11 +35,11 @@ Para empezar a usar la API de Actividad de administración de Office 365, vea [I
 
 **¿Qué ocurre si deshabilito la auditoría en la organización Microsoft Office 365? ¿Seguiré apareciendo eventos mediante la API de Actividad de administración?**
 
-No. La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría](https://docs.microsoft.com/microsoft-365/compliance/turn-audit-log-search-on-or-off).
+No. La auditoría unificada de Office 365 debe estar habilitada para que su organización pueda extraer registros a través de la API de Actividad de administración. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría](/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 **¿Qué eventos se auditan para un servicio de Office 365 específico?**
 
-La documentación del esquema de la API de Actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea Esquema de la API de Actividad de administración de Office 365. Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](https://docs.microsoft.com/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
+La documentación del esquema de la API de Actividad de administración de Office 365 contiene una lista completa de eventos. Para obtener más información, vea Esquema de la API de Actividad de administración de Office 365. Vea también la sección "Actividades auditadas" en[Buscar el registro de auditoría en el Centro de cumplimiento y seguridad](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance#audited-activities)para obtener una lista de los eventos de mayor servicio de Office 365 que se auditan.
 
 **¿Hay alguna diferencia entre los registros obtenidos por la API de actividad de administración y los registros obtenidos con la herramienta de búsqueda de registros de auditoría del Centro de cumplimiento de Microsoft 365?**
 
@@ -82,7 +82,7 @@ TargetUpdatedProperties aparecía en ExtendedProperties. Sin embargo, se han qui
 
 **¿Por qué los registros de auditoría con errores "LogonError" UserAccountNotFound para las actividades de inicio de sesión de Azure Active Directory (Azure AD) no están disponibles a través de la API de actividad de administración?**
 
-Desde noviembre de 2020, los registros de auditoría para las actividades de inicio de sesión de Azure AD se recopilan en el registro de auditoría unificado de los centros de eventos de Azure AD. Como resultado de este cambio, no es posible rellenar la propiedad "LogonError" con el valor UserAccountNotFound. Desde la primera semana de febrero de 2021, la [propiedad ErrorCode del esquema de auditoría de inicio de sesión de Azure AD](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-schema#azure-active-directory-secure-token-service-sts-logon-schema) coincide ahora con [códigos de error de AADSTS](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#lookup-current-error-code-information). Además, el parámetro UserId no se rellenará con el nombre de usuario del inicio de sesión intentado para los errores UserAccountNotFound porque ese nombre de usuario no existe en el directorio de Azure AD de la organización.
+Desde noviembre de 2020, los registros de auditoría para las actividades de inicio de sesión de Azure AD se recopilan en el registro de auditoría unificado de los centros de eventos de Azure AD. Como resultado de este cambio, no es posible rellenar la propiedad "LogonError" con el valor UserAccountNotFound. Desde la primera semana de febrero de 2021, la [propiedad ErrorCode del esquema de auditoría de inicio de sesión de Azure AD](/office/office-365-management-api/office-365-management-activity-api-schema#azure-active-directory-secure-token-service-sts-logon-schema) coincide ahora con [códigos de error de AADSTS](/azure/active-directory/develop/reference-aadsts-error-codes#lookup-current-error-code-information). Además, el parámetro UserId no se rellenará con el nombre de usuario del inicio de sesión intentado para los errores UserAccountNotFound porque ese nombre de usuario no existe en el directorio de Azure AD de la organización.
 
 ## <a name="troubleshooting-the-office-365-management-activity-api"></a>Solución de problemas de la API de Actividad de administración de Office 365
 
@@ -112,13 +112,13 @@ La categoría de preguntas más común proviene de clientes que utilizan product
 
 ### <a name="enabling-unified-audit-logging-in-office-365"></a>Habilitar el registro de auditoría unificado en Office 365
 
-Si acaba de configurar una aplicación que está intentando usar la API de Actividad de administración y no funciona, asegúrese de que ha habilitado el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+Si acaba de configurar una aplicación que está intentando usar la API de Actividad de administración y no funciona, asegúrese de que ha habilitado el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](/microsoft-365/compliance/turn-audit-log-search-on-or-off).
 
 Si la auditoría unificada no está habilitada, normalmente se producirá un error que contiene la siguiente cadena: `Microsoft.Office.Compliance.Audit``.DataServiceException: Tenant <tenantID> does not exist.`
 
 ### <a name="connecting-to-the-api"></a>Conectarse a la API
 
-La mayoría de las aplicaciones se conectan a la API con un flujo sencillo de OAuth2 de credenciales de cliente. Por lo tanto, el primer paso es crear una aplicación de Azure AD que tenga los permisos necesarios para obtener acceso a los datos de la API de actividad de administración. La explicación de los pasos para crear un registro de aplicación de Azure AD está fuera del ámbito de este artículo. Para obtener más información, vea [Registrar la aplicación con el espacio empresarial de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+La mayoría de las aplicaciones se conectan a la API con un flujo sencillo de OAuth2 de credenciales de cliente. Por lo tanto, el primer paso es crear una aplicación de Azure AD que tenga los permisos necesarios para obtener acceso a los datos de la API de actividad de administración. La explicación de los pasos para crear un registro de aplicación de Azure AD está fuera del ámbito de este artículo. Para obtener más información, vea [Registrar la aplicación con el espacio empresarial de Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 #### <a name="azure-application-permissions"></a>Permisos de aplicación de Azure
 

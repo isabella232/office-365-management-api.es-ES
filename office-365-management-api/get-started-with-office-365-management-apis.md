@@ -6,13 +6,13 @@ description: Las API usan Azure AD para proporcionar servicios de autenticación
 ms.ContentId: 74137c9a-29e0-b588-6122-26f4d2c5e3fc
 ms.topic: reference (API)
 ms.date: ''
-localization_priority: Priority
-ms.openlocfilehash: 64406bc52070f89223142fbf06313c9357d97a79311a2f00c95bfa4c829147e1
-ms.sourcegitcommit: 88ef5f75a9e2a25760a2caa2cef1f51f9afba90c
+ms.localizationpriority: high
+ms.openlocfilehash: 96a0cd71c55251160117d1ae598c8935479b6780
+ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "54274273"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "58510149"
 ---
 # <a name="get-started-with-office-365-management-apis"></a>Introducción a las API de administración de Office 365
 
@@ -33,7 +33,7 @@ En el diagrama siguiente, se muestra la secuencia de solicitudes de tokens de ac
 ![Flujo de autorización de introducción a las API de administración](images/authorization-flow.png)
 
 > [!IMPORTANT]
-> Para poder acceder a los datos a través de la API de Actividad de administración de Office 365, debe activar el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). <br/><br/>No es necesario habilitar un registro de auditoría unificado si solo usa la API de comunicaciones de servicio de Office 365.
+> Para poder acceder a los datos a través de la API de Actividad de administración de Office 365, debe activar el registro de auditoría unificado para su organización de Office 365. Para ello, active el registro de auditoría de Office 365. Para obtener instrucciones, consulte [Activar o desactivar la búsqueda de registros de auditoría de Office 365](/office365/securitycompliance/turn-audit-log-search-on-or-off). <br/><br/>No es necesario habilitar un registro de auditoría unificado si solo usa la API de comunicaciones de servicio de Office 365.
 
 ## <a name="register-your-application-in-azure-ad"></a>Registrar la aplicación en Azure AD
 
@@ -42,7 +42,7 @@ Las API de administración de Office 365 usan Azure AD para proporcionar autenti
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Para registrar la aplicación en Azure AD, necesita una suscripción a Office 365 y una suscripción a Azure AD asociada a la suscripción de Office 365. Para empezar, puede usar suscripciones de prueba, tanto para Office 365 como para Azure. Para obtener más información, vea [Introducción al programa Office 365 Developer](https://docs.microsoft.com/office/developer-program/office-365-developer-program).
+Para registrar la aplicación en Azure AD, necesita una suscripción a Office 365 y una suscripción a Azure AD asociada a la suscripción de Office 365. Para empezar, puede usar suscripciones de prueba, tanto para Office 365 como para Azure. Para obtener más información, vea [Introducción al programa Office 365 Developer](/office/developer-program/office-365-developer-program).
 
 
 ### <a name="use-the-azure-management-portal-to-register-your-application-in-azure-ad"></a>Usar el Portal de administración de Azure para registrar una aplicación en Azure AD
@@ -80,7 +80,7 @@ Cuando tenga un espacio empresarial de Microsoft con las suscripciones adecuadas
 
 Después de registrar la aplicación, tiene que especificar varias propiedades importantes que determinan cómo funciona la aplicación en Azure AD y la forma en que los administradores de espacios empresariales concederán permiso para que la aplicación obtenga acceso a sus datos mediante las API de administración de Office 365.
 
-Para obtener más información sobre la configuración de aplicaciones de Azure AD en general, vea [Propiedades de objeto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects).
+Para obtener más información sobre la configuración de aplicaciones de Azure AD en general, vea [Propiedades de objeto de aplicación](/azure/active-directory/develop/active-directory-application-objects).
 
 
 1. **CLIENT ID**. Azure AD genera automáticamente este valor. La aplicación usará este valor al solicitar el permiso de los administradores de espacios empresariales y al solicitar tokens solo de aplicación desde Azure AD.
@@ -334,7 +334,7 @@ El token de acceso devuelto es un token JWT que contiene información sobre el a
 
 Una vez conocido el id. de espacio empresarial, la aplicación puede realizar llamadas de entre servicios a Azure AD para solicitar tokens de acceso adicionales cuando expiren. Estos tokens solo contienen información sobre la aplicación solicitante, no sobre el administrador que concedió el permiso inicialmente. Para realizar llamadas entre servicios, es necesario que la aplicación use un certificado X.509 para crear la aserción de cliente con el formato de un token de portador JWT con firma SHA256 y con codificación Base 64.
 
-Al desarrollar una aplicación en .NET, puede usar la [Biblioteca de Autenticación de Azure AD (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) para crear aserciones de cliente. Otras plataformas de desarrollo necesitan tener bibliotecas parecidas.
+Al desarrollar una aplicación en .NET, puede usar la [Biblioteca de Autenticación de Azure AD (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) para crear aserciones de cliente. Otras plataformas de desarrollo necesitan tener bibliotecas parecidas.
 
 Un token JWT sin codificar está formado por un encabezado y una carga que contiene las propiedades siguientes.
 
