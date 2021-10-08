@@ -7,12 +7,12 @@ ms.ContentId: 1c2bf08c-4f3b-26c0-e1b2-90b190f641f5
 ms.topic: reference (API)
 ms.date: ''
 ms.localizationpriority: high
-ms.openlocfilehash: 57c9fb5adcb92d2fd04c6377b7f9a320bbcc8a83
-ms.sourcegitcommit: 13b50617b1a73f5890414087d8eabe6b2240cfb4
+ms.openlocfilehash: 98d84204c71e6efbbe9d94381b9c0d0a048aece0
+ms.sourcegitcommit: 74965766776177e0b75c9099652798dee9bd1998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "58510163"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "60224833"
 ---
 # <a name="office-365-management-activity-api-schema"></a>Esquema de la API de Actividad de administración de Office 365
 
@@ -20,7 +20,7 @@ El esquema de la API de Actividad de administración de Office 365 se proporcion
 
 - **Esquema común**. La interfaz para acceder a los conceptos básicos de auditoría de Office 365, como Tipo de registro, Hora de creación, Tipo de usuario y Acción, así como para proporcionar dimensiones básicas (como ID de usuario), detalles de ubicación (como la dirección IP del cliente) y servicios específicos. propiedades (como ID de objeto). Establece vistas coherentes y uniformes para que los usuarios extraigan todos los datos de auditoría de Office 365 en varias vistas de nivel superior con los parámetros adecuados, y proporciona un esquema fijo para todos los orígenes de datos, lo que reduce significativamente el costo de aprendizaje. El esquema común tiene origen en los datos del producto que pertenecen a cada equipo de producto, como Exchange, SharePoint, Azure Active Directory, Yammer y OneDrive para la Empresa. Los equipos de productos de Microsoft 365 pueden ampliar el campo de Id. de objeto para agregar propiedades específicas del servicio.
 
-- **Esquema específico de servicio**. Basado en el esquema común para proporcionar un conjunto de atributos específicos del servicio de Microsoft 365; por ejemplo, esquema de SharePoint, esquema de OneDrive para la Empresa y esquema de administración de Exchange.
+- **Esquema específico del servicio**. Basado en el esquema común para proporcionar un conjunto de atributos específicos del servicio de Microsoft 365; por ejemplo, esquemas de SharePoint, esquemas de OneDrive para la Empresa y esquemas de administración de Exchange.
 
 ## <a name="office-365-management-api-schemas"></a>Esquemas de API de administración de Office 365
 
@@ -90,22 +90,22 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |1|ExchangeAdmin|Eventos del registro de auditoría de administración de Exchange.|
 |2|ExchangeItem|Eventos de un registro de auditoría de buzón de Exchange para las acciones que se realizan en un solo elemento, como la creación o recepción de un mensaje de correo electrónico.|
 |3|ExchangeItemGroup|Eventos de un registro de auditoría de buzón de Exchange para las acciones que se pueden realizar varios elementos, como mover o eliminar uno o varios mensajes de correo electrónico.|
-|4|SharePoint|Eventos de SharePoint.|
-|6|SharePointFileOperation|Eventos de operación de archivo de SharePoint.|
-|7|OneDrive|Eventos de OneDrive para la Empresa.|
-|8|AzureActiveDirectory|Eventos de Azure Active Directory.|
-|9|AzureActiveDirectoryAccountLogon|Eventos de inicio de sesión OrgId de Azure Active Directory (obsoleto).|
+|4 |SharePoint|Eventos de SharePoint.|
+|6 |SharePointFileOperation|Eventos de operación de archivo de SharePoint.|
+|7 |OneDrive|Eventos de OneDrive para la Empresa.|
+|8 |AzureActiveDirectory|Eventos de Azure Active Directory.|
+|9 |AzureActiveDirectoryAccountLogon|Eventos de inicio de sesión OrgId de Azure Active Directory (obsoleto).|
 |10|DataCenterSecurityCmdlet|Eventos de cmdlet de seguridad del centro de datos.|
 |11|ComplianceDLPSharePoint|Eventos de Protección de pérdida de datos (DLP) en SharePoint y OneDrive para la Empresa.|
 |13|ComplianceDLPExchange|Eventos de Protección de pérdida de datos (DLP) en SharePoint Exchange, cuando se configura mediante la directiva DLP unificada. Los eventos DLP basados en las reglas de transporte de Exchange no son compatibles.|
-|14|SharePointSharingOperation|Eventos de uso compartido de SharePoint.|
-|15|AzureActiveDirectoryStsLogon|Eventos de inicio de sesión de servicio de token de seguridad (STS) en Azure Active Directory.|
+|14 |SharePointSharingOperation|Eventos de uso compartido de SharePoint.|
+|15 |AzureActiveDirectoryStsLogon|Eventos de inicio de sesión de servicio de token de seguridad (STS) en Azure Active Directory.|
 |16|SkypeForBusinessPSTNUsage|Eventos de la red telefónica conmutada (RTC) de Skype Empresarial.|
-|17|SkypeForBusinessUsersBlocked|Eventos del usuario bloqueado de Skype Empresarial.|
-|18|SecurityComplianceCenterEOPCmdlet|Acciones de administración del Centro de seguridad y cumplimiento.|
+|17 |SkypeForBusinessUsersBlocked|Eventos del usuario bloqueado de Skype Empresarial.|
+|18 |SecurityComplianceCenterEOPCmdlet|Acciones de administración del Centro de seguridad y cumplimiento.|
 |19|ExchangeAggregatedOperation|Eventos de auditoría del buzón de Exchange agregado.|
 |20|PowerBIAudit|Eventos de Power BI.|
-|21|CRM|Eventos de Dynamics 365.|
+| 21|CRM|Eventos de Dynamics 365.|
 |22|Yammer|Eventos de Yammer.|
 |23|SkypeForBusinessCmdlets|Eventos de Skype Empresarial.|
 |24|Descubrimiento|Eventos de actividades de eDiscovery realizadas ejecutando búsquedas de contenido y administrando casos de eDiscovery en el Centro de seguridad y cumplimiento.|
@@ -160,7 +160,6 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |76|CortanaBriefing|Eventos del Informe de tareas pendientes del correo electrónico.|
 |77|Búsqueda|Eventos relacionados con la realización de consultas de búsqueda en SharePoint y Exchange.|
 |78|WDATPAlerts|Eventos relacionados con las alertas generadas por Windows Defender para el punto de conexión.|
-|81|MDATPAudit|Eventos de Microsoft Defender para punto de conexión.|
 |82|SensitivityLabelPolicyMatch|Eventos que se generan cuando se abre o se le cambia el nombre a un archivo etiquetado con una etiqueta de confidencialidad.|
 |83|SensitivityLabelAction|Evento generado cuando se aplican, actualizan o quitan las etiquetas de confidencialidad de un archivo.|
 |84|SensitivityLabeledFileAction|Eventos que se generan cuando se abre o se le cambia el nombre a un archivo etiquetado con una etiqueta de confidencialidad.|
@@ -186,6 +185,11 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |106|SecurityComplianceUserChange|Eventos relacionados con la modificación o eliminación de un usuario.|
 |107|ComplianceDLPExchangeClassification|Eventos de clasificación de Exchange DLP.|
 |109|MipExactDataMatch|Eventos de clasificación de Correspondencia exacta de datos (EDM).|
+|110|MSDEResponseActions|Eventos relacionados con las acciones de respuesta en Microsoft Defender para punto de conexión.|
+|111|MSDEGeneralSettings|Eventos relacionados con las acciones de configuración general en Microsoft Defender para punto de conexión.|
+|112|MSDEIndicatorsSettings|Eventos relacionados con las acciones de indicador en Microsoft Defender para punto de conexión.|
+|113|MS365DCustomDetection|Eventos relacionados con las acciones de detección personalizadas en Microsoft 365 Defender.|
+|114|MSDERolesSettings|Eventos relacionados con las acciones de roles en Microsoft Defender para punto de conexión.|
 ||||
 
 ### <a name="enum-user-type---type-edmint32"></a>Enum: Tipo de usuario - Tipo: Edm.Int32
@@ -198,11 +202,11 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |1|Reserved|Un usuario reservado.|
 |2|Admin|Un administrador.|
 |3|DcAdmin|Un operador de centros de datos de Microsoft.|
-|4|Sistema|Una cuenta del sistema.|
+|4 |Sistema|Una cuenta del sistema.|
 |5|Application|Una aplicación.|
-|6|ServicePrincipal|Un servicio principal.|
-|7|CustomPolicy|Una directiva personalizada.|
-|8|SystemPolicy|Una directiva del sistema|
+|6 |ServicePrincipal|Un servicio principal.|
+|7 |CustomPolicy|Una directiva personalizada.|
+|8 |SystemPolicy|Una directiva del sistema|
 ||||
 
 ### <a name="enum-auditlogscope---type-edmint32"></a>Enum: AuditLogScope - Tipo: Edm.Int32
@@ -237,10 +241,10 @@ Este artículo proporciona información sobre el esquema común y para cada esqu
 |0|Invalid|El elemento no es ninguno de los tipos de elementos que se muestran en esta tabla.|
 |1|File|Y el elemento es un archivo.|
 |5|Folder|Y el elemento es una carpeta.|
-|6|Web|Y el elemento es una web.|
-|7|Site|El elemento es un sitio.|
-|8|Tenant|El elemento es un inquilino.|
-|9|DocumentLibrary|El elemento es una biblioteca de documentos.|
+|6 |Web|Y el elemento es una web.|
+|7 |Site|El elemento es un sitio.|
+|8 |Tenant|El elemento es un inquilino.|
+|9 |DocumentLibrary|El elemento es una biblioteca de documentos.|
 |11|Page|El elemento es una página.|
 ||||
 
@@ -417,7 +421,7 @@ Los eventos de SharePoint relacionados con archivos que aparecen en la sección 
 |**Parámetro**|**Tipo**|**¿Es obligatoria?**|**Descripción**|
 |:-----|:-----|:-----|:-----|
 |SiteUrl|Edm.String|Sí|La dirección URL del sitio donde se encuentra el archivo o la carpeta a la que obtuvo acceso el usuario.|
-|SourceRelativeUrl|Edm.String|No|La dirección URL de la carpeta que contiene el archivo al que obtuvo acceso el usuario. La combinación de los valores de los parámetros _SiteURL_, _SourceRelativeURL_ y _SourceFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo al que obtuvo acceso el usuario.|
+|SourceRelativeUrl|Edm.String|No|La URL de la carpeta que contiene el archivo al que accede el usuario. La combinación de los valores de los parámetros _SiteURL_, _SourceRelativeURL_ y _SourceFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo al que accedió el usuario.|
 |SourceFileName|Edm.String|Sí|El nombre del archivo o carpeta al que obtuvo acceso el usuario.|
 |SourceFileExtension|Edm.String|No|La extensión del archivo al que obtuvo acceso el usuario. Esta propiedad está en blanco si el objeto al que se obtuvo acceso es una carpeta.|
 |DestinationRelativeUrl|Edm.String|No|La dirección URL de la carpeta de destino donde se copia o se mueve un archivo. La combinación de los valores de los parámetros _SiteURL_, _DestinationRelativeURL_ y _DestinationFileName_ es lo mismo que el valor de la propiedad **ObjectID**, que es el nombre de la ruta de acceso completa del archivo que se copió. Esta propiedad se muestra únicamente para los eventos FileCopied y FileMoved.|
@@ -571,9 +575,9 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |1|Admin|Un usuario con privilegios de administrador para el buzón de un usuario.|
 |2|Delegated|Un usuario con privilegios de delegado para el buzón de un usuario.|
 |3|Transport|Un servicio de transporte en el centro de datos de Microsoft.|
-|4|SystemService|Una cuenta de servicio del centro de datos de Microsoft|
+|4 |SystemService|Una cuenta de servicio del centro de datos de Microsoft|
 |5|BestAccess|Reservado para uso interno.|
-|6|DelegatedAdmin|Un administrador delegado.|
+|6 |DelegatedAdmin|Un administrador delegado.|
 |||||
 
 ### <a name="exchangemailboxauditgrouprecord-schema"></a>Esquema ExchangeMailboxAuditGroupRecord
@@ -659,11 +663,11 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |1|MobilePhone|La credencial de usuario es el teléfono móvil.|
 |2|SecretQuestion|La credencial de usuario es la pregunta secreta.|
 |3|SecurePin|La credencial de usuario es el PIN seguro.|
-|4|SecurePinReset|La credencial de usuario es el restablecimiento del PIN seguro.|
+|4 |SecurePinReset|La credencial de usuario es el restablecimiento del PIN seguro.|
 |11|EasyID|La credencial de usuario es el EasyID.|
-|14|PasswordIndexCredentialType|La credencial de usuario es PasswordIndexCredentialType.|
+|14 |PasswordIndexCredentialType|La credencial de usuario es PasswordIndexCredentialType.|
 |16|Device|La credencial de usuario es un dispositivo.|
-|17|ForeignRealmIndex|La credencial de usuario es ForeignRealmIndex.|
+|17 |ForeignRealmIndex|La credencial de usuario es ForeignRealmIndex.|
 |||||
 
 ### <a name="enum-logintype---type-edmint32"></a>Enum: LoginType - Tipo: Edm.Int32
@@ -684,21 +688,21 @@ Los eventos de SharePoint que aparecen en [ Buscar el registro de auditoría en 
 |1|Password|El método de autenticación es una contraseña.|
 |2|Digest|El método de autenticación es un resumen.|
 |3|ProxyAuth|El método de autenticación es un ProxyAuth.|
-|4|InfoCard|El método de autenticación es un InfoCard.|
+|4 |InfoCard|El método de autenticación es un InfoCard.|
 |5|DAToken|El método de autenticación es un DAToken.|
-|6|Sha1RememberMyPassword|El método de autenticación es una Sha1RememberMyPassword.|
-|7|LMPasswordHash|El método de autenticación es un LMPasswordHash.|
-|8|ADFSFederatedToken|El método de autenticación es un ADFSFederatedToken.|
-|9|EID|El método de autenticación es un EID.|
+|6 |Sha1RememberMyPassword|El método de autenticación es una Sha1RememberMyPassword.|
+|7 |LMPasswordHash|El método de autenticación es un LMPasswordHash.|
+|8 |ADFSFederatedToken|El método de autenticación es un ADFSFederatedToken.|
+|9 |EID|El método de autenticación es un EID.|
 |10|DeviceID|El método de autenticación es un DeviceID. |
 |11|MD5|El método de autenticación es un MD5.|
-|12|EncProxyPasswordHash|El método de autenticación es un EncProxyPasswordHash.|
+|12 |EncProxyPasswordHash|El método de autenticación es un EncProxyPasswordHash.|
 |13|LWAFederation|El método de autenticación es un LWAFederation.|
-|14|Sha1HashedPassword|El método de autenticación es un Sha1HashedPassword.|
-|15|SecurePin|El método de autenticación es un PIN seguro.|
+|14 |Sha1HashedPassword|El método de autenticación es un Sha1HashedPassword.|
+|15 |SecurePin|El método de autenticación es un PIN seguro.|
 |16|SecurePinReset|El método de autenticación es un restablecimiento de PIN seguro.|
-|17|SAML20PostSimpleSign|El método de autenticación es un SAML20PostSimpleSign.|
-|18|SAML20Post|El método de autenticación es un SAML20Post.|
+|17 |SAML20PostSimpleSign|El método de autenticación es un SAML20PostSimpleSign.|
+|18 |SAML20Post|El método de autenticación es un SAML20Post.|
 |19|OneTimeCode|El método de autenticación es un código de un solo uso.|
 |||||
 
@@ -1198,19 +1202,19 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 |1|Anti-spam, HSPM|Acción de correo no deseado de alta confianza (HSPM) en la Directiva contra correo no deseado.|
 |2|Anti-spam, SPM|Acción de correo no deseado (SPM) en la Directiva contra correo no deseado.|
 |3|Anti-spam, Bulk|Acción masiva en la Directiva contra correo no deseado.|
-|4|Anti-spam, PHSH|Acción de suplantación de identidad (PHSH) en la Directiva contra correo no deseado.|
+|4 |Anti-spam, PHSH|Acción de suplantación de identidad (PHSH) en la Directiva contra correo no deseado.|
 |5|Anti-phish, DIMP|Acción de suplantación de dominios (DIMP) en la Directiva antiphishing.|
-|6|Anti-phish, UIMP|Acción de suplantación de usuarios (UIMP) en la Directiva antiphishing.|
-|7|Anti-phish, SPOOF|Acción de suplantación en la Directiva antiphishing.|
-|8|Anti-phish, GIMP|La acción de inteligencia de buzón en la directiva ANTIPHISH.|
-|9|Programas anti-malware, AMP| La acción de la directiva contra malware en la directiva antimalware.|
+|6 |Anti-phish, UIMP|Acción de suplantación de usuarios (UIMP) en la Directiva antiphishing.|
+|7 |Anti-phish, SPOOF|Acción de suplantación en la Directiva antiphishing.|
+|8 |Anti-phish, GIMP|La acción de inteligencia de buzón en la directiva ANTIPHISH.|
+|9 |Programas anti-malware, AMP| La acción de la directiva contra malware en la directiva antimalware.|
 |10|Datos adjuntos seguros, SAP| La acción de directiva en la directiva Datos adjuntos seguros en Defender para Office 365.|
 |11|Regla de transporte de Exchange, ETR| La acción de directiva en la regla de transporte de Exchange.|
-|12|Antimalware, ZAPM| La acción de directiva de malware en la Directiva antimalware que se aplica a la purga automática de cero horas (ZAP).|
+|12 |Antimalware, ZAPM| La acción de directiva de malware en la Directiva antimalware que se aplica a la purga automática de cero horas (ZAP).|
 |13|Anti-phish, ZAPP| La acción política en la política antiphish aplicada a ZAP.|
-|14|Anti-phish, ZAPS| La acción de la directiva de correo no deseado en la directiva contra correo no deseado aplicada a ZAP.|
-|15|Filtro de correo no deseado, correo electrónico de suplantación de identidad de alta confianza (HPHISH)|Acción de correo electrónico de suplantación de identidad de alta confianza en la Directiva contra correo no deseado.|
-|17|Filtro de correo no deseado, Directiva de correo no deseado saliente (OSPM)|Acción de directiva en la directiva de filtro de correo no deseado saliente en filtro de correo electrónico no deseado.|
+|14 |Anti-phish, ZAPS| La acción de la directiva de correo no deseado en la directiva contra correo no deseado aplicada a ZAP.|
+|15 |Filtro de correo no deseado, correo electrónico de suplantación de identidad de alta confianza (HPHISH)|Acción de correo electrónico de suplantación de identidad de alta confianza en la Directiva contra correo no deseado.|
+|17 |Filtro de correo no deseado, Directiva de correo no deseado saliente (OSPM)|Acción de directiva en la directiva de filtro de correo no deseado saliente en filtro de correo electrónico no deseado.|
 ||||
 
 ### <a name="enum-policyaction---type-edmint32"></a>Enum: PolicyAction - Type: Edm.Int32
@@ -1223,11 +1227,11 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 |1|AddXHeader|La acción de directiva es agregar el encabezado X al mensaje de correo electrónico.|
 |2|ModifySubject|La acción de directiva es modificar el asunto del mensaje de correo electrónico con la información especificada por la directiva de filtrado.|
 |3|Redirect|La acción de directiva es redirigir el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
-|4|Delete|La acción de directiva es eliminar (quitar) el mensaje de correo electrónico.|
+|4 |Delete|La acción de directiva es eliminar (quitar) el mensaje de correo electrónico.|
 |5|Quarantine|La acción de directiva es poner en cuarentena el mensaje de correo electrónico.|
-|6|NoAction| La directiva está configurada para no realizar ninguna acción en el mensaje de correo electrónico.|
-|7|BccMessage|La acción de directiva consiste en enviar en CCO el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
-|8|ReplaceAttachment|La acción de directiva es reemplazar los datos adjuntos del mensaje de correo electrónico tal como especifica la directiva de filtrado.|
+|6 |NoAction| La directiva está configurada para no realizar ninguna acción en el mensaje de correo electrónico.|
+|7 |BccMessage|La acción de directiva consiste en enviar en CCO el mensaje de correo electrónico a la dirección de correo electrónico especificada por la directiva de filtrado.|
+|8 |ReplaceAttachment|La acción de directiva es reemplazar los datos adjuntos del mensaje de correo electrónico tal como especifica la directiva de filtrado.|
 ||||
 
 ### <a name="url-time-of-click-events"></a>Eventos de tiempo de clic de URL
@@ -1251,7 +1255,7 @@ Los eventos Yammer listados en [Buscar el registro de auditoría en el](/microso
 |:-----|:-----|:-----|
 |2|Blockpage|Usuario bloqueado para navegar a la dirección URL por [Vínculos seguros en Defender para Office 365](/office365/securitycompliance/atp-safe-links).|
 |3|PendingDetonationPage|Usuario presentado con la página de detonación pendiente por [Vínculos seguros en Defender para Office 365](/office365/securitycompliance/atp-safe-links).|
-|4|BlockPageOverride|Usuario bloqueado para navegar a la dirección URL por [Vínculos seguros de Office 365 ATP](/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha omitido el bloqueo para navegar a la URL.|
+|4 |BlockPageOverride|Usuario bloqueado para navegar a la dirección URL por [Vínculos seguros de Office 365 ATP](/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha omitido el bloqueo para navegar a la URL.|
 |5|PendingDetonationPageOverride|Usuario presentado con la página de detonación pendiente por [Vínculos seguros en Defender para Office 365](/office365/securitycompliance/atp-safe-links); sin embargo, el usuario ha omitido el bloqueo para navegar a la URL.|
 |||||
 
@@ -1558,7 +1562,8 @@ Los eventos de cuarentena que aparecen en [Buscar el registro de auditoría en e
 |1|Delete|Solicitud de un usuario para eliminar un mensaje de correo electrónico que se considera peligroso.|
 |2|Release|Solicitud de un usuario para liberar un mensaje de correo electrónico que se considera peligroso.|
 |3|Export|Solicitud de un usuario para exportar un mensaje de correo electrónico que se considera peligroso.|
-|4|ViewHeader|Solicitud de un usuario para ver el encabezado un mensaje de correo electrónico que se considera peligroso.|
+|4 |ViewHeader|Solicitud de un usuario para ver el encabezado un mensaje de correo electrónico que se considera peligroso.|
+|5|Solicitud de liberación|Se trata de una solicitud de liberación de un usuario para liberar un mensaje de correo electrónico que se considera peligroso.|
 ||||
 
 ### <a name="enum-requestsource---type-edmint32"></a>Enum: RequestSource - Tipo: Edm.Int32
